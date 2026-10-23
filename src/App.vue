@@ -55,10 +55,11 @@ const form = ref({
   branches: '1 a 3 sedes',
   email: '',
   phone: '',
-  interest: 'IA + Publicidad + Gestión'
+  interest: 'Demo remota en vivo (30 min)'
 })
 
-const openDemoModal = () => {
+const openDemoModal = (option = 'Demo remota en vivo (30 min)') => {
+  form.value.interest = option
   isModalOpen.value = true
   modalSubmitted.value = false
 }
@@ -315,108 +316,108 @@ const advantages = [
   {
     id: '01',
     category: 'RETENCIÓN PREDICTIVA',
-    title: 'Inteligencia Artificial Anti-Deserción de Socios',
-    badge: 'Predicción Temprana Real',
+    title: 'La IA Te Avisa 18 Días Antes de Cada Abandono',
+    badge: 'Detén Cancelaciones',
     metric: '-42% en Bajas de Socios',
     icon: Brain,
-    summary: 'Aprende los hábitos de cada socio y te avisa 18 días antes de que decida darse de baja.',
+    summary: 'Aprende los hábitos de cada socio y te alerta semanas antes de que decida darse de baja.',
     description:
-      'La mayoría de socios no cancelan de golpe: simplemente dejan de venir poco a poco. Nuestra IA detecta cuándo un socio rompe su rutina y actúa automáticamente con mensajes de motivación y alertas a tu equipo de recepción antes de que sea demasiado tarde.',
+      'La mayoría de socios no cancelan por sorpresa: simplemente dejan de venir poco a poco. Nuestra IA detecta el momento exacto en que un socio rompe su rutina y actúa automáticamente con mensajes de motivación y alertas a tu equipo antes de que sea tarde.',
     bullets: [
-      'Identifica el riesgo semanas antes de la fecha de cobro',
-      'Te explica el motivo en español claro ("Sin visitas hace 14 días")',
-      'Dispara pushes de rescate con promociones automáticas',
-      'Le dice a tu recepcionista a quién consentir al entrar'
+      'Identifica el riesgo 18 a 21 días antes de la fecha de cobro',
+      'Diagnóstico en español claro ("Sin visitas hace 14 días")',
+      'Dispara notificaciones push de rescate automáticas',
+      'Indica a tu recepcionista a quién consentir al entrar'
     ],
     accentGrad: 'from-[#6d5df1] via-[#8b5cf6] to-[#4338ca]'
   },
   {
     id: '02',
-    category: 'NUEVA LÍNEA DE INGRESOS',
-    title: 'Monetización con Publicidad Local Self-Serve',
-    badge: 'Ingresos Pasivos Extra',
-    metric: '+$35,000 MXN / Sede / Mes',
+    category: 'MEDIO PUBLICITARIO PROPIO',
+    title: 'Vende Espacios. Mide Resultados.',
+    badge: 'Ingresos Extra Pasivos',
+    metric: '6.3% CTR Promedio Real',
     icon: Megaphone,
-    summary: 'Convierte la app de tu gimnasio en una fuente constante de ingresos por patrocinio local.',
+    summary: 'Las marcas de tu zona pagan por anunciarse frente a tu audiencia cautiva sin costo de distribución.',
     description:
-      'Negocios de tu vecindario (nutrición, fisios, comida saludable, ropa) entran a tu portal /anuncia, suben su anuncio y pagan con tarjeta en Stripe. Tú sólo revisas el anuncio en tu pantalla, tocas "Aprobar" y el dinero se deposita en tu cuenta bancaria.',
+      'Negocios locales (nutrición, fisios, restaurantes fit, marcas deportivas) compran pauta directamente en /anuncia con tarjeta en Stripe. Tú sólo revisas el creativo en tu pantalla, tocas "Aprobar" y el dinero se deposita en tu cuenta bancaria.',
     bullets: [
-      'Página pública /anuncia con pasarela de cobro en línea',
-      'Espacios premium en el Home, Directorio y Pushes Masivos',
-      'El cliente compra solo sin que tengas que vender por teléfono',
-      'Genera reporte automático de visitas al vencer la campaña'
+      'Portal self-serve /anuncia con cobro automatizado en Stripe',
+      '12,810 impresiones promedio por campaña con 6.3% CTR real',
+      'Carrusel premium en Home, Directorio y Pushes masivos',
+      'Reporte automático de métricas e impactos al anunciante'
     ],
     accentGrad: 'from-[#6d5df1] via-[#8b5cf6] to-[#4338ca]'
   },
   {
     id: '03',
-    category: 'COBROS SIN FRICCIÓN',
-    title: 'Pagos en Línea 24/7 sin Fila en Recepción',
-    badge: 'Stripe Payment Sheet',
-    metric: 'Cobros Rápidos y Seguros',
+    category: 'RENOVACIONES DIGITALES',
+    title: 'La Renovación Es Ingreso. No lo Dejes en el Mostrador.',
+    badge: 'Stripe 1-Touch',
+    metric: '0 Filas en Recepción',
     icon: CreditCard,
-    summary: 'Tus socios renuevan, compran membresías y pagan adeudos en 3 toques desde su celular.',
+    summary: 'Tus socios renuevan su mensualidad con 1 toque desde su celular con Apple Pay, Google Pay y tarjeta.',
     description:
-      'Elimina filas molestas en el mostrador en los días 1 y 15 de cada mes. La app de tus socios permite pagar con tarjeta de crédito, débito, Apple Pay y Google Pay con acreditación instantánea y reactivación inmediata de su código QR de entrada.',
+      'Elimina las filas molestas en recepción los días 1 y 15 de cada mes. Tu mostrador queda libre de cobros rutinarios para enfocarse en vender nuevas inscripciones, mientras tus socios pagan desde cualquier lugar y reactivan su QR al segundo.',
     bullets: [
-      'Acreditación inmediata directo a la cuenta bancaria del gym',
-      'Renovación express desde la app del socio en 10 segundos',
-      'Historial de pagos digitales descargables por el usuario',
-      'Tolerancia de días de gracia y reglas de acceso automatizadas'
+      'Acreditación inmediata a la cuenta bancaria de tu gimnasio',
+      'Renovación express in-app en menos de 10 segundos',
+      'Compatibilidad total con Apple Pay, Google Pay y tarjetas',
+      'Liberación de tiempo de recepción para ventas de mostrador'
     ],
     accentGrad: 'from-[#6d5df1] via-[#8b5cf6] to-[#4338ca]'
   },
   {
     id: '04',
-    category: 'ENGAGEMENT ACTIVO',
-    title: 'Gamificación Extrema y Tienda de Recompensas',
-    badge: 'Fidelización por Hábitos',
-    metric: '+58% Asistencia Promedio',
+    category: 'WHITE-LABEL NATIVO',
+    title: 'Tu Marca, No la Nuestra (100% Personalizada)',
+    badge: 'App Store & Google Play',
+    metric: '100% Tu Identidad',
     icon: Trophy,
-    summary: 'Multiplica la frecuencia de visitas convirtiendo el ejercicio en un juego gratificante.',
+    summary: 'Tu logotipo, tus colores corporativos y tu nombre oficial en App Store y Google Play.',
     description:
-      'Los socios fijan metas semanales de asistencia (ej. 4 visitas por semana), ganan puntos por cada check-in y obtienen bonos por mantener rachas consecutivas. Esos puntos se canjean por bebidas, playeras o pases para amigos con códigos QR de un solo uso.',
+      'Tus miembros descargan la aplicación con tu propia marca comercial, no un software genérico de terceros. Fortalece el sentido de pertenencia y el estatus de tu club fitness con una experiencia móvil de nivel élite.',
     bullets: [
-      'Metas semanales de visitas configuradas por el propio socio',
-      'Premios extra por rachas de 2, 4, 8 y 12 semanas entrenando',
-      'Catálogo de recompensas con inventario controlado en recepción',
-      'Validación antifraude con códigos QR únicos e intransferibles'
+      'Publicación oficial en App Store (iOS) y Google Play (Android)',
+      'Identidad visual adaptada a los colores y tipografía de tu gym',
+      'Credencial digital con avatar y estatus de membresía',
+      'Canal de fidelización exclusivo con gamificación y recompensas'
     ],
     accentGrad: 'from-[#6d5df1] via-[#8b5cf6] to-[#4338ca]'
   },
   {
     id: '05',
-    category: 'OPERACIÓN EN VIVO',
-    title: 'Control de Aforo Realtime y Check-In Dinámico',
-    badge: 'Actualización en Vivo',
-    metric: '< 0.3s por Check-In',
+    category: 'RECEPCIÓN DE ALTA VELOCIDAD',
+    title: 'Un Mostrador que Vuele: Check-In en <0.3s',
+    badge: 'Escáner QR + Aforo Realtime',
+    metric: '< 0.3s por Entrada',
     icon: QrCode,
-    summary: 'Monitorea la ocupación exacta de cada sede al segundo y agiliza el acceso de tus socios.',
+    summary: 'QR dinámico para socios y pase unificado para convenios Wellhub / TotalPass sin cuellos de botella.',
     description:
-      'Tu pantalla de recepción y tu app móvil muestran la capacidad del gimnasio en tiempo real sin recargar la página. El escáner valida en décimas de segundo membresía activa, sede autorizada e incluso acepta pases de Wellhub y TotalPass en la misma pantalla.',
+      'Tu pantalla de recepción y la app móvil muestran la capacidad del gimnasio en tiempo real sin recargar la página. El escáner valida en décimas de segundo membresía activa, sede autorizada e integra convenios externos en una sola interfaz.',
     bullets: [
-      'Visualización de capacidad en vivo en pantallas y celulares',
-      'Lectura con cámara de celular, tablet o pistola de código',
-      'Compatibilidad unificada para socios propios y agregadores',
-      'Cierre de día automático a medianoche con reseteo de aforo'
+      'Control de aforo por sede en tiempo real sin recargar',
+      'Lectura de QR dinámico anticopia en milisegundos',
+      'Recepción unificada para socios y convenios externos',
+      'Cierre de día y arqueo automatizado cada noche'
     ],
     accentGrad: 'from-[#6d5df1] via-[#8b5cf6] to-[#4338ca]'
   },
   {
     id: '06',
-    category: 'ATENCIÓN INMEDIATA',
-    title: 'Soporte Socio-Staff y Mensajería Push Directa',
-    badge: 'Canal Oficial Centralizado',
-    metric: '98% Satisfacción',
+    category: 'CONSOLA CENTRALIZADA',
+    title: 'Todas las Sedes, Una Sola Pantalla en Tiempo Real',
+    badge: 'Multi-Sede Unificada',
+    metric: '100% Sincronizado',
     icon: MessageSquare,
-    summary: 'Comunícate directamente con tus socios sin perder el control en grupos de WhatsApp.',
+    summary: 'Control absoluto para directores y gerentes de sucursal con permisos estrictos por sede.',
     description:
-      'El socio inicia una consulta desde su app y tu equipo de mostrador o gerencia responde al instante desde la consola web con avisos sonoros. Además, puedes enviar notificaciones push a todos tus miembros sobre días festivos, mantenimiento o nuevos horarios.',
+      'Supervisa todas tus ubicaciones desde un solo panel de control web. Monitorea afluencia, asistencias a clases, facturación, entrenadores y soporte en vivo con segregación estricta de roles entre directores, gerentes y recepcionistas.',
     bullets: [
-      'Notificaciones instantáneas en la pantalla del socio',
-      'Bandeja de atención centralizada para el personal en turno',
-      'Campañas de difusión masivas o segmentadas por sucursal',
-      'Historial ordenado sin compartir teléfonos personales del staff'
+      'Tablero de control ejecutivo con KPIs consolidados',
+      'Gestión de clases grupales y aforo por sede horaria',
+      'Roles estrictos: Admin global, Gerente de sede y Recepcionista',
+      'Mensajería y soporte directo entre staff y socios'
     ],
     accentGrad: 'from-[#6d5df1] via-[#8b5cf6] to-[#4338ca]'
   }
@@ -533,13 +534,14 @@ onMounted(() => {
 
         <!-- Desktop Navigation Links -->
         <div class="hidden md:flex items-center gap-8 text-sm font-medium text-[#94a3b8]">
+          <a href="#audiencia" class="hover:text-white transition-colors duration-200">Tu Audiencia</a>
           <a href="#ia" class="hover:text-[#6d5df1] transition-colors duration-200 flex items-center gap-1.5">
             <Brain class="w-4 h-4 text-[#6d5df1]" />
             <span>Retención con IA</span>
           </a>
           <a href="#monetizacion" class="hover:text-[#6d5df1] transition-colors duration-200 flex items-center gap-1.5">
             <Megaphone class="w-4 h-4 text-[#6d5df1]" />
-            <span>Monetización de Anuncios</span>
+            <span>Monetización</span>
           </a>
           <a href="#ventajas" class="hover:text-white transition-colors duration-200">Ventajas</a>
           <a href="#ecosistema" class="hover:text-white transition-colors duration-200">Plataforma Dual</a>
@@ -549,8 +551,8 @@ onMounted(() => {
         <!-- CTA Buttons -->
         <div class="flex items-center gap-3">
           <button
-            @click="openDemoModal"
-            class="relative inline-flex items-center justify-center px-6 py-2.5 rounded-full text-xs font-black uppercase tracking-wider bg-[#6d5df1] hover:bg-[#5b4be2] text-white hover:scale-105 transition-all duration-300 cursor-pointer"
+            @click="openDemoModal('Demo remota en vivo (30 min)')"
+            class="relative inline-flex items-center justify-center px-6 py-2.5 rounded-full text-xs font-black uppercase tracking-wider bg-[#6d5df1] hover:bg-[#5b4be2] text-white hover:scale-105 transition-all duration-300 cursor-pointer shadow-md shadow-[#6d5df1]/20"
           >
             Agendar Demo
             <ArrowRight class="w-3.5 h-3.5 ml-1.5 stroke-[2.5]" />
@@ -565,36 +567,36 @@ onMounted(() => {
     <section class="relative z-10 pt-12 pb-24 px-4 sm:px-6 lg:px-8">
       <div class="max-w-7xl mx-auto text-center">
         <!-- Floating Pill Header -->
-        <div class="reveal delay-100 inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#6d5df1]/30 bg-[#6d5df1]/10 text-[#6d5df1] text-xs font-bold tracking-wide uppercase mb-8">
-          <Sparkles class="w-3.5 h-3.5" />
-          <span>La Plataforma Multi-Sede que Detiene la Fuga de Socios y Crea Nuevos Ingresos</span>
+        <div class="reveal delay-100 inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#6d5df1]/40 bg-[#6d5df1]/15 text-[#6d5df1] text-xs font-bold tracking-wide uppercase mb-8 shadow-sm shadow-[#6d5df1]/20">
+          <Brain class="w-3.5 h-3.5 text-[#6d5df1] animate-pulse" />
+          <span>Retención Predictiva con IA · App White-Label · Medio Publicitario Propio</span>
         </div>
 
         <!-- Main Display Headline -->
-        <h1 class="reveal delay-200 font-display text-4xl sm:text-6xl lg:text-7xl uppercase tracking-tight text-white max-w-5xl mx-auto leading-[1.08]">
-          Gana Más Dinero.
+        <h1 class="reveal delay-200 font-display text-4xl sm:text-6xl lg:text-7xl uppercase tracking-tight text-white max-w-5xl mx-auto leading-[1.05]">
+          Tu Audiencia Es un Activo.
           <span class="block bg-gradient-to-r from-[#6d5df1] via-[#8b5cf6] to-[#ec4899] bg-clip-text text-transparent drop-shadow-sm">
-            Detén las Cancelaciones con IA
+            Nosotros lo Activamos con IA.
           </span>
         </h1>
 
         <!-- Subhead -->
         <p class="reveal delay-300 mt-6 text-lg sm:text-xl text-[#94a3b8] max-w-3xl mx-auto font-normal leading-relaxed">
-          RIR-HUB es el sistema operativo para gimnasios que <strong class="text-white font-semibold">predice qué socios están a punto de abandonar</strong> antes de que cancelen y <strong class="text-white font-semibold">monetiza tu comunidad</strong> vendiendo espacios publicitarios a negocios de tu zona en automático.
+          RIR-HUB es el sistema operativo que <strong class="text-white font-semibold">frena la fuga de socios 18 días antes con Inteligencia Artificial</strong> y convierte tu app en un segundo mostrador: tus socios renuevan su membresía con un toque y las marcas de tu zona pagan por anunciarse frente a una audiencia cautiva que abre la app todos los días.
         </p>
 
         <!-- Hero Buttons -->
         <div class="reveal delay-400 mt-9 flex flex-col sm:flex-row items-center justify-center gap-4">
           <button
-            @click="openDemoModal"
-            class="w-full sm:w-auto px-8 py-4 rounded-xl bg-[#6d5df1] hover:bg-[#5b4be2] text-white font-display text-sm uppercase tracking-wider hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
+            @click="openDemoModal('Demo remota en vivo (30 min)')"
+            class="w-full sm:w-auto px-8 py-4 rounded-xl bg-[#6d5df1] hover:bg-[#5b4be2] text-white font-display text-sm uppercase tracking-wider hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-[#6d5df1]/25"
           >
-            <span>Ver Demostración en Vivo</span>
+            <span>Agendar Demo en Vivo (30 min)</span>
             <ArrowRight class="w-4 h-4 stroke-[2.5]" />
           </button>
           <a
             href="#ia"
-            class="w-full sm:w-auto px-8 py-4 rounded-xl border border-[#1e2638] bg-[#10141e]/80 hover:bg-[#10141e] hover:border-[#6d5df1]/40 text-white font-semibold text-sm transition-all duration-300 flex items-center justify-center gap-2"
+            class="w-full sm:w-auto px-8 py-4 rounded-xl border border-[#1e2638] bg-[#10141e]/80 hover:bg-[#10141e] hover:border-[#6d5df1]/50 text-white font-semibold text-sm transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
           >
             <Brain class="w-4 h-4 text-[#6d5df1]" />
             <span>Descubre Cómo Te Ayuda la IA</span>
@@ -675,32 +677,82 @@ onMounted(() => {
     </section>
 
     <!-- ═══════════════════════════════════════════════════════════════════ -->
-    <!-- STATS BAR                                                          -->
+    <!-- THE HOOK: TU APP ES UN MEDIO DE COMUNICACIÓN (Slide 2 del Deck)    -->
     <!-- ═══════════════════════════════════════════════════════════════════ -->
-    <section class="relative z-10 py-10 px-4 sm:px-6 lg:px-8 border-y border-[#1e2638] bg-[#0c0f17]/70">
-      <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="reveal delay-100 relative p-6 rounded-2xl border border-[#1e2638] bg-[#10141e]/90 group hover:border-[#6d5df1]/50 transition-all duration-300">
-          <div class="text-3xl lg:text-4xl font-display text-[#6d5df1] mb-1">-42%</div>
-          <div class="text-sm font-bold text-white uppercase tracking-wide">Deserción de Socios</div>
-          <p class="text-xs text-[#94a3b8] mt-1">La IA detecta el abandono semanas antes de la fecha límite de pago.</p>
+    <section id="audiencia" class="relative z-10 py-16 px-4 sm:px-6 lg:px-8 border-y border-[#1e2638] bg-[#0c0f17]/90">
+      <div class="max-w-7xl mx-auto">
+        <div class="reveal text-center max-w-3xl mx-auto mb-12">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#6d5df1]/10 border border-[#6d5df1]/30 text-[#6d5df1] text-xs font-bold uppercase tracking-wider mb-3">
+            <Brain class="w-3.5 h-3.5 text-[#6d5df1]" />
+            <span>Retención con IA + Monetización de Audiencia</span>
+          </div>
+          <h2 class="font-display text-2xl sm:text-4xl uppercase tracking-tight text-white leading-tight">
+            Detén las Bajas con IA y Activa Tu Audiencia
+            <span class="block bg-gradient-to-r from-[#6d5df1] via-[#8b5cf6] to-[#ec4899] bg-clip-text text-transparent">
+              Como un Medio de Comunicación Propio.
+            </span>
+          </h2>
+          <p class="mt-3 text-sm sm:text-base text-[#94a3b8] leading-relaxed">
+            La plataforma dual que protege tu facturación: <strong class="text-white">la IA predictiva rescata a socios en riesgo 18 días antes</strong> y las marcas de tu zona pagan por llegar a una comunidad activa con $0 costo de distribución.
+          </p>
         </div>
 
-        <div class="reveal delay-200 relative p-6 rounded-2xl border border-[#1e2638] bg-[#10141e]/90 group hover:border-[#6d5df1]/50 transition-all duration-300">
-          <div class="text-3xl lg:text-4xl font-display text-white mb-1">+$35K</div>
-          <div class="text-sm font-bold text-[#6d5df1] uppercase tracking-wide">Ingreso Extra / Mes</div>
-          <p class="text-xs text-[#94a3b8] mt-1">Patrocinios de negocios locales cobrados directamente con Stripe.</p>
-        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="reveal delay-100 relative p-6 rounded-2xl border border-[#6d5df1]/40 bg-[#10141e]/90 group hover:border-[#6d5df1] transition-all duration-300 flex flex-col justify-between shadow-[0_0_25px_rgba(109,93,241,0.08)]">
+            <div>
+              <div class="text-3xl lg:text-4xl font-display text-[#6d5df1] mb-1">-42%</div>
+              <div class="text-sm font-bold text-white uppercase tracking-wide">Deserción con IA</div>
+              <p class="text-xs text-[#94a3b8] mt-2 leading-relaxed">
+                Aprende los hábitos de cada socio y detecta la ruptura de rutina 18 días antes de que decida no renovar.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-[#1e2638] text-[11px] font-semibold text-[#6d5df1] flex items-center gap-1.5">
+              <Brain class="w-3.5 h-3.5" />
+              <span>Predicción temprana anti-churn</span>
+            </div>
+          </div>
 
-        <div class="reveal delay-300 relative p-6 rounded-2xl border border-[#1e2638] bg-[#10141e]/90 group hover:border-[#6d5df1]/50 transition-all duration-300">
-          <div class="text-3xl lg:text-4xl font-display text-white mb-1">99.8%</div>
-          <div class="text-sm font-bold text-white uppercase tracking-wide">Precisión en Aforo</div>
-          <p class="text-xs text-[#94a3b8] mt-1">Visualiza cuánta gente hay en cada sede sin recargar la pantalla.</p>
-        </div>
+          <div class="reveal delay-200 relative p-6 rounded-2xl border border-[#1e2638] bg-[#10141e]/90 group hover:border-[#6d5df1]/50 transition-all duration-300 flex flex-col justify-between">
+            <div>
+              <div class="text-3xl lg:text-4xl font-display text-white mb-1">100%</div>
+              <div class="text-sm font-bold text-white uppercase tracking-wide">Audiencia Cautiva</div>
+              <p class="text-xs text-[#94a3b8] mt-2 leading-relaxed">
+                Toda la audiencia es tu propio socio activo. Abren la app a diario para QR, aforo y clases sin desperdicio de impactos.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-[#1e2638] text-[11px] font-semibold text-[#10b981] flex items-center gap-1.5">
+              <CheckCircle2 class="w-3.5 h-3.5" />
+              <span>Target hiper-segmentado</span>
+            </div>
+          </div>
 
-        <div class="reveal delay-400 relative p-6 rounded-2xl border border-[#1e2638] bg-[#10141e]/90 group hover:border-[#6d5df1]/50 transition-all duration-300">
-          <div class="text-3xl lg:text-4xl font-display text-[#6d5df1] mb-1">24/7</div>
-          <div class="text-sm font-bold text-white uppercase tracking-wide">Cobros sin Filas</div>
-          <p class="text-xs text-[#94a3b8] mt-1">Tus socios renuevan y pagan desde su celular con un solo toque.</p>
+          <div class="reveal delay-300 relative p-6 rounded-2xl border border-[#1e2638] bg-[#10141e]/90 group hover:border-[#6d5df1]/50 transition-all duration-300 flex flex-col justify-between">
+            <div>
+              <div class="text-3xl lg:text-4xl font-display text-[#10b981] mb-1">$0</div>
+              <div class="text-sm font-bold text-white uppercase tracking-wide">Costo de Distribución</div>
+              <p class="text-xs text-[#94a3b8] mt-2 leading-relaxed">
+                Canal 100% propio. Las marcas de tu vecindario pagan por pauta directa y el dinero cae íntegro a tu cuenta.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-[#1e2638] text-[11px] font-semibold text-[#10b981] flex items-center gap-1.5">
+              <TrendingUp class="w-3.5 h-3.5" />
+              <span>100% margen para tu gym</span>
+            </div>
+          </div>
+
+          <div class="reveal delay-400 relative p-6 rounded-2xl border border-[#1e2638] bg-[#10141e]/90 group hover:border-[#6d5df1]/50 transition-all duration-300 flex flex-col justify-between">
+            <div>
+              <div class="text-3xl lg:text-4xl font-display text-[#8b5cf6] mb-1">+$32K</div>
+              <div class="text-sm font-bold text-white uppercase tracking-wide">Ingreso Extra / Sede</div>
+              <p class="text-xs text-[#94a3b8] mt-2 leading-relaxed">
+                12,810 impresiones promedio con 6.3% CTR real cobrado en piloto automático con Stripe en /anuncia.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-[#1e2638] text-[11px] font-semibold text-[#8b5cf6] flex items-center gap-1.5">
+              <Sparkles class="w-3.5 h-3.5" />
+              <span>Resultados comprobados</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -950,14 +1002,14 @@ onMounted(() => {
         <div class="reveal text-center max-w-3xl mx-auto mb-16">
           <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#6d5df1]/10 border border-[#6d5df1]/30 text-[#6d5df1] text-xs font-bold uppercase tracking-wider mb-4">
             <Megaphone class="w-3.5 h-3.5" />
-            <span>Nueva Fuente de Ingresos para Tu Gimnasio</span>
+            <span>Medio Publicitario Propio · Vende Espacios · Mide Resultados</span>
           </div>
           <h2 class="font-display text-3xl sm:text-5xl uppercase tracking-tight text-white leading-tight">
-            Vende Publicidad a Negocios Locales
-            <span class="block text-[#6d5df1]">Y Cobra en Piloto Automático.</span>
+            Vende Espacios.
+            <span class="block text-[#6d5df1]">Mide Resultados en Piloto Automático.</span>
           </h2>
           <p class="mt-4 text-base sm:text-lg text-[#94a3b8] leading-relaxed">
-            Tus socios son el público más deseado por comercios locales: personas activas con poder adquisitivo. Con RIR-HUB, <strong class="text-white">cualquier negocio de tu zona puede anunciarse en la app de tu gym</strong> pagando directamente por internet con tarjeta bancaria.
+            Tus socios son el público más codiciado por marcas locales: personas activas con poder adquisitivo que abren la app todos los días. Con RIR-HUB, <strong class="text-white">cualquier negocio de tu zona compra pauta en /anuncia</strong> pagando directo con tarjeta en Stripe sin intermediarios.
           </p>
         </div>
 
@@ -1372,22 +1424,22 @@ onMounted(() => {
           </div>
         </div>
 
-        <!-- Breakdown Card: Ejemplo de Ingresos Reales -->
+        <!-- Breakdown Card: Ejemplo de Ingresos Reales y Métricas del Deck -->
         <div class="reveal-scale delay-200 p-8 rounded-3xl border border-[#6d5df1]/40 bg-gradient-to-r from-[#10141e] via-[#131823] to-[#10141e] flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
           <div>
             <span class="text-xs font-bold uppercase tracking-wider text-[#6d5df1] block mb-1">
-              Ejemplo Real de Facturación Mensual por Sede
+              Métricas Comprobadas en Producción
             </span>
             <h4 class="font-display text-2xl sm:text-3xl uppercase tracking-tight text-white">
-              +$32,000 MXN al Mes con Solo 5 Negocios Aliados
+              12,810 Impresiones · 6.3% CTR Real
             </h4>
             <p class="text-xs sm:text-sm text-[#94a3b8] mt-1 max-w-xl">
-              2 tiendas de suplementos ($7,000) + 1 clínica de fisio ($5,000) + 2 cafeterías o marcas deportivas ($8,000) + 4 notificaciones push patrocinadas ($12,000).
+              2 tiendas de suplementos ($7,000) + 1 clínica de fisio ($5,000) + 2 marcas fitness o cafeterías ($8,000) + pushes patrocinados: <strong>+$32,000 MXN al mes por sede</strong> en ingresos 100% pasivos vía Stripe.
             </p>
           </div>
           <button
-            @click="openDemoModal"
-            class="px-8 py-4 rounded-xl bg-[#6d5df1] hover:bg-[#5b4be2] text-white font-display text-xs uppercase tracking-wider hover:scale-105 transition-all shrink-0 cursor-pointer"
+            @click="openDemoModal('Demo remota en vivo (30 min)')"
+            class="px-8 py-4 rounded-xl bg-[#6d5df1] hover:bg-[#5b4be2] text-white font-display text-xs uppercase tracking-wider hover:scale-105 transition-all shrink-0 cursor-pointer shadow-lg shadow-[#6d5df1]/25"
           >
             Ver Cómo Vender Pauta
           </button>
@@ -1502,20 +1554,20 @@ onMounted(() => {
     </section>
 
     <!-- ═══════════════════════════════════════════════════════════════════ -->
-    <!-- ECOSISTEMA DUAL: B2B VS APP SOCIO                                  -->
+    <!-- ECOSISTEMA DUAL: B2B VS APP SOCIO (Slide 4 del Deck)               -->
     <!-- ═══════════════════════════════════════════════════════════════════ -->
     <section id="ecosistema" class="relative z-10 py-24 px-4 sm:px-6 lg:px-8 bg-[#0c0f17]/90 border-t border-[#1e2638]">
       <div class="max-w-7xl mx-auto">
         <div class="reveal flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div>
             <div class="text-xs font-bold uppercase tracking-widest text-[#6d5df1] mb-2">
-              Arquitectura Dual Integrada
+              Arquitectura en Tiempo Real
             </div>
             <h2 class="font-display text-3xl sm:text-5xl uppercase tracking-tight text-white">
-              Ecosistema Integral
+              La App de Tu Socio + La Consola de Tu Equipo
             </h2>
             <p class="text-sm sm:text-base text-[#94a3b8] mt-2">
-              Una consola potente para tu equipo y una aplicación nativa para tus socios.
+              Sincronización instantánea en milisegundos: recepción, aforo, torniquetes y celulares conectados al segundo.
             </p>
           </div>
 
@@ -1763,24 +1815,90 @@ onMounted(() => {
 
         <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-[#6d5df1]/40 bg-[#6d5df1]/10 text-[#6d5df1] text-xs font-bold uppercase tracking-wider mb-6">
           <Sparkles class="w-3.5 h-3.5" />
-          <span>Implementación Rápida · Cero Complicaciones</span>
+          <span>El Momento de Activar Tu Audiencia Es Hoy</span>
         </div>
 
-        <h2 class="font-display text-3xl sm:text-5xl uppercase tracking-tight text-white max-w-3xl mx-auto leading-tight">
-          Moderniza Tu Gimnasio con la Tecnología que Otros Aún No Tienen
+        <h2 class="font-display text-3xl sm:text-5xl lg:text-6xl uppercase tracking-tight text-white max-w-4xl mx-auto leading-tight">
+          Tu Gym Ya Tiene la Audiencia.
+          <span class="block bg-gradient-to-r from-[#6d5df1] via-[#8b5cf6] to-[#ec4899] bg-clip-text text-transparent">
+            Véndele.
+          </span>
         </h2>
         <p class="mt-4 text-base sm:text-lg text-[#94a3b8] max-w-2xl mx-auto">
-          Migración asistida sin interrupción de servicio. Importamos tu base de socios y dejamos tu sistema operativo listo en menos de 48 horas.
+          Tu operación en tiempo real y tu primer inventario publicitario corriendo con datos reales. Elige cómo prefieres ver a RIR-HUB en acción para tu negocio:
         </p>
 
-        <div class="mt-9 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <button
-            @click="openDemoModal"
-            class="relative w-full sm:w-auto px-9 py-4 rounded-xl bg-[#6d5df1] hover:bg-[#5b4be2] text-white font-display text-sm uppercase tracking-wider hover:scale-105 transition-all cursor-pointer flex items-center justify-center gap-2 shadow-lg"
-          >
-            <span>Agendar Demostración Personalizada</span>
-            <ArrowRight class="w-4 h-4 stroke-[2.5]" />
-          </button>
+        <!-- Two Action Cards: Opción A y Opción B (Slide 13 del Deck) -->
+        <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+          <!-- Card Opción A -->
+          <div class="p-6 sm:p-7 rounded-2xl border border-[#1e2638] bg-[#0c0f17]/90 hover:border-[#6d5df1]/60 transition-all duration-300 flex flex-col justify-between group">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-[#6d5df1]/20 text-[#6d5df1] border border-[#6d5df1]/30">
+                  Opción A
+                </span>
+                <span class="text-xs text-[#94a3b8] font-mono">30 Minutos</span>
+              </div>
+              <h3 class="font-display text-xl uppercase tracking-tight text-white group-hover:text-[#6d5df1] transition-colors mb-2">
+                Demo Remota en Vivo
+              </h3>
+              <p class="text-xs text-[#94a3b8] leading-relaxed mb-4">
+                Recorrido guiado de 30 minutos con tu equipo por la consola B2B y la app móvil. Hacemos la simulación financiera con tus números reales de socios y sedes.
+              </p>
+              <ul class="space-y-2 mb-6">
+                <li class="flex items-center gap-2 text-xs text-[#f8fafc]">
+                  <Check class="w-3.5 h-3.5 text-[#6d5df1] shrink-0 stroke-[3]" />
+                  <span>Demostración de check-in, aforo e IA en vivo</span>
+                </li>
+                <li class="flex items-center gap-2 text-xs text-[#f8fafc]">
+                  <Check class="w-3.5 h-3.5 text-[#6d5df1] shrink-0 stroke-[3]" />
+                  <span>Cálculo personalizado de ingresos por pauta local</span>
+                </li>
+              </ul>
+            </div>
+            <button
+              @click="openDemoModal('Demo remota en vivo (30 min)')"
+              class="w-full py-3.5 rounded-xl bg-[#6d5df1] hover:bg-[#5b4be2] text-white font-display text-xs uppercase tracking-wider hover:scale-[1.02] transition-all cursor-pointer flex items-center justify-center gap-2 shadow-lg shadow-[#6d5df1]/20"
+            >
+              <span>Agendar Demo de 30 Minutos</span>
+              <ArrowRight class="w-4 h-4 stroke-[2.5]" />
+            </button>
+          </div>
+
+          <!-- Card Opción B -->
+          <div class="p-6 sm:p-7 rounded-2xl border border-[#10b981]/40 bg-[#0c0f17]/90 hover:border-[#10b981]/70 transition-all duration-300 flex flex-col justify-between group shadow-[0_0_30px_rgba(16,185,129,0.06)]">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-[#10b981]/20 text-[#10b981] border border-[#10b981]/40">
+                  Opción B
+                </span>
+                <span class="text-xs text-[#10b981] font-semibold">Sin Riesgo</span>
+              </div>
+              <h3 class="font-display text-xl uppercase tracking-tight text-white group-hover:text-[#10b981] transition-colors mb-2">
+                Piloto en Una Sede
+              </h3>
+              <p class="text-xs text-[#94a3b8] leading-relaxed mb-4">
+                Implementa RIR-HUB en una sola de tus sucursales con acompañamiento técnico prioritario. Evalúa la fluidez en torniquetes, la adopción de los socios y tus primeros patrocinios.
+              </p>
+              <ul class="space-y-2 mb-6">
+                <li class="flex items-center gap-2 text-xs text-[#f8fafc]">
+                  <Check class="w-3.5 h-3.5 text-[#10b981] shrink-0 stroke-[3]" />
+                  <span>Importación asistida sin interrumpir tu operación</span>
+                </li>
+                <li class="flex items-center gap-2 text-xs text-[#10b981] font-medium">
+                  <Check class="w-3.5 h-3.5 text-[#10b981] shrink-0 stroke-[3]" />
+                  <span>Publica tus primeros 3 anunciantes locales</span>
+                </li>
+              </ul>
+            </div>
+            <button
+              @click="openDemoModal('Piloto en una sede')"
+              class="w-full py-3.5 rounded-xl bg-[#10b981] hover:bg-[#059669] text-black font-display text-xs uppercase tracking-wider hover:scale-[1.02] transition-all cursor-pointer flex items-center justify-center gap-2 font-black shadow-lg shadow-[#10b981]/20"
+            >
+              <span>Solicitar Piloto en Sede</span>
+              <ArrowRight class="w-4 h-4 stroke-[2.5]" />
+            </button>
+          </div>
         </div>
       </div>
     </section>
@@ -1851,18 +1969,48 @@ onMounted(() => {
         <div v-else>
           <div class="mb-6">
             <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#6d5df1]/10 text-[#6d5df1] text-[11px] font-bold uppercase tracking-wider mb-2">
-              <Sparkles class="w-3 h-3" />
+              <Sparkles class="w-3.5 h-3.5" />
               <span>Acceso Preferencial</span>
             </div>
             <h3 class="font-display text-2xl uppercase tracking-tight text-white">
-              Agendar Demo en Vivo
+              {{ form.interest === 'Piloto en una sede' ? 'Solicitar Piloto en Sede' : 'Agendar Demo en Vivo' }}
             </h3>
             <p class="text-xs text-[#94a3b8] mt-1">
-              Descubre cómo RIR-HUB reduce el churn y monetiza tu comunidad desde el primer mes.
+              {{ form.interest === 'Piloto en una sede' ? 'Pon a prueba RIR-HUB en una sola sede con tu operación y anunciantes reales.' : 'Conoce la plataforma y descubre cómo RIR-HUB activa tu audiencia y reduce el abandono.' }}
             </p>
           </div>
 
           <form @submit.prevent="submitDemoForm" class="space-y-4">
+            <!-- Selector de Modalidad (Slide 13 del Deck) -->
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-[#94a3b8] mb-1.5">Modalidad Seleccionada</label>
+              <div class="grid grid-cols-2 gap-2">
+                <button
+                  type="button"
+                  @click="form.interest = 'Demo remota en vivo (30 min)'"
+                  :class="[
+                    'py-2 px-3 rounded-xl border text-xs font-bold transition-all text-center cursor-pointer',
+                    form.interest === 'Demo remota en vivo (30 min)'
+                      ? 'border-[#6d5df1] bg-[#6d5df1]/20 text-white shadow-sm'
+                      : 'border-[#1e2638] bg-[#07090e] text-[#94a3b8] hover:text-white'
+                  ]"
+                >
+                  Demo Remota (30 min)
+                </button>
+                <button
+                  type="button"
+                  @click="form.interest = 'Piloto en una sede'"
+                  :class="[
+                    'py-2 px-3 rounded-xl border text-xs font-bold transition-all text-center cursor-pointer',
+                    form.interest === 'Piloto en una sede'
+                      ? 'border-[#10b981] bg-[#10b981]/20 text-white shadow-sm'
+                      : 'border-[#1e2638] bg-[#07090e] text-[#94a3b8] hover:text-white'
+                  ]"
+                >
+                  Piloto en Sede
+                </button>
+              </div>
+            </div>
             <div>
               <label class="block text-xs font-bold uppercase tracking-wider text-[#94a3b8] mb-1">Tu Nombre Completo</label>
               <input
@@ -1926,7 +2074,7 @@ onMounted(() => {
               type="submit"
               class="w-full mt-2 py-3.5 rounded-xl bg-[#6d5df1] hover:bg-[#5b4be2] text-white font-display text-xs uppercase tracking-wider hover:scale-[1.02] transition-all cursor-pointer"
             >
-              Confirmar Solicitud de Demostración
+              {{ form.interest === 'Piloto en una sede' ? 'Confirmar Solicitud de Piloto' : 'Confirmar Cita para Demostración' }}
             </button>
           </form>
         </div>
