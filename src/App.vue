@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import {
   Brain,
   Megaphone,
@@ -471,15 +471,46 @@ const formatCurrency = (val) => {
     maximumFractionDigits: 0
   }).format(val)
 }
+
+// ═══════════════════════════════════════════════════════════════════
+// SCROLL REVEAL Y TRANSICIONES CINEMATOGRÁFICAS
+// ═══════════════════════════════════════════════════════════════════
+onMounted(() => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed')
+        }
+      })
+    },
+    {
+      threshold: 0.1,
+      rootMargin: '0px 0px -40px 0px'
+    }
+  )
+
+  // Observar todos los elementos con animaciones de entrada
+  document.querySelectorAll('.reveal, .reveal-scale, .reveal-left, .reveal-right').forEach((el) => {
+    observer.observe(el)
+    // Revelar inmediatamente los que ya están en el viewport inicial
+    const rect = el.getBoundingClientRect()
+    if (rect.top < window.innerHeight) {
+      el.classList.add('revealed')
+    }
+  })
+})
 </script>
 
 <template>
   <div class="min-h-screen bg-[#07090e] text-[#f8fafc] font-sans selection:bg-[#6d5df1] selection:text-white overflow-x-hidden">
-    <!-- Ambient Radial Glows -->
+    <!-- Ambient Radial Glows (Estilo limpio Framer, sin puntos) -->
     <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-      <div class="absolute -top-[20%] left-1/2 -translate-x-1/2 w-[900px] h-[550px] bg-gradient-to-b from-[#6d5df1]/10 via-[#ea580c]/5 to-transparent blur-[140px] rounded-full" />
-      <div class="absolute top-[40%] -left-[10%] w-[600px] h-[600px] bg-[#6d5df1]/5 blur-[160px] rounded-full" />
-      <div class="absolute bottom-[10%] -right-[10%] w-[600px] h-[600px] bg-[#ea580c]/5 blur-[160px] rounded-full" />
+      <!-- Glow Nebulae -->
+      <div class="absolute -top-[25%] left-1/2 -translate-x-1/2 w-[1100px] h-[650px] bg-gradient-to-b from-[#6d5df1]/16 via-[#3b82f6]/8 to-transparent blur-[160px] rounded-full" />
+      <div class="absolute top-[35%] -left-[12%] w-[700px] h-[700px] bg-[#6d5df1]/6 blur-[180px] rounded-full" />
+      <div class="absolute top-[65%] -right-[12%] w-[700px] h-[700px] bg-[#3b82f6]/6 blur-[180px] rounded-full" />
+      <div class="absolute bottom-[0%] left-1/2 -translate-x-1/2 w-[900px] h-[550px] bg-[#6d5df1]/10 blur-[160px] rounded-full" />
     </div>
 
     <!-- ═══════════════════════════════════════════════════════════════════ -->
@@ -489,7 +520,7 @@ const formatCurrency = (val) => {
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         <!-- Logo -->
         <a href="#" class="flex items-center gap-3 group">
-          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#6d5df1] to-[#8b5cf6] flex items-center justify-center font-display text-white text-xl shadow-[0_0_24px_rgba(109,93,241,0.35)] group-hover:scale-105 transition-transform duration-300">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#6d5df1] to-[#8b5cf6] flex items-center justify-center font-display text-white text-xl group-hover:scale-105 transition-transform duration-300">
             R
           </div>
           <div class="flex flex-col">
@@ -519,7 +550,7 @@ const formatCurrency = (val) => {
         <div class="flex items-center gap-3">
           <button
             @click="openDemoModal"
-            class="relative inline-flex items-center justify-center px-6 py-2.5 rounded-full text-xs font-black uppercase tracking-wider bg-[#6d5df1] text-white shadow-[0_0_25px_rgba(109,93,241,0.4)] hover:shadow-[0_0_35px_rgba(109,93,241,0.6)] hover:scale-105 transition-all duration-300 cursor-pointer"
+            class="relative inline-flex items-center justify-center px-6 py-2.5 rounded-full text-xs font-black uppercase tracking-wider bg-[#6d5df1] hover:bg-[#5b4be2] text-white hover:scale-105 transition-all duration-300 cursor-pointer"
           >
             Agendar Demo
             <ArrowRight class="w-3.5 h-3.5 ml-1.5 stroke-[2.5]" />
@@ -534,13 +565,13 @@ const formatCurrency = (val) => {
     <section class="relative z-10 pt-12 pb-24 px-4 sm:px-6 lg:px-8">
       <div class="max-w-7xl mx-auto text-center">
         <!-- Floating Pill Header -->
-        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#6d5df1]/30 bg-[#6d5df1]/10 text-[#6d5df1] text-xs font-bold tracking-wide uppercase mb-8 shadow-[0_0_20px_rgba(109,93,241,0.15)]">
+        <div class="reveal delay-100 inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#6d5df1]/30 bg-[#6d5df1]/10 text-[#6d5df1] text-xs font-bold tracking-wide uppercase mb-8">
           <Sparkles class="w-3.5 h-3.5" />
           <span>La Plataforma Multi-Sede que Detiene la Fuga de Socios y Crea Nuevos Ingresos</span>
         </div>
 
         <!-- Main Display Headline -->
-        <h1 class="font-display text-4xl sm:text-6xl lg:text-7xl uppercase tracking-tight text-white max-w-5xl mx-auto leading-[1.08]">
+        <h1 class="reveal delay-200 font-display text-4xl sm:text-6xl lg:text-7xl uppercase tracking-tight text-white max-w-5xl mx-auto leading-[1.08]">
           Gana Más Dinero.
           <span class="block bg-gradient-to-r from-[#6d5df1] via-[#8b5cf6] to-[#ec4899] bg-clip-text text-transparent drop-shadow-sm">
             Detén las Cancelaciones con IA
@@ -548,15 +579,15 @@ const formatCurrency = (val) => {
         </h1>
 
         <!-- Subhead -->
-        <p class="mt-6 text-lg sm:text-xl text-[#94a3b8] max-w-3xl mx-auto font-normal leading-relaxed">
+        <p class="reveal delay-300 mt-6 text-lg sm:text-xl text-[#94a3b8] max-w-3xl mx-auto font-normal leading-relaxed">
           RIR-HUB es el sistema operativo para gimnasios que <strong class="text-white font-semibold">predice qué socios están a punto de abandonar</strong> antes de que cancelen y <strong class="text-white font-semibold">monetiza tu comunidad</strong> vendiendo espacios publicitarios a negocios de tu zona en automático.
         </p>
 
         <!-- Hero Buttons -->
-        <div class="mt-9 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div class="reveal delay-400 mt-9 flex flex-col sm:flex-row items-center justify-center gap-4">
           <button
             @click="openDemoModal"
-            class="w-full sm:w-auto px-8 py-4 rounded-xl bg-[#6d5df1] text-white font-display text-sm uppercase tracking-wider shadow-[0_0_35px_rgba(109,93,241,0.45)] hover:shadow-[0_0_50px_rgba(109,93,241,0.7)] hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
+            class="w-full sm:w-auto px-8 py-4 rounded-xl bg-[#6d5df1] hover:bg-[#5b4be2] text-white font-display text-sm uppercase tracking-wider hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
           >
             <span>Ver Demostración en Vivo</span>
             <ArrowRight class="w-4 h-4 stroke-[2.5]" />
@@ -571,12 +602,12 @@ const formatCurrency = (val) => {
         </div>
 
         <!-- ═════════════════════════════════════════════════════════════════ -->
-        <!-- BROWSER MOCKUP CONTAINER                                         -->
+        <!-- BROWSER MOCKUP CONTAINER (Perspectiva 3D Cinemática)              -->
         <!-- ═════════════════════════════════════════════════════════════════ -->
-        <div class="mt-14 max-w-5xl mx-auto relative group">
+        <div class="reveal-scale delay-500 perspective-container mt-14 max-w-5xl mx-auto relative group">
           <div class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-[#6d5df1]/25 via-[#ea580c]/20 to-[#6d5df1]/25 opacity-70 blur-2xl group-hover:opacity-100 transition-opacity duration-700" />
 
-          <div class="relative rounded-2xl border border-[#1e2638] bg-[#10141e] shadow-2xl overflow-hidden text-left">
+          <div class="perspective-tilt relative rounded-2xl border border-[#1e2638] bg-[#10141e] shadow-2xl overflow-hidden text-left">
             <!-- Window Topbar -->
             <div class="h-11 px-4 border-b border-[#1e2638] bg-[#0c0f17] flex items-center justify-between">
               <div class="flex items-center gap-2">
@@ -648,33 +679,25 @@ const formatCurrency = (val) => {
     <!-- ═══════════════════════════════════════════════════════════════════ -->
     <section class="relative z-10 py-10 px-4 sm:px-6 lg:px-8 border-y border-[#1e2638] bg-[#0c0f17]/70">
       <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="relative p-6 rounded-2xl border border-[#1e2638] bg-[#10141e]/90 group hover:border-[#6d5df1]/50 transition-all duration-300">
-          <span class="absolute top-2.5 right-3 text-[#6d5df1]/50 text-xs select-none">✦</span>
-          <span class="absolute bottom-2.5 left-3 text-[#6d5df1]/50 text-xs select-none">✦</span>
+        <div class="reveal delay-100 relative p-6 rounded-2xl border border-[#1e2638] bg-[#10141e]/90 group hover:border-[#6d5df1]/50 transition-all duration-300">
           <div class="text-3xl lg:text-4xl font-display text-[#6d5df1] mb-1">-42%</div>
           <div class="text-sm font-bold text-white uppercase tracking-wide">Deserción de Socios</div>
           <p class="text-xs text-[#94a3b8] mt-1">La IA detecta el abandono semanas antes de la fecha límite de pago.</p>
         </div>
 
-        <div class="relative p-6 rounded-2xl border border-[#1e2638] bg-[#10141e]/90 group hover:border-[#6d5df1]/50 transition-all duration-300">
-          <span class="absolute top-2.5 right-3 text-[#6d5df1]/50 text-xs select-none">✦</span>
-          <span class="absolute bottom-2.5 left-3 text-[#6d5df1]/50 text-xs select-none">✦</span>
+        <div class="reveal delay-200 relative p-6 rounded-2xl border border-[#1e2638] bg-[#10141e]/90 group hover:border-[#6d5df1]/50 transition-all duration-300">
           <div class="text-3xl lg:text-4xl font-display text-white mb-1">+$35K</div>
           <div class="text-sm font-bold text-[#6d5df1] uppercase tracking-wide">Ingreso Extra / Mes</div>
           <p class="text-xs text-[#94a3b8] mt-1">Patrocinios de negocios locales cobrados directamente con Stripe.</p>
         </div>
 
-        <div class="relative p-6 rounded-2xl border border-[#1e2638] bg-[#10141e]/90 group hover:border-[#6d5df1]/50 transition-all duration-300">
-          <span class="absolute top-2.5 right-3 text-[#6d5df1]/50 text-xs select-none">✦</span>
-          <span class="absolute bottom-2.5 left-3 text-[#6d5df1]/50 text-xs select-none">✦</span>
+        <div class="reveal delay-300 relative p-6 rounded-2xl border border-[#1e2638] bg-[#10141e]/90 group hover:border-[#6d5df1]/50 transition-all duration-300">
           <div class="text-3xl lg:text-4xl font-display text-white mb-1">99.8%</div>
           <div class="text-sm font-bold text-white uppercase tracking-wide">Precisión en Aforo</div>
           <p class="text-xs text-[#94a3b8] mt-1">Visualiza cuánta gente hay en cada sede sin recargar la pantalla.</p>
         </div>
 
-        <div class="relative p-6 rounded-2xl border border-[#1e2638] bg-[#10141e]/90 group hover:border-[#6d5df1]/50 transition-all duration-300">
-          <span class="absolute top-2.5 right-3 text-[#6d5df1]/50 text-xs select-none">✦</span>
-          <span class="absolute bottom-2.5 left-3 text-[#6d5df1]/50 text-xs select-none">✦</span>
+        <div class="reveal delay-400 relative p-6 rounded-2xl border border-[#1e2638] bg-[#10141e]/90 group hover:border-[#6d5df1]/50 transition-all duration-300">
           <div class="text-3xl lg:text-4xl font-display text-[#6d5df1] mb-1">24/7</div>
           <div class="text-sm font-bold text-white uppercase tracking-wide">Cobros sin Filas</div>
           <p class="text-xs text-[#94a3b8] mt-1">Tus socios renuevan y pagan desde su celular con un solo toque.</p>
@@ -688,7 +711,7 @@ const formatCurrency = (val) => {
     <section id="ia" class="relative z-10 py-24 px-4 sm:px-6 lg:px-8 bg-[#0c0f17]/90 border-t border-[#1e2638]">
       <div class="max-w-7xl mx-auto">
         <!-- Header -->
-        <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="reveal text-center max-w-3xl mx-auto mb-16">
           <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#6d5df1]/10 border border-[#6d5df1]/30 text-[#6d5df1] text-xs font-bold uppercase tracking-wider mb-4">
             <Brain class="w-3.5 h-3.5" />
             <span>Retención Predictiva Inteligente</span>
@@ -702,9 +725,22 @@ const formatCurrency = (val) => {
           </p>
         </div>
 
-        <!-- 3-Step Humanized Process -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-          <div class="p-6 rounded-2xl border border-[#1e2638] bg-[#10141e] flex flex-col justify-between">
+        <!-- 3-Step Humanized Process with Animated Circuit Line -->
+        <div class="relative grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          <!-- Animated Energy Circuit Traces across steps (Inspired by Dribbble video) -->
+          <svg class="hidden md:block absolute top-10 left-[16%] right-[16%] w-[68%] h-6 pointer-events-none z-0" fill="none">
+            <line x1="0" y1="12" x2="100%" y2="12" stroke="#1e2638" stroke-width="2" stroke-dasharray="4 4" />
+            <line x1="0" y1="12" x2="100%" y2="12" stroke="url(#energyGradient)" stroke-width="2.5" class="animate-energy-flow" />
+            <defs>
+              <linearGradient id="energyGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#6d5df1" stop-opacity="0.3" />
+                <stop offset="50%" stop-color="#a855f7" stop-opacity="1" />
+                <stop offset="100%" stop-color="#10b981" stop-opacity="0.9" />
+              </linearGradient>
+            </defs>
+          </svg>
+
+          <div class="reveal delay-100 relative z-10 p-6 rounded-2xl border border-[#1e2638] bg-[#10141e] hover:border-[#6d5df1]/50 transition-all duration-300 flex flex-col justify-between">
             <div>
               <div class="w-10 h-10 rounded-xl bg-[#6d5df1]/10 text-[#6d5df1] font-display text-lg flex items-center justify-center mb-4">
                 1
@@ -720,7 +756,7 @@ const formatCurrency = (val) => {
             </div>
           </div>
 
-          <div class="p-6 rounded-2xl border border-[#1e2638] bg-[#10141e] flex flex-col justify-between">
+          <div class="reveal delay-200 relative z-10 p-6 rounded-2xl border border-[#1e2638] bg-[#10141e] hover:border-[#ea580c]/50 transition-all duration-300 flex flex-col justify-between">
             <div>
               <div class="w-10 h-10 rounded-xl bg-[#ea580c]/10 text-[#ea580c] font-display text-lg flex items-center justify-center mb-4">
                 2
@@ -736,7 +772,7 @@ const formatCurrency = (val) => {
             </div>
           </div>
 
-          <div class="p-6 rounded-2xl border border-[#1e2638] bg-[#10141e] flex flex-col justify-between">
+          <div class="reveal delay-300 relative z-10 p-6 rounded-2xl border border-[#1e2638] bg-[#10141e] hover:border-[#10b981]/50 transition-all duration-300 flex flex-col justify-between">
             <div>
               <div class="w-10 h-10 rounded-xl bg-[#10b981]/10 text-[#10b981] font-display text-lg flex items-center justify-center mb-4">
                 3
@@ -754,7 +790,7 @@ const formatCurrency = (val) => {
         </div>
 
         <!-- SIMULADOR INTERACTIVO DEL SEMÁFORO DE RETENCIÓN -->
-        <div class="p-8 sm:p-10 rounded-3xl border-2 border-[#1e2638] bg-[#10141e] shadow-2xl relative overflow-hidden">
+        <div class="reveal-scale delay-200 p-8 sm:p-10 rounded-3xl border-2 border-[#1e2638] bg-[#10141e] shadow-2xl relative overflow-hidden">
           <div class="flex flex-col lg:flex-row lg:items-center justify-between pb-6 border-b border-[#1e2638] gap-4">
             <div>
               <div class="text-xs font-bold uppercase tracking-wider text-[#6d5df1] mb-1">
@@ -769,36 +805,21 @@ const formatCurrency = (val) => {
             <div class="flex items-center gap-2 p-1.5 rounded-xl bg-[#07090e] border border-[#1e2638]">
               <button
                 @click="activeAiTab = 'healthy'"
-                :class="[
-                  'px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all cursor-pointer flex items-center gap-1.5',
-                  activeAiTab === 'healthy'
-                    ? 'bg-[#10b981] text-black shadow-md font-black'
-                    : 'text-[#94a3b8] hover:text-white'
-                ]"
+                :class="[ 'px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all cursor-pointer flex items-center gap-1.5', activeAiTab === 'healthy' ? 'bg-[#10b981] text-black shadow-md font-black' : 'text-[#94a3b8] hover:text-white' ]"
               >
                 <span class="w-2 h-2 rounded-full bg-[#10b981]" :class="activeAiTab === 'healthy' ? 'bg-black' : ''" />
                 Socio Fiel
               </button>
               <button
                 @click="activeAiTab = 'warning'"
-                :class="[
-                  'px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all cursor-pointer flex items-center gap-1.5',
-                  activeAiTab === 'warning'
-                    ? 'bg-[#f59e0b] text-black shadow-md font-black'
-                    : 'text-[#94a3b8] hover:text-white'
-                ]"
+                :class="[ 'px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all cursor-pointer flex items-center gap-1.5', activeAiTab === 'warning' ? 'bg-[#f59e0b] text-black shadow-md font-black' : 'text-[#94a3b8] hover:text-white' ]"
               >
                 <span class="w-2 h-2 rounded-full bg-[#f59e0b]" :class="activeAiTab === 'warning' ? 'bg-black' : ''" />
                 Alerta Temprana
               </button>
               <button
                 @click="activeAiTab = 'critical'"
-                :class="[
-                  'px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all cursor-pointer flex items-center gap-1.5',
-                  activeAiTab === 'critical'
-                    ? 'bg-[#ef4444] text-white shadow-md font-black'
-                    : 'text-[#94a3b8] hover:text-white'
-                ]"
+                :class="[ 'px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all cursor-pointer flex items-center gap-1.5', activeAiTab === 'critical' ? 'bg-[#ef4444] text-white shadow-md font-black' : 'text-[#94a3b8] hover:text-white' ]"
               >
                 <span class="w-2 h-2 rounded-full bg-[#ef4444]" />
                 Riesgo Crítico
@@ -862,7 +883,7 @@ const formatCurrency = (val) => {
                 <span class="text-[#94a3b8]">Impacto directo: <strong class="text-white">{{ aiSimulatorCases[activeAiTab].businessOutcome }}</strong></span>
                 <button
                   @click="openDemoModal"
-                  class="px-4 py-2 rounded-lg bg-[#6d5df1] text-white font-display text-xs uppercase tracking-wider hover:scale-105 transition-transform"
+                  class="px-4 py-2 rounded-lg bg-[#6d5df1] hover:bg-[#5b4be2] text-white font-display text-xs uppercase tracking-wider hover:scale-105 transition-transform"
                 >
                   Probar con mi Gym
                 </button>
@@ -873,7 +894,7 @@ const formatCurrency = (val) => {
 
         <!-- Direct Comparison: Sin IA vs Con RIR-HUB -->
         <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div class="p-6 rounded-2xl border border-[#ef4444]/30 bg-[#10141e]/50">
+          <div class="reveal-left delay-100 p-6 rounded-2xl border border-[#ef4444]/30 bg-[#10141e]/50">
             <div class="flex items-center gap-2 text-xs font-bold text-[#ef4444] uppercase tracking-wider mb-2">
               <X class="w-4 h-4" />
               <span>Sistemas Tradicionales de Gimnasio</span>
@@ -895,7 +916,7 @@ const formatCurrency = (val) => {
             </ul>
           </div>
 
-          <div class="p-6 rounded-2xl border border-[#10b981]/40 bg-[#10141e] shadow-[0_0_30px_rgba(16,185,129,0.1)]">
+          <div class="reveal-right delay-200 p-6 rounded-2xl border border-[#10b981]/40 bg-[#10141e] shadow-[0_0_30px_rgba(16,185,129,0.1)]">
             <div class="flex items-center gap-2 text-xs font-bold text-[#10b981] uppercase tracking-wider mb-2">
               <Check class="w-4 h-4 stroke-[3]" />
               <span>RIR-HUB con Retención Predictiva</span>
@@ -926,7 +947,7 @@ const formatCurrency = (val) => {
     <section id="monetizacion" class="relative z-10 py-24 px-4 sm:px-6 lg:px-8 border-t border-[#1e2638]">
       <div class="max-w-7xl mx-auto">
         <!-- Header -->
-        <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="reveal text-center max-w-3xl mx-auto mb-16">
           <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#6d5df1]/10 border border-[#6d5df1]/30 text-[#6d5df1] text-xs font-bold uppercase tracking-wider mb-4">
             <Megaphone class="w-3.5 h-3.5" />
             <span>Nueva Fuente de Ingresos para Tu Gimnasio</span>
@@ -941,7 +962,7 @@ const formatCurrency = (val) => {
         </div>
 
         <!-- VISUALIZADOR DE PUBLICIDAD LOCAL (EXACTO COMO LA APP REAL) -->
-        <div class="p-6 sm:p-10 lg:p-12 rounded-3xl border-2 border-[#1e2638] bg-[#0a0d14] shadow-2xl relative mb-16">
+        <div class="reveal-scale delay-200 p-6 sm:p-10 lg:p-12 rounded-3xl border-2 border-[#1e2638] bg-[#0a0d14] shadow-2xl relative mb-16">
           <div class="flex flex-col lg:flex-row items-center justify-center gap-8 xl:gap-14">
             
             <!-- ═════════════════════════════════════════════════════════ -->
@@ -951,10 +972,10 @@ const formatCurrency = (val) => {
               <!-- Header Row -->
               <div class="mb-4 flex items-center justify-between">
                 <h4 class="flex items-center text-xs sm:text-sm font-display font-black uppercase tracking-wider text-white">
-                  <span class="w-1.5 h-4.5 rounded-full bg-[#6d5df1] mr-2.5 inline-block" />
+                  <span class="w-1.5 h-4.5 rounded-full bg-[#f4e701] mr-2.5 inline-block" />
                   ASÍ SE VE EN EL HOME
                 </h4>
-                <span class="rounded-full border border-[#6d5df1]/50 bg-[#6d5df1]/10 px-2.5 py-0.5 text-[9px] font-black uppercase tracking-wider text-[#6d5df1]">
+                <span class="rounded-full border border-[#f4e701]/50 bg-[#f4e701]/10 px-2.5 py-0.5 text-[9px] font-black uppercase tracking-wider text-[#f4e701]">
                   CARRUSEL PREMIUM
                 </span>
               </div>
@@ -995,23 +1016,23 @@ const formatCurrency = (val) => {
                       <div>
                         <div class="flex items-center justify-between px-1">
                           <p class="text-[8px] font-black uppercase tracking-widest text-[#94a3b8]">MIS SEDES</p>
-                          <p class="text-[8px] font-bold text-[#6d5df1]">Ver todas</p>
+                          <p class="text-[8px] font-bold text-[#f4e701]">Ver todas</p>
                         </div>
                         <div class="mt-1 rounded-xl border border-[#1e2638] bg-[#10141e] p-2">
                           <div class="flex items-center gap-1.5">
-                            <Store class="h-3 w-3 shrink-0 text-[#6d5df1]" />
+                            <Store class="h-3 w-3 shrink-0 text-[#f4e701]" />
                             <p class="text-[9px] font-black text-white">Sede Centro</p>
-                            <span class="ml-auto rounded-full border border-[#6d5df1]/40 bg-[#6d5df1]/10 px-2 py-0.5 text-[7px] font-black uppercase text-[#6d5df1]">
+                            <span class="ml-auto rounded-full border border-[#f4e701]/40 bg-[#f4e701]/10 px-2 py-0.5 text-[7px] font-black uppercase text-[#f4e701]">
                               ABIERTA
                             </span>
                           </div>
                           <div class="mt-1.5 h-1 overflow-hidden rounded-full bg-[#07090e]">
-                            <div class="h-full w-2/3 rounded-full bg-[#6d5df1]" />
+                            <div class="h-full w-2/3 rounded-full bg-[#f4e701]" />
                           </div>
                           <p class="mt-1 text-[7px] font-semibold text-[#94a3b8]">Aforo actual · 24 personas</p>
                         </div>
-                        <div class="mt-1.5 flex items-center justify-center gap-1.5 rounded-xl bg-[#6d5df1] py-2 shadow-md">
-                          <QrCode class="h-3 w-3 text-white stroke-[2.5]" />
+                        <div class="mt-1.5 flex items-center justify-center gap-1.5 rounded-xl bg-[#f4e701] py-2 shadow-md">
+                          <QrCode class="h-3 w-3 text-black stroke-[2.5]" />
                           <p class="text-[8px] font-black uppercase tracking-wider text-black">HACER CHECK-IN</p>
                         </div>
                       </div>
@@ -1051,7 +1072,7 @@ const formatCurrency = (val) => {
 
                     <!-- Dots del Carrusel (5 Espacios) -->
                     <div class="-mt-0.5 flex justify-center items-center gap-1.5">
-                      <span class="h-1.5 w-6 rounded-full bg-[#6d5df1]" />
+                      <span class="h-1.5 w-6 rounded-full bg-[#f4e701]" />
                       <span class="h-1.5 w-1.5 rounded-full bg-white/20" />
                       <span class="h-1.5 w-1.5 rounded-full bg-white/20" />
                       <span class="h-1.5 w-1.5 rounded-full bg-white/20" />
@@ -1063,42 +1084,42 @@ const formatCurrency = (val) => {
                       <div class="rounded-xl border border-[#1e2638] bg-[#10141e] p-2">
                         <div class="flex items-center gap-1.5">
                           <p class="text-[8px] font-black text-white">Racha semanal</p>
-                          <span class="ml-auto rounded-full border border-[#6d5df1]/40 bg-[#6d5df1]/10 px-1.5 py-0.5 text-[7px] font-black uppercase tracking-wider text-[#6d5df1]">
+                          <span class="ml-auto rounded-full border border-[#f4e701]/40 bg-[#f4e701]/10 px-1.5 py-0.5 text-[7px] font-black uppercase tracking-wider text-[#f4e701]">
                             3/4 VISITAS
                           </span>
                           <ChevronRight class="h-2.5 w-2.5 text-[#94a3b8]" />
                         </div>
                         <div class="mt-1 h-1 overflow-hidden rounded-full bg-[#07090e]">
-                          <div class="h-full w-3/4 rounded-full bg-[#6d5df1]" />
+                          <div class="h-full w-3/4 rounded-full bg-[#f4e701]" />
                         </div>
                         <div class="mt-1 flex items-center gap-1">
-                          <Flame class="h-2.5 w-2.5 shrink-0 text-[#6d5df1]" />
+                          <Flame class="h-2.5 w-2.5 shrink-0 text-[#f4e701]" />
                           <p class="text-[6.5px] font-semibold text-[#94a3b8]">Te falta 1 visita para tu meta de 4 por semana</p>
                         </div>
                         <div class="mt-1.5 flex gap-1">
                           <!-- Lun -->
                           <div class="flex flex-1 flex-col items-center gap-0.5 rounded-lg border border-[#1e2638] bg-[#07090e] py-0.5">
                             <p class="text-[5px] font-black text-[#94a3b8]">Lun</p>
-                            <div class="flex h-3 w-3 items-center justify-center rounded-full bg-[#6d5df1]/20">
-                              <Check class="h-2 w-2 text-[#6d5df1]" />
+                            <div class="flex h-3 w-3 items-center justify-center rounded-full bg-[#f4e701]/20">
+                              <Check class="h-2 w-2 text-[#f4e701]" />
                             </div>
                           </div>
                           <!-- Mar -->
                           <div class="flex flex-1 flex-col items-center gap-0.5 rounded-lg border border-[#1e2638] bg-[#07090e] py-0.5">
                             <p class="text-[5px] font-black text-[#94a3b8]">Mar</p>
-                            <div class="flex h-3 w-3 items-center justify-center rounded-full bg-[#6d5df1]/20">
-                              <Check class="h-2 w-2 text-[#6d5df1]" />
+                            <div class="flex h-3 w-3 items-center justify-center rounded-full bg-[#f4e701]/20">
+                              <Check class="h-2 w-2 text-[#f4e701]" />
                             </div>
                           </div>
                           <!-- Mie -->
                           <div class="flex flex-1 flex-col items-center gap-0.5 rounded-lg border border-[#1e2638] bg-[#07090e] py-0.5">
                             <p class="text-[5px] font-black text-[#94a3b8]">Mié</p>
-                            <div class="flex h-3 w-3 items-center justify-center rounded-full bg-[#6d5df1]/20">
-                              <Check class="h-2 w-2 text-[#6d5df1]" />
+                            <div class="flex h-3 w-3 items-center justify-center rounded-full bg-[#f4e701]/20">
+                              <Check class="h-2 w-2 text-[#f4e701]" />
                             </div>
                           </div>
                           <!-- Jue (Hoy - Resaltado) -->
-                          <div class="flex flex-1 flex-col items-center gap-0.5 rounded-lg border border-[#6d5df1] bg-[#6d5df1] py-0.5">
+                          <div class="flex flex-1 flex-col items-center gap-0.5 rounded-lg border border-[#f4e701] bg-[#f4e701] py-0.5">
                             <p class="text-[5px] font-black text-black">Jue</p>
                             <div class="flex h-3.5 w-3.5 items-center justify-center rounded-full bg-white shadow-sm">
                               <p class="text-[6px] font-black text-black">22</p>
@@ -1140,7 +1161,7 @@ const formatCurrency = (val) => {
             <!-- CONECTOR CENTRAL: FLECHA DE ACCIÓN AL TOCAR EL ANUNCIO    -->
             <!-- ═════════════════════════════════════════════════════════ -->
             <div class="flex flex-col items-center justify-center text-center my-4 lg:my-0 px-4">
-              <div class="w-14 h-14 rounded-full border-2 border-[#6d5df1]/60 bg-[#10141e] flex items-center justify-center text-[#6d5df1] shadow-[0_0_25px_rgba(109,93,241,0.25)] hover:scale-105 transition-transform">
+              <div class="w-14 h-14 rounded-full border-2 border-[#f4e701]/60 bg-[#10141e] flex items-center justify-center text-[#f4e701] hover:scale-105 transition-transform">
                 <ArrowRight class="w-7 h-7 stroke-[2.5]" />
               </div>
               <h5 class="font-display text-sm uppercase tracking-wider text-white font-black mt-3">
@@ -1158,10 +1179,10 @@ const formatCurrency = (val) => {
               <!-- Header Row -->
               <div class="mb-4 flex items-center justify-between">
                 <h4 class="flex items-center text-xs sm:text-sm font-display font-black uppercase tracking-wider text-white">
-                  <span class="w-1.5 h-4.5 rounded-full bg-[#6d5df1] mr-2.5 inline-block" />
+                  <span class="w-1.5 h-4.5 rounded-full bg-[#f4e701] mr-2.5 inline-block" />
                   TU FICHA DE ALIADO
                 </h4>
-                <span class="rounded-full border border-[#6d5df1]/50 bg-[#6d5df1]/10 px-2.5 py-0.5 text-[9px] font-black uppercase tracking-wider text-[#6d5df1]">
+                <span class="rounded-full border border-[#f4e701]/50 bg-[#f4e701]/10 px-2.5 py-0.5 text-[9px] font-black uppercase tracking-wider text-[#f4e701]">
                   SIEMPRE INCLUIDA
                 </span>
               </div>
@@ -1229,7 +1250,7 @@ const formatCurrency = (val) => {
                       </p>
                       <div class="mt-1 flex gap-2">
                         <div class="flex flex-1 items-center gap-1.5 rounded-lg border border-[#1e2638] bg-[#10141e] px-2 py-1.5">
-                          <Phone class="h-3 w-3 shrink-0 text-[#6d5df1]" />
+                          <Phone class="h-3 w-3 shrink-0 text-[#f4e701]" />
                           <div class="min-w-0">
                             <p class="text-[8px] font-black text-white leading-none">Llamar</p>
                             <p class="truncate text-[7px] font-semibold text-[#94a3b8] mt-0.5">
@@ -1256,19 +1277,19 @@ const formatCurrency = (val) => {
                       </p>
                       <div class="mt-1 flex flex-wrap gap-1.5">
                         <span class="flex items-center gap-1 rounded-full border border-[#1e2638] bg-[#10141e] px-2 py-0.5 text-[7px] font-bold text-white/90">
-                          <Camera class="h-2.5 w-2.5 text-[#6d5df1]" />
+                          <Camera class="h-2.5 w-2.5 text-[#f4e701]" />
                           @ Instagram
                         </span>
                         <span class="flex items-center gap-1 rounded-full border border-[#1e2638] bg-[#10141e] px-2 py-0.5 text-[7px] font-bold text-white/90">
-                          <Globe class="h-2.5 w-2.5 text-[#6d5df1]" />
+                          <Globe class="h-2.5 w-2.5 text-[#f4e701]" />
                           @ Facebook
                         </span>
                         <span class="flex items-center gap-1 rounded-full border border-[#1e2638] bg-[#10141e] px-2 py-0.5 text-[7px] font-bold text-white/90">
-                          <Star class="h-2.5 w-2.5 text-[#6d5df1]" />
+                          <Star class="h-2.5 w-2.5 text-[#f4e701]" />
                           TikTok
                         </span>
                         <span class="flex items-center gap-1 rounded-full border border-[#1e2638] bg-[#10141e] px-2 py-0.5 text-[7px] font-bold text-white/90">
-                          <ExternalLink class="h-2.5 w-2.5 text-[#6d5df1]" />
+                          <ExternalLink class="h-2.5 w-2.5 text-[#f4e701]" />
                           Enlace
                         </span>
                       </div>
@@ -1281,7 +1302,7 @@ const formatCurrency = (val) => {
                       </p>
                       <div class="mt-1 rounded-xl border border-[#1e2638] bg-[#10141e] p-2">
                         <div class="flex items-center gap-1.5">
-                          <MapPin class="h-3 w-3 shrink-0 text-[#6d5df1]" />
+                          <MapPin class="h-3 w-3 shrink-0 text-[#f4e701]" />
                           <p class="truncate text-[8px] font-bold text-white">
                             Paseo San Isidro 90 Barrio Santiaguito Mete...
                           </p>
@@ -1317,8 +1338,8 @@ const formatCurrency = (val) => {
 
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <!-- Step 1 -->
-            <div class="p-6 rounded-2xl border border-[#1e2638] bg-[#10141e] relative">
-              <div class="w-10 h-10 rounded-xl bg-[#6d5df1] text-white font-display text-base flex items-center justify-center mb-4 font-black">
+            <div class="reveal delay-100 p-6 rounded-2xl border border-[#1e2638] bg-[#10141e] relative hover:border-[#6d5df1]/50 transition-all duration-300">
+              <div class="w-10 h-10 rounded-xl bg-[#6d5df1] hover:bg-[#5b4be2] text-white font-display text-base flex items-center justify-center mb-4 font-black">
                 Paso 1
               </div>
               <h4 class="font-display text-base uppercase text-white mb-1">El Anunciante Compra en Línea</h4>
@@ -1328,7 +1349,7 @@ const formatCurrency = (val) => {
             </div>
 
             <!-- Step 2 -->
-            <div class="p-6 rounded-2xl border border-[#1e2638] bg-[#10141e] relative">
+            <div class="reveal delay-200 p-6 rounded-2xl border border-[#1e2638] bg-[#10141e] relative hover:border-[#ea580c]/50 transition-all duration-300">
               <div class="w-10 h-10 rounded-xl bg-[#ea580c] text-white font-display text-base flex items-center justify-center mb-4 font-black">
                 Paso 2
               </div>
@@ -1339,7 +1360,7 @@ const formatCurrency = (val) => {
             </div>
 
             <!-- Step 3 -->
-            <div class="p-6 rounded-2xl border border-[#1e2638] bg-[#10141e] relative">
+            <div class="reveal delay-300 p-6 rounded-2xl border border-[#1e2638] bg-[#10141e] relative hover:border-[#10b981]/50 transition-all duration-300">
               <div class="w-10 h-10 rounded-xl bg-[#10b981] text-black font-display text-base flex items-center justify-center mb-4 font-black">
                 Paso 3
               </div>
@@ -1352,7 +1373,7 @@ const formatCurrency = (val) => {
         </div>
 
         <!-- Breakdown Card: Ejemplo de Ingresos Reales -->
-        <div class="p-8 rounded-3xl border border-[#6d5df1]/40 bg-gradient-to-r from-[#10141e] via-[#131823] to-[#10141e] flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
+        <div class="reveal-scale delay-200 p-8 rounded-3xl border border-[#6d5df1]/40 bg-gradient-to-r from-[#10141e] via-[#131823] to-[#10141e] flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
           <div>
             <span class="text-xs font-bold uppercase tracking-wider text-[#6d5df1] block mb-1">
               Ejemplo Real de Facturación Mensual por Sede
@@ -1366,7 +1387,7 @@ const formatCurrency = (val) => {
           </div>
           <button
             @click="openDemoModal"
-            class="px-8 py-4 rounded-xl bg-[#6d5df1] text-white font-display text-xs uppercase tracking-wider hover:scale-105 shadow-[0_0_25px_rgba(109,93,241,0.4)] transition-all shrink-0 cursor-pointer"
+            class="px-8 py-4 rounded-xl bg-[#6d5df1] hover:bg-[#5b4be2] text-white font-display text-xs uppercase tracking-wider hover:scale-105 transition-all shrink-0 cursor-pointer"
           >
             Ver Cómo Vender Pauta
           </button>
@@ -1379,7 +1400,7 @@ const formatCurrency = (val) => {
     <!-- ═══════════════════════════════════════════════════════════════════ -->
     <section id="ventajas" class="relative z-10 py-24 px-4 sm:px-6 lg:px-8 border-t border-[#1e2638]">
       <div class="max-w-7xl mx-auto">
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+        <div class="reveal flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div>
             <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#6d5df1] mb-2">
               <Sparkles class="w-3.5 h-3.5" />
@@ -1416,48 +1437,30 @@ const formatCurrency = (val) => {
             v-for="(item, idx) in advantages"
             :key="item.id"
             @click="activeAdvantage = idx"
-            :class="[
-              'relative rounded-2xl p-7 transition-all duration-500 cursor-pointer flex flex-col justify-between overflow-hidden',
-              activeAdvantage === idx
-                ? 'bg-gradient-to-br ' + item.accentGrad + ' text-black shadow-[0_0_50px_rgba(109,93,241,0.35)] scale-[1.02] ring-2 ring-[#6d5df1]'
-                : 'bg-[#10141e] border border-[#1e2638] hover:border-[#6d5df1]/40 text-white'
-            ]"
+            :style="{ transitionDelay: (idx * 100) + 'ms' }"
+            :class="[ 'reveal relative rounded-2xl p-7 transition-all duration-500 cursor-pointer flex flex-col justify-between overflow-hidden hover:-translate-y-2 hover:shadow-2xl', activeAdvantage === idx ? 'bg-gradient-to-br ' + item.accentGrad + ' text-black scale-[1.02] ring-2 ring-[#6d5df1]' : 'bg-[#10141e] border border-[#1e2638] hover:border-[#6d5df1]/40 text-white' ]"
           >
             <div>
               <div class="flex items-center justify-between mb-4">
                 <span
-                  :class="[
-                    'font-display text-2xl tracking-tighter',
-                    activeAdvantage === idx ? 'text-black/80' : 'text-[#6d5df1]'
-                  ]"
+                  :class="[ 'font-display text-2xl tracking-tighter', activeAdvantage === idx ? 'text-black/80' : 'text-[#6d5df1]' ]"
                 >
                   {{ item.id }}
                 </span>
                 <span
-                  :class="[
-                    'text-[10px] font-black uppercase tracking-wider px-2 py-1 rounded-full',
-                    activeAdvantage === idx
-                      ? 'bg-black/20 text-black'
-                      : 'bg-[#1e2638] text-[#94a3b8]'
-                  ]"
+                  :class="[ 'text-[10px] font-black uppercase tracking-wider px-2 py-1 rounded-full', activeAdvantage === idx ? 'bg-black/20 text-black' : 'bg-[#1e2638] text-[#94a3b8]' ]"
                 >
                   {{ item.badge }}
                 </span>
               </div>
 
               <h3
-                :class="[
-                  'font-display text-xl uppercase tracking-tight mb-2',
-                  activeAdvantage === idx ? 'text-black' : 'text-white'
-                ]"
+                :class="[ 'font-display text-xl uppercase tracking-tight mb-2', activeAdvantage === idx ? 'text-black' : 'text-white' ]"
               >
                 {{ item.title }}
               </h3>
               <p
-                :class="[
-                  'text-sm leading-relaxed mb-4',
-                  activeAdvantage === idx ? 'text-black/80 font-medium' : 'text-[#94a3b8]'
-                ]"
+                :class="[ 'text-sm leading-relaxed mb-4', activeAdvantage === idx ? 'text-black/80 font-medium' : 'text-[#94a3b8]' ]"
               >
                 {{ item.summary }}
               </p>
@@ -1503,7 +1506,7 @@ const formatCurrency = (val) => {
     <!-- ═══════════════════════════════════════════════════════════════════ -->
     <section id="ecosistema" class="relative z-10 py-24 px-4 sm:px-6 lg:px-8 bg-[#0c0f17]/90 border-t border-[#1e2638]">
       <div class="max-w-7xl mx-auto">
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+        <div class="reveal flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div>
             <div class="text-xs font-bold uppercase tracking-widest text-[#6d5df1] mb-2">
               Arquitectura Dual Integrada
@@ -1519,24 +1522,14 @@ const formatCurrency = (val) => {
           <div class="flex items-center p-1 rounded-xl bg-[#10141e] border border-[#1e2638]">
             <button
               @click="activeEcosystemTab = 'b2b'"
-              :class="[
-                'px-5 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all duration-200 cursor-pointer flex items-center gap-2',
-                activeEcosystemTab === 'b2b'
-                  ? 'bg-[#6d5df1] text-white shadow-md'
-                  : 'text-[#94a3b8] hover:text-white'
-              ]"
+              :class="[ 'px-5 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all duration-200 cursor-pointer flex items-center gap-2', activeEcosystemTab === 'b2b' ? 'bg-[#6d5df1] hover:bg-[#5b4be2] text-white shadow-md' : 'text-[#94a3b8] hover:text-white' ]"
             >
               <Laptop class="w-3.5 h-3.5" />
               Consola B2B Web
             </button>
             <button
               @click="activeEcosystemTab = 'app'"
-              :class="[
-                'px-5 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all duration-200 cursor-pointer flex items-center gap-2',
-                activeEcosystemTab === 'app'
-                  ? 'bg-[#6d5df1] text-white shadow-md'
-                  : 'text-[#94a3b8] hover:text-white'
-              ]"
+              :class="[ 'px-5 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all duration-200 cursor-pointer flex items-center gap-2', activeEcosystemTab === 'app' ? 'bg-[#6d5df1] hover:bg-[#5b4be2] text-white shadow-md' : 'text-[#94a3b8] hover:text-white' ]"
             >
               <Smartphone class="w-3.5 h-3.5" />
               App Socio (Flutter)
@@ -1545,7 +1538,7 @@ const formatCurrency = (val) => {
         </div>
 
         <!-- B2B Tab Content -->
-        <div v-if="activeEcosystemTab === 'b2b'" class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center animate-fadeIn">
+        <div v-if="activeEcosystemTab === 'b2b'" class="reveal-scale delay-200 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center animate-fadeIn">
           <div class="lg:col-span-5 space-y-6">
             <h3 class="font-display text-2xl sm:text-3xl uppercase tracking-tight text-white">
               Control Total en Tiempo Real
@@ -1573,7 +1566,7 @@ const formatCurrency = (val) => {
             </ul>
             <button
               @click="openDemoModal"
-              class="px-6 py-3 rounded-xl bg-[#6d5df1] text-white font-display text-xs uppercase tracking-wider hover:scale-105 transition-transform cursor-pointer"
+              class="px-6 py-3 rounded-xl bg-[#6d5df1] hover:bg-[#5b4be2] text-white font-display text-xs uppercase tracking-wider hover:scale-105 transition-transform cursor-pointer"
             >
               Solicitar Acceso al Sandbox
             </button>
@@ -1590,7 +1583,7 @@ const formatCurrency = (val) => {
         </div>
 
         <!-- App Tab Content -->
-        <div v-else class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center animate-fadeIn">
+        <div v-else class="reveal-scale delay-200 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center animate-fadeIn">
           <div class="lg:col-span-5 space-y-6">
             <h3 class="font-display text-2xl sm:text-3xl uppercase tracking-tight text-white">
               La App que Tus Socios Amarán Usar
@@ -1618,7 +1611,7 @@ const formatCurrency = (val) => {
             </ul>
             <button
               @click="openDemoModal"
-              class="px-6 py-3 rounded-xl bg-[#6d5df1] text-white font-display text-xs uppercase tracking-wider hover:scale-105 transition-transform cursor-pointer"
+              class="px-6 py-3 rounded-xl bg-[#6d5df1] hover:bg-[#5b4be2] text-white font-display text-xs uppercase tracking-wider hover:scale-105 transition-transform cursor-pointer"
             >
               Ver Demo Móvil
             </button>
@@ -1643,7 +1636,7 @@ const formatCurrency = (val) => {
     <!-- ═══════════════════════════════════════════════════════════════════ -->
     <section id="calculadora" class="relative z-10 py-24 px-4 sm:px-6 lg:px-8 border-t border-[#1e2638]">
       <div class="max-w-7xl mx-auto">
-        <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="reveal text-center max-w-3xl mx-auto mb-16">
           <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#6d5df1]/10 border border-[#6d5df1]/30 text-[#6d5df1] text-xs font-bold uppercase tracking-wider mb-4">
             <TrendingUp class="w-3.5 h-3.5" />
             <span>Simulador Financiero</span>
@@ -1656,7 +1649,7 @@ const formatCurrency = (val) => {
           </p>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="reveal-scale delay-200 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div class="lg:col-span-7 p-8 rounded-2xl border border-[#1e2638] bg-[#10141e] space-y-8">
             <div>
               <div class="flex justify-between items-center mb-2">
@@ -1716,7 +1709,7 @@ const formatCurrency = (val) => {
             </div>
           </div>
 
-          <div class="lg:col-span-5 p-8 rounded-2xl border-2 border-[#6d5df1]/60 bg-gradient-to-b from-[#131823] to-[#07090e] shadow-[0_0_50px_rgba(109,93,241,0.15)] relative overflow-hidden">
+          <div class="lg:col-span-5 p-8 rounded-2xl border-2 border-[#6d5df1]/60 bg-gradient-to-b from-[#131823] to-[#07090e] relative overflow-hidden">
             <div class="text-xs font-bold uppercase tracking-wider text-[#94a3b8] mb-1">
               Impacto Anual Estimado
             </div>
@@ -1741,7 +1734,7 @@ const formatCurrency = (val) => {
 
             <button
               @click="openDemoModal"
-              class="w-full mt-8 py-3.5 rounded-xl bg-[#6d5df1] text-white font-display text-xs uppercase tracking-wider hover:scale-[1.02] shadow-[0_0_25px_rgba(109,93,241,0.4)] transition-all cursor-pointer"
+              class="w-full mt-8 py-3.5 rounded-xl bg-[#6d5df1] hover:bg-[#5b4be2] text-white font-display text-xs uppercase tracking-wider hover:scale-[1.02] transition-all cursor-pointer"
             >
               Comenzar a Maximizar Ingresos
             </button>
@@ -1751,12 +1744,27 @@ const formatCurrency = (val) => {
     </section>
 
     <!-- ═══════════════════════════════════════════════════════════════════ -->
-    <!-- FINAL CTA BANNER                                                    -->
+    <!-- FINAL CTA BANNER CON SPOTLIGHT VOLUMÉTRICO                          -->
     <!-- ═══════════════════════════════════════════════════════════════════ -->
-    <section class="relative z-10 py-20 px-4 sm:px-6 lg:px-8 border-t border-[#1e2638] bg-gradient-to-b from-[#0c0f17] to-[#07090e]">
-      <div class="max-w-5xl mx-auto rounded-3xl border border-[#6d5df1]/40 bg-gradient-to-r from-[#10141e] via-[#131823] to-[#10141e] p-8 sm:p-14 text-center relative overflow-hidden shadow-2xl">
-        <div class="absolute -top-24 -left-24 w-64 h-64 bg-[#6d5df1]/10 blur-3xl rounded-full pointer-events-none" />
-        <div class="absolute -bottom-24 -right-24 w-64 h-64 bg-[#ea580c]/10 blur-3xl rounded-full pointer-events-none" />
+    <section class="relative z-10 py-28 px-4 sm:px-6 lg:px-8 border-t border-[#1e2638] bg-gradient-to-b from-[#0c0f17] via-[#080a11] to-[#05070c] overflow-hidden">
+      <!-- Haz de luz de Spotlight desde la base (Inspirado en Dribbble video) -->
+      <div class="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[560px] overflow-hidden flex items-end justify-center z-0">
+        <!-- Cono exterior difuso -->
+        <div class="w-full h-full bg-gradient-to-t from-[#6d5df1]/35 via-[#6d5df1]/10 to-transparent [clip-path:polygon(24%_0%,76%_0%,100%_100%,0%_100%)] blur-2xl animate-spotlight"></div>
+        <!-- Núcleo brillante enfocado -->
+        <div class="absolute bottom-0 w-3/4 h-5/6 bg-gradient-to-t from-white/25 via-[#8b5cf6]/30 to-transparent [clip-path:polygon(36%_0%,64%_0%,85%_100%,15%_100%)] blur-lg animate-spotlight"></div>
+        <!-- Foco lumínico en el piso -->
+        <div class="absolute -bottom-10 w-[420px] h-32 bg-[#6d5df1] rounded-full blur-3xl opacity-75"></div>
+      </div>
+
+      <div class="reveal-scale delay-200 max-w-5xl mx-auto rounded-3xl border border-[#6d5df1]/50 bg-gradient-to-r from-[#10141e]/90 via-[#131823]/95 to-[#10141e]/90 backdrop-blur-xl p-8 sm:p-14 text-center relative z-10 shadow-2xl">
+        <div class="absolute -top-24 -left-24 w-64 h-64 bg-[#6d5df1]/15 blur-3xl rounded-full pointer-events-none" />
+        <div class="absolute -bottom-24 -right-24 w-64 h-64 bg-[#3b82f6]/15 blur-3xl rounded-full pointer-events-none" />
+
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-[#6d5df1]/40 bg-[#6d5df1]/10 text-[#6d5df1] text-xs font-bold uppercase tracking-wider mb-6">
+          <Sparkles class="w-3.5 h-3.5" />
+          <span>Implementación Rápida · Cero Complicaciones</span>
+        </div>
 
         <h2 class="font-display text-3xl sm:text-5xl uppercase tracking-tight text-white max-w-3xl mx-auto leading-tight">
           Moderniza Tu Gimnasio con la Tecnología que Otros Aún No Tienen
@@ -1765,12 +1773,13 @@ const formatCurrency = (val) => {
           Migración asistida sin interrupción de servicio. Importamos tu base de socios y dejamos tu sistema operativo listo en menos de 48 horas.
         </p>
 
-        <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div class="mt-9 flex flex-col sm:flex-row items-center justify-center gap-4">
           <button
             @click="openDemoModal"
-            class="w-full sm:w-auto px-8 py-4 rounded-xl bg-[#6d5df1] text-white font-display text-sm uppercase tracking-wider shadow-[0_0_35px_rgba(109,93,241,0.5)] hover:scale-105 transition-all cursor-pointer"
+            class="relative w-full sm:w-auto px-9 py-4 rounded-xl bg-[#6d5df1] hover:bg-[#5b4be2] text-white font-display text-sm uppercase tracking-wider hover:scale-105 transition-all cursor-pointer flex items-center justify-center gap-2 shadow-lg"
           >
-            Agendar Demostración Personalizada
+            <span>Agendar Demostración Personalizada</span>
+            <ArrowRight class="w-4 h-4 stroke-[2.5]" />
           </button>
         </div>
       </div>
@@ -1833,7 +1842,7 @@ const formatCurrency = (val) => {
           </p>
           <button
             @click="closeDemoModal"
-            class="mt-4 px-6 py-2.5 rounded-xl bg-[#6d5df1] text-white font-display text-xs uppercase tracking-wider hover:scale-105 transition-transform cursor-pointer"
+            class="mt-4 px-6 py-2.5 rounded-xl bg-[#6d5df1] hover:bg-[#5b4be2] text-white font-display text-xs uppercase tracking-wider hover:scale-105 transition-transform cursor-pointer"
           >
             Entendido
           </button>
@@ -1915,7 +1924,7 @@ const formatCurrency = (val) => {
 
             <button
               type="submit"
-              class="w-full mt-2 py-3.5 rounded-xl bg-[#6d5df1] text-white font-display text-xs uppercase tracking-wider hover:scale-[1.02] shadow-[0_0_25px_rgba(109,93,241,0.4)] transition-all cursor-pointer"
+              class="w-full mt-2 py-3.5 rounded-xl bg-[#6d5df1] hover:bg-[#5b4be2] text-white font-display text-xs uppercase tracking-wider hover:scale-[1.02] transition-all cursor-pointer"
             >
               Confirmar Solicitud de Demostración
             </button>
