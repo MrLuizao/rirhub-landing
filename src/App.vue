@@ -74,61 +74,61 @@ const submitDemoForm = () => {
 }
 
 // ═════════════════════════════════════════════════════════════════════════
-// SIMULADOR INTERACTIVO DEL SEMÁFORO DE IA (Para entender el valor real)
+// SIMULADOR INTERACTIVO DE LA SUITE DE IA (Retención, Copiloto y Coach App)
 // ═════════════════════════════════════════════════════════════════════════
 const activeAiTab = ref('warning') // 'healthy' | 'warning' | 'critical'
 
 const aiSimulatorCases = {
   healthy: {
-    status: 'Socio Activo y Saludable',
-    tag: 'Riesgo Mínimo (4%)',
+    status: 'Coach Personal en la App del Socio',
+    tag: 'Menos Filas · Mayor Fidelidad',
     color: 'emerald',
     badgeClass: 'bg-[#10b981]/20 text-[#10b981] border-[#10b981]/40',
     member: {
       name: 'Sofía Navarro',
-      plan: 'Membresía Black Multi-Sede',
-      habit: 'Asiste 4 días por semana (Lunes a Jueves, 7:00 AM)',
-      history: 'Racha activa de 6 semanas consecutivas con meta cumplida.'
+      plan: 'Membresía Black Multi-Sede · 350 pts',
+      habit: 'Suele ir a las 6:00 PM (cuando el gimnasio está al 86% de su capacidad)',
+      history: 'Lleva 4 semanas seguidas cumpliendo su meta de 4 visitas por semana.'
     },
     aiDetection:
-      'La IA confirma consistencia de asistencia en su horario habitual. No presenta cambios en su comportamiento de check-in.',
+      'La IA nota que Sofía siempre entrena en hora pico, pero hoy entre 4:00 y 5:00 PM el gimnasio estará mucho más libre (36% de ocupación). Además ve que está lista para un nuevo reto.',
     actionTaken:
-      'El sistema abona automáticamente 50 puntos de lealtad a su cuenta y mantiene su racha activa.',
-    businessOutcome: 'Cliente fidelizado con alta probabilidad de renovación anual.'
+      'Al abrir su app, recibe un consejo personalizado: «Sofía, si vienes hoy a las 4:00 PM entrenarás sin esperas en aparatos» y un botón para subir su meta a 5 días y ganar más premios.',
+    businessOutcome: 'Desahogas las horas pico de tu gimnasio y mantienes al socio motivado todo el año.'
   },
   warning: {
-    status: 'Alerta Temprana de Deserción',
-    tag: 'Riesgo Medio (52%) — 18 Días Antes',
+    status: 'Rescate Automático de Mensualidad',
+    tag: 'En Riesgo de Irse — A Tiempo de Salvarlo',
     color: 'amber',
     badgeClass: 'bg-[#f59e0b]/20 text-[#f59e0b] border-[#f59e0b]/40',
     member: {
       name: 'Daniel Morales',
-      plan: 'Plan Plus Mensual',
-      habit: 'Solía venir 3 veces por semana; lleva 8 días sin registrar check-in',
-      history: 'Rompió su racha semanal y canceló su última reserva de Spinning.'
+      plan: 'Plan Plus Mensual · 140 pts acumulados',
+      habit: 'Bajó su ritmo a 1 visita por semana y lleva 9 días sin ir al gimnasio',
+      history: 'Perdió su racha semanal y canceló sus últimas 2 clases de Spinning.'
     },
     aiDetection:
-      'La IA detectó una ruptura abrupta en el patrón de asistencia. La probabilidad de baja dentro de 3 semanas aumentó al 52%.',
+      'La IA detecta que Daniel se está enfriando 18 días antes de su fecha de pago y te prepara la acción ideal para hacerlo volver hoy mismo.',
     actionTaken:
-      'Disparo automático de Push Inteligente: «¡Daniel, tu racha aún puede salvarse! Reserva hoy tu clase favorita y te regalamos 50 pts dobles».',
-    businessOutcome: 'Reenganche preventivo oportuno antes de que el socio tome la decisión de cancelar.'
+      'Con un solo clic desde tu panel, le envías un regalo de +25 puntos a su celular: «¡Daniel, te regalamos 25 puntos para que no pierdas tu avance! Ven esta semana y cámbialos por premios».',
+    businessOutcome: 'Cuando Daniel regresa y paga su mes, el sistema lo suma a tu contador de «Dinero Recuperado».'
   },
   critical: {
-    status: 'Riesgo Crítico de Cancelación',
-    tag: 'Riesgo Alto (88%) — Acción Inmediata',
+    status: 'Asistente Inteligente en Recepción',
+    tag: 'Atención Urgente · Socio por Vencer',
     color: 'rose',
     badgeClass: 'bg-[#ef4444]/20 text-[#ef4444] border-[#ef4444]/40',
     member: {
       name: 'Mariana Fuentes',
-      plan: 'Plan Individual Estándar',
-      habit: '17 días continuos sin pisar el gimnasio; renovación en 5 días',
-      history: 'Dejó de responder encuestas y su tiempo promedio de sesión cayó a cero.'
+      plan: 'Plan Individual Estándar · Vence en 4 días',
+      habit: '14 días sin asistir; escribe al chat del gimnasio con una duda de su cobro',
+      history: 'Tuvo un rechazo en su tarjeta y dejó de asistir las últimas dos semanas.'
     },
     aiDetection:
-      'Patrón clásico de abandono silencioso. Sin intervención humana o incentivo directo, el socio cancelará su domiciliación en 5 días.',
+      'En cuanto Mariana escribe al chat, el sistema avisa a recepción que es una socia a punto de vencer y muestra en pantalla su plan, sus puntos y su fecha de corte sin buscar en otro lado.',
     actionTaken:
-      '1) Se genera una tarea prioritaria en la consola de recepción para llamada de cortesía del staff. 2) Se envía un pase digital gratuito para que invite a un amigo a entrenar este fin de semana.',
-    businessOutcome: 'Recuperas una mensualidad de $750 MXN que ya estaba prácticamente perdida.'
+      'La IA le escribe al recepcionista 3 opciones de respuesta amables y con los datos exactos de Mariana para contestarle en 5 segundos con un solo clic.',
+    businessOutcome: 'Tu recepción atiende rápido y profesional, evitando que una queja se convierta en una baja de $750 MXN.'
   }
 }
 
@@ -430,29 +430,53 @@ onMounted(() => {
         <h1 class="reveal delay-200 font-display text-4xl sm:text-6xl lg:text-7xl uppercase tracking-tight text-white max-w-5xl mx-auto leading-[1.05]">
           Tu Audiencia Es un Activo.
           <span class="block bg-gradient-to-r from-[#6d5df1] via-[#8b5cf6] to-[#ec4899] bg-clip-text text-transparent drop-shadow-sm">
-            Nosotros lo Activamos con IA.
+            Nosotros lo activamos con IA.
           </span>
         </h1>
 
         <!-- Subhead -->
         <p class="reveal delay-300 mt-6 text-lg sm:text-xl text-slate-100 max-w-3xl mx-auto font-normal leading-relaxed">
-          <span class="font-display font-black tracking-tight"><span class="text-white">RIR</span><span class="bg-gradient-to-r from-[#6d5df1] via-[#8b5cf6] to-[#ec4899] bg-clip-text text-transparent">HUB</span></span> es el sistema operativo que <strong class="text-[#c4b5fd] font-bold">frena la fuga de socios 18 días antes con Inteligencia Artificial</strong> y convierte tu app en un segundo mostrador: tus socios <strong class="text-[#6ee7b7] font-bold">renuevan su membresía con un toque</strong> y las marcas de tu zona pagan por anunciarse frente a una <strong class="text-[#38bdf8] font-bold">audiencia cautiva que abre la app todos los días</strong>.
+          <span class="font-display font-black tracking-tight">
+            <span class="text-white">RIR</span>
+            <span class="bg-gradient-to-r from-[#6d5df1] via-[#8b5cf6] to-[#ec4899] bg-clip-text text-transparent">
+              HUB </span>
+          </span> 
+          te ayuda a
+          <strong class="text-[#c4b5fd] font-bold">
+             retener a tus socios
+          </strong> 
+          antes de que dejen de pagar usando
+          <strong class="text-[#38bdf8] font-bold">
+            Inteligencia Artificial
+          </strong> 
+            te damos 
+            <strong class="text-[#6ee7b7] font-bold">
+              una plataforma web administrativa
+            </strong>
+            y una
+             <strong class="text-[#c4b5fd] font-bold">
+            app movil para tus usuarios
+          </strong> 
+            donde 
+            <strong class="text-[#38bdf8] font-bold">los negocios de tu zona pagan por anunciarse</strong>,
+            todo de forma automatizada.
         </p>
 
         <!-- Hero Buttons -->
         <div class="reveal delay-400 mt-9 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <button
-            @click="openDemoModal('Demo remota en vivo (30 min)')"
-            class="w-full sm:w-auto px-8 py-4 rounded-xl bg-[#6d5df1] hover:bg-[#5b4be2] text-white font-display text-sm uppercase tracking-wider transition-colors duration-200 flex items-center justify-center cursor-pointer"
-          >
-            <span>Agendar Demo en Vivo</span>
-          </button>
           <a
             href="#ia"
             class="w-full sm:w-auto px-8 py-4 rounded-xl border border-[#1e2638] bg-[#10141e]/80 hover:bg-[#10141e] hover:border-[#6d5df1]/50 text-white font-display text-sm uppercase tracking-wider transition-colors duration-200 flex items-center justify-center gap-2 cursor-pointer"
           >
             <Brain class="w-4 h-4 text-[#6d5df1]" />
             <span>CÓMO TE AYUDA LA IA</span>
+          </a>
+          <a
+            href="#monetizacion"
+            class="w-full sm:w-auto px-8 py-4 rounded-xl border border-[#1e2638] bg-[#10141e]/80 hover:bg-[#10141e] hover:border-[#38bdf8]/50 text-white font-display text-sm uppercase tracking-wider transition-colors duration-200 flex items-center justify-center gap-2 cursor-pointer"
+          >
+            <Megaphone class="w-4 h-4 text-[#38bdf8]" />
+            <span>VENTA DE PUBLICIDAD</span>
           </a>
         </div>
       </div>
@@ -481,55 +505,55 @@ onMounted(() => {
           </h2>
 
           <p class="mt-4 text-base sm:text-lg text-slate-100 leading-relaxed max-w-3xl mx-auto font-normal">
-            La plataforma dual que blinda tus ingresos: <strong class="text-[#c4b5fd] font-bold">la IA predictiva rescata socios 18 días antes</strong> de que cancelen y las marcas locales pagan por anunciarse frente a una comunidad activa con <strong class="text-[#6ee7b7] font-bold">$0 costo de distribución</strong>.
+            La plataforma dual que blinda tus ingresos: <strong class="text-[#c4b5fd] font-bold">la IA rescata socios antes de que cancelen</strong>, agiliza tu recepción y guía los horarios de entrenamiento, mientras las marcas locales pagan por anunciarse frente a tu comunidad activa con <strong class="text-[#6ee7b7] font-bold">$0 costo de distribución</strong>.
           </p>
         </div>
 
-        <!-- 4 Metric Cards (Framer Aesthetic) -->
+        <!-- 4 Metric Cards (2 IA + 2 Publicidad — Simetría 50/50) -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <!-- Card 1: IA Churn -->
+          <!-- Card 1: IA Retención + Dinero Salvado -->
           <div class="reveal delay-100 relative p-6 sm:p-7 rounded-2xl border border-[#6d5df1]/40 bg-[#10141e]/90 hover:border-[#6d5df1] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between shadow-[0_0_30px_rgba(109,93,241,0.1)] group">
             <div>
               <div class="flex items-center justify-between mb-3">
                 <span class="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded bg-[#6d5df1]/15 text-[#6d5df1] border border-[#6d5df1]/30">
-                  Retención IA
+                  Retención con IA
                 </span>
                 <span class="w-2 h-2 rounded-full bg-[#6d5df1] animate-pulse" />
               </div>
               <div class="text-4xl lg:text-5xl font-display text-[#6d5df1] tracking-tight mb-2">-42%</div>
-              <div class="text-sm font-bold text-white uppercase tracking-wide">Deserción de Socios</div>
+              <div class="text-sm font-bold text-white uppercase tracking-wide">Menos Bajas de Socios</div>
               <p class="text-xs sm:text-sm text-slate-100 mt-2 leading-relaxed">
-                Aprende los hábitos de cada socio y detecta la ruptura de rutina 18 días antes del corte de pago.
+                Detecta quién está dejando de ir, le envía un incentivo personalizado y te muestra en pesos cuánto dinero recuperaste en el mes.
               </p>
             </div>
             <div class="mt-6 pt-4 border-t border-[#1e2638] text-xs sm:text-sm font-bold text-[#6d5df1] flex items-center gap-2">
               <Brain class="w-4 h-4 shrink-0" />
-              <span>Predicción temprana anti-churn</span>
+              <span>Mide cada mensualidad salvada</span>
             </div>
           </div>
 
-          <!-- Card 2: 100% Cautivo -->
+          <!-- Card 2: IA Asistente Staff + Coach App -->
           <div class="reveal delay-200 relative p-6 sm:p-7 rounded-2xl border border-[#1e2638] bg-[#10141e]/90 hover:border-[#38bdf8]/60 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group">
             <div>
               <div class="flex items-center justify-between mb-3">
                 <span class="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded bg-[#38bdf8]/15 text-[#38bdf8] border border-[#38bdf8]/30">
-                  Audiencia Fiel
+                  Operación Inteligente
                 </span>
-                <CheckCircle2 class="w-3.5 h-3.5 text-[#38bdf8]" />
+                <Sparkles class="w-3.5 h-3.5 text-[#38bdf8]" />
               </div>
-              <div class="text-4xl lg:text-5xl font-display text-[#38bdf8] tracking-tight mb-2">100%</div>
-              <div class="text-sm font-bold text-white uppercase tracking-wide">Es Tu Propio Socio</div>
+              <div class="text-4xl lg:text-5xl font-display text-[#38bdf8] tracking-tight mb-2">1-Clic</div>
+              <div class="text-sm font-bold text-white uppercase tracking-wide">Recepción y App Más Ágiles</div>
               <p class="text-xs sm:text-sm text-slate-100 mt-2 leading-relaxed">
-                Audiencia cautiva, activa y local. Abren la app a diario para QR, aforo y clases sin impactos desperdiciados.
+                Le da a tu recepción respuestas listas cuando un socio escribe y le sugiere al socio en su app la hora más cómoda para entrenar hoy.
               </p>
             </div>
             <div class="mt-6 pt-4 border-t border-[#1e2638] text-xs sm:text-sm font-bold text-[#38bdf8] flex items-center gap-2">
               <CheckCircle2 class="w-4 h-4 shrink-0" />
-              <span>Target hiper-segmentado</span>
+              <span>Ahorra horas de trabajo al día</span>
             </div>
           </div>
 
-          <!-- Card 3: $0 Costo Distribución -->
+          <!-- Card 3: Publicidad · Audiencia Cautiva y $0 Costo -->
           <div class="reveal delay-300 relative p-6 sm:p-7 rounded-2xl border border-[#1e2638] bg-[#10141e]/90 hover:border-[#10b981]/60 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group">
             <div>
               <div class="flex items-center justify-between mb-3">
@@ -538,36 +562,36 @@ onMounted(() => {
                 </span>
                 <TrendingUp class="w-3.5 h-3.5 text-[#10b981]" />
               </div>
-              <div class="text-4xl lg:text-5xl font-display text-[#10b981] tracking-tight mb-2">$0</div>
-              <div class="text-sm font-bold text-white uppercase tracking-wide">Costo de Distribución</div>
+              <div class="text-4xl lg:text-5xl font-display text-[#10b981] tracking-tight mb-2">100%</div>
+              <div class="text-sm font-bold text-white uppercase tracking-wide">Ganancia Libre para Ti</div>
               <p class="text-xs sm:text-sm text-slate-100 mt-2 leading-relaxed">
-                Medio 100% propio. Las marcas pagan por pauta directa y el dinero ingresa íntegro a tu cuenta bancaria.
+                Tus socios abren la app diario para entrar, ver aforo y reservar. Las marcas vecinas te pagan por aparecer ahí sin que gastes un peso extra.
               </p>
             </div>
             <div class="mt-6 pt-4 border-t border-[#1e2638] text-xs sm:text-sm font-bold text-[#10b981] flex items-center gap-2">
               <TrendingUp class="w-4 h-4 shrink-0" />
-              <span>100% margen para tu gym</span>
+              <span>$0 comisiones ni intermediarios</span>
             </div>
           </div>
 
-          <!-- Card 4: Pauta con CTR real -->
+          <!-- Card 4: Publicidad · Venta Automática /anuncia -->
           <div class="reveal delay-400 relative p-6 sm:p-7 rounded-2xl border border-[#1e2638] bg-[#10141e]/90 hover:border-[#ec4899]/60 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group">
             <div>
               <div class="flex items-center justify-between mb-3">
                 <span class="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded bg-[#ec4899]/15 text-[#ec4899] border border-[#ec4899]/30">
-                  Pauta Local
+                  Publicidad Local
                 </span>
-                <Sparkles class="w-3.5 h-3.5 text-[#ec4899]" />
+                <Megaphone class="w-3.5 h-3.5 text-[#ec4899]" />
               </div>
               <div class="text-4xl lg:text-5xl font-display text-[#ec4899] tracking-tight mb-2">+$32K</div>
               <div class="text-sm font-bold text-white uppercase tracking-wide">Ingreso Extra / Sede</div>
               <p class="text-xs sm:text-sm text-slate-100 mt-2 leading-relaxed">
-                12,810 impresiones promedio con 6.3% CTR real cobrado en piloto automático con Stripe en <a href="https://gym-b2b-template.vercel.app/anuncia" target="_blank" rel="noopener noreferrer" class="text-[#38bdf8] hover:text-[#7dd3fc] underline decoration-[#38bdf8]/40 hover:decoration-[#38bdf8] transition-colors">/anuncia</a>.
+                Los negocios suben su anuncio y pagan con tarjeta en <a href="https://gym-b2b-template.vercel.app/anuncia" target="_blank" rel="noopener noreferrer" class="text-[#38bdf8] hover:text-[#7dd3fc] underline decoration-[#38bdf8]/40 hover:decoration-[#38bdf8] transition-colors">/anuncia</a>. Tú solo apruebas con un clic y el dinero va a tu banco.
               </p>
             </div>
             <div class="mt-6 pt-4 border-t border-[#1e2638] text-xs sm:text-sm font-bold text-[#ec4899] flex items-center gap-2">
               <Sparkles class="w-4 h-4 shrink-0" />
-              <span>Resultados comprobados</span>
+              <span>Se vende sola las 24 horas</span>
             </div>
           </div>
         </div>
@@ -592,7 +616,7 @@ onMounted(() => {
             </span>
           </h2>
           <p class="mt-4 text-base sm:text-lg text-slate-100 leading-relaxed max-w-3xl mx-auto font-normal">
-            El 70% de las cancelaciones en un gimnasio no ocurren por sorpresa: el socio espacia sus visitas semanas antes de abandonar. Mientras los software tradicionales avisan cuando ya es tarde, <span class="font-display font-black tracking-tight"><span class="text-white">RIR</span><span class="bg-gradient-to-r from-[#6d5df1] via-[#8b5cf6] to-[#ec4899] bg-clip-text text-transparent">HUB</span></span> <strong class="text-[#c4b5fd] font-bold">predice y actúa 18 días antes</strong> para <strong class="text-[#6ee7b7] font-bold">salvar esa mensualidad en automático</strong>.
+            El 70% de las cancelaciones en un gimnasio no ocurren por sorpresa: el socio espacia sus visitas semanas antes de abandonar. <span class="font-display font-black tracking-tight"><span class="text-white">RIR</span><span class="bg-gradient-to-r from-[#6d5df1] via-[#8b5cf6] to-[#ec4899] bg-clip-text text-transparent">HUB</span></span> <strong class="text-[#c4b5fd] font-bold">detecta quién se está enfriando 18 días antes</strong>, te prepara el incentivo para hacerlo regresar, le da respuestas listas a tu recepción y <strong class="text-[#6ee7b7] font-bold">te muestra cuánto dinero salvaste en el mes</strong>.
           </p>
         </div>
 
@@ -618,19 +642,19 @@ onMounted(() => {
                   01
                 </div>
                 <span class="text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#6d5df1]/15 text-[#c4b5fd] border border-[#6d5df1]/30">
-                  Paso 1
+                  Más Renovaciones
                 </span>
               </div>
               <h3 class="font-display text-lg uppercase tracking-tight text-white mb-2.5 group-hover:text-[#c4b5fd] transition-colors">
-                Aprende la Rutina de Cada Socio
+                Rescata Socios y Mide el Dinero Salvado
               </h3>
               <p class="text-sm sm:text-base text-slate-100 leading-relaxed font-normal">
-                Mapea días, horarios y clases favoritas. <strong class="text-[#c4b5fd] font-semibold">Aprende sola con cada check-in</strong> sin configuraciones manuales.
+                Te dice exactamente por qué un socio está dejando de ir y te deja listo el mensaje o regalo de puntos para traerlo de vuelta con un clic. Cuando regresa y renueva, <strong class="text-[#6ee7b7] font-semibold">ves en pesos cuánto dinero recuperaste</strong>.
               </p>
             </div>
             <div class="mt-6 pt-4 border-t border-[#1e2638] text-sm sm:text-base font-bold text-[#c4b5fd] flex items-center gap-2 sm:gap-2.5">
-              <Eye class="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
-              <span>Monitoreo silencioso 24/7</span>
+              <DollarSign class="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
+              <span>Sabes cuánto dinero salvaste al mes</span>
             </div>
           </div>
 
@@ -641,19 +665,19 @@ onMounted(() => {
                   02
                 </div>
                 <span class="text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#ea580c]/15 text-[#f59e0b] border border-[#ea580c]/30">
-                  Paso 2
+                  Recepción Ágil
                 </span>
               </div>
               <h3 class="font-display text-lg uppercase tracking-tight text-white mb-2.5 group-hover:text-[#f59e0b] transition-colors">
-                Detecta el Peligro 18 Días Antes
+                Atención al Socio en 5 Segundos
               </h3>
               <p class="text-sm sm:text-base text-slate-100 leading-relaxed font-normal">
-                Identifica la ruptura de rutina semanas antes del corte. Te alerta en <strong class="text-[#f59e0b] font-semibold">amarillo o rojo</strong> con la causa exacta.
+                Cuando un socio escribe por chat, tu recepción ve al instante <strong class="text-[#f59e0b] font-semibold">cuándo vence su plan y cuántos puntos tiene</strong>, y el sistema le sugiere <strong class="text-white font-semibold">3 respuestas listas para enviar con un clic</strong>.
               </p>
             </div>
             <div class="mt-6 pt-4 border-t border-[#1e2638] text-sm sm:text-base font-bold text-[#f59e0b] flex items-center gap-2 sm:gap-2.5">
-              <AlertTriangle class="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
-              <span>Diagnóstico explicativo claro</span>
+              <MessageSquare class="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
+              <span>Sin perder tiempo buscando datos</span>
             </div>
           </div>
 
@@ -664,19 +688,19 @@ onMounted(() => {
                   03
                 </div>
                 <span class="text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#10b981]/15 text-[#6ee7b7] border border-[#10b981]/30">
-                  Paso 3
+                  Menos Saturación
                 </span>
               </div>
               <h3 class="font-display text-lg uppercase tracking-tight text-white mb-2.5 group-hover:text-[#6ee7b7] transition-colors">
-                Rescata al Socio en Automático
+                Recomienda al Socio la Mejor Hora Hoy
               </h3>
               <p class="text-sm sm:text-base text-slate-100 leading-relaxed font-normal">
-                Envía <strong class="text-[#6ee7b7] font-semibold">pushes inteligentes con incentivos</strong> y avisa a tu staff en recepción para salvar la mensualidad.
+                Desde el inicio de la app, le avisa al socio <strong class="text-[#6ee7b7] font-semibold">a qué hora estará más despejado el gimnasio hoy</strong> para entrenar cómodo y le ayuda a ajustar su meta semanal para que no pierda el hábito.
               </p>
             </div>
             <div class="mt-6 pt-4 border-t border-[#1e2638] text-sm sm:text-base font-bold text-[#6ee7b7] flex items-center gap-2 sm:gap-2.5">
-              <Zap class="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
-              <span>Recuperación antes de cancelar</span>
+              <Sparkles class="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
+              <span>Desahoga horas pico y crea hábito</span>
             </div>
           </div>
         </div>
@@ -690,7 +714,7 @@ onMounted(() => {
                 <span>Simulador en Vivo para Dueños de Gym</span>
               </div>
               <h3 class="font-display text-2xl sm:text-3xl uppercase tracking-tight text-white">
-                Mira Cómo Evalúa la IA a Tres de Tus Socios
+                Mira Cómo Actúa el Sistema en 3 Situaciones Reales
               </h3>
             </div>
 
@@ -706,7 +730,7 @@ onMounted(() => {
                 ]"
               >
                 <span class="w-2 h-2 rounded-full bg-[#10b981]" />
-                Socio Fiel
+                En la App del Socio
               </button>
               <button
                 @click="activeAiTab = 'warning'"
@@ -718,7 +742,7 @@ onMounted(() => {
                 ]"
               >
                 <span class="w-2 h-2 rounded-full bg-[#f59e0b]" />
-                Alerta Temprana
+                Rescate de Socio
               </button>
               <button
                 @click="activeAiTab = 'critical'"
@@ -730,7 +754,7 @@ onMounted(() => {
                 ]"
               >
                 <span class="w-2 h-2 rounded-full bg-[#ef4444]" />
-                Riesgo Crítico
+                Ayuda en Recepción
               </button>
             </div>
           </div>
@@ -837,21 +861,21 @@ onMounted(() => {
           <div class="reveal-left delay-100 p-6 rounded-2xl border border-[#ef4444]/30 bg-[#10141e]/50">
             <div class="flex items-center gap-2 text-xs font-bold text-[#ef4444] uppercase tracking-wider mb-2">
               <X class="w-4 h-4" />
-              <span>Sistemas Tradicionales de Gimnasio</span>
+              <span>Software Tradicional de Gimnasio</span>
             </div>
-            <h4 class="font-display text-lg text-white mb-3">Reactivos y Tardíos</h4>
+            <h4 class="font-display text-lg text-white mb-3">Solo Cobran en Caja, Pero No Te Ayudan a Ganar Más</h4>
             <ul class="space-y-2 text-xs text-slate-300">
               <li class="flex items-start gap-2">
                 <span class="text-[#ef4444] font-bold">✕</span>
-                <span>Te enteras de la baja cuando el socio ya no pagó en la fecha de corte.</span>
+                <span>Te enteras de que un socio se fue cuando ya dejó de pagar su mensualidad.</span>
               </li>
               <li class="flex items-start gap-2">
                 <span class="text-[#ef4444] font-bold">✕</span>
-                <span>Reportes estáticos en Excel que nadie tiene tiempo de analizar a diario.</span>
+                <span>Tu recepción pierde tiempo buscando en varias pantallas cada vez que un socio pregunta algo.</span>
               </li>
               <li class="flex items-start gap-2">
                 <span class="text-[#ef4444] font-bold">✕</span>
-                <span>Haces encuestas de salida cuando el socio ya se inscribió en la competencia.</span>
+                <span>Son un gasto fijo cada mes y no generan ni un solo peso extra por publicidad local.</span>
               </li>
             </ul>
           </div>
@@ -859,21 +883,21 @@ onMounted(() => {
           <div class="reveal-right delay-200 p-6 rounded-2xl border border-[#10b981]/40 bg-[#10141e] shadow-[0_0_30px_rgba(16,185,129,0.1)]">
             <div class="flex items-center gap-2 text-xs font-bold text-[#10b981] uppercase tracking-wider mb-2">
               <Check class="w-4 h-4 stroke-[3]" />
-              <span><span class="font-display font-black tracking-tight"><span class="text-white">RIR</span><span class="bg-gradient-to-r from-[#6d5df1] via-[#8b5cf6] to-[#ec4899] bg-clip-text text-transparent">HUB</span></span> con Retención Predictiva</span>
+              <span><span class="font-display font-black tracking-tight"><span class="text-white">RIR</span><span class="bg-gradient-to-r from-[#6d5df1] via-[#8b5cf6] to-[#ec4899] bg-clip-text text-transparent">HUB</span></span> · Más Socios Retenidos + Publicidad Pagada</span>
             </div>
-            <h4 class="font-display text-lg text-white mb-3">Proactivos y Preventivos</h4>
+            <h4 class="font-display text-lg text-white mb-3">Un Sistema que Se Paga Solo</h4>
             <ul class="space-y-2 text-xs text-slate-300">
               <li class="flex items-start gap-2">
                 <span class="text-[#10b981] font-bold">✓</span>
-                <span>Detecta la ruptura de rutina 18 a 21 días antes del vencimiento.</span>
+                <span><strong>Recupera mensualidades en riesgo:</strong> Manda incentivos personalizados con un clic y te muestra cuánto dinero salvaste en el mes.</span>
               </li>
               <li class="flex items-start gap-2">
                 <span class="text-[#10b981] font-bold">✓</span>
-                <span>Dispara reenganche automático por push sin consumir tiempo de tu personal.</span>
+                <span><strong>Atiende rápido y desahoga horas pico:</strong> Respuestas listas para tu recepción y recomendación del mejor horario hoy en la app del socio.</span>
               </li>
               <li class="flex items-start gap-2">
                 <span class="text-[#10b981] font-bold">✓</span>
-                <span>Salvas entre el 35% y 45% de los socios que se iban a dar de baja cada mes.</span>
+                <span><strong>Publicidad que se vende sola:</strong> Los negocios vecinos compran y pagan su anuncio en línea para aparecer frente a tus socios.</span>
               </li>
             </ul>
           </div>
@@ -899,7 +923,7 @@ onMounted(() => {
             </span>
           </h2>
           <p class="mt-4 text-base sm:text-lg text-slate-100 leading-relaxed max-w-3xl mx-auto font-normal">
-            Tus socios son el target más codiciado por marcas locales: personas activas con poder adquisitivo. Con <span class="font-display font-black tracking-tight"><span class="text-white">RIR</span><span class="bg-gradient-to-r from-[#6d5df1] via-[#8b5cf6] to-[#ec4899] bg-clip-text text-transparent">HUB</span></span>, cualquier negocio de tu zona compra pauta en <a href="https://gym-b2b-template.vercel.app/anuncia" target="_blank" rel="noopener noreferrer" class="text-[#38bdf8] hover:text-[#7dd3fc] font-bold underline decoration-[#38bdf8]/40 hover:decoration-[#38bdf8] transition-colors">/anuncia</a> y tú cobras en automático con Stripe directo a tu banco con <strong class="text-[#6ee7b7] font-bold">100% de margen y $0 comisiones</strong>.
+            Tus socios son el público más codiciado por marcas locales: personas activas que abren tu app todos los días. Con <span class="font-display font-black tracking-tight"><span class="text-white">RIR</span><span class="bg-gradient-to-r from-[#6d5df1] via-[#8b5cf6] to-[#ec4899] bg-clip-text text-transparent">HUB</span></span>, cualquier negocio de tu zona compra su espacio en <a href="https://gym-b2b-template.vercel.app/anuncia" target="_blank" rel="noopener noreferrer" class="text-[#38bdf8] hover:text-[#7dd3fc] font-bold underline decoration-[#38bdf8]/40 hover:decoration-[#38bdf8] transition-colors">/anuncia</a> y el pago entra directo a tu banco con <strong class="text-[#6ee7b7] font-bold">100% de ganancia libre para ti y $0 comisiones</strong>.
           </p>
         </div>
 
@@ -1425,19 +1449,19 @@ onMounted(() => {
             <ul class="space-y-3">
               <li class="flex items-start gap-3 text-sm text-[#f8fafc]">
                 <CheckCircle2 class="w-5 h-5 text-[#6d5df1] shrink-0 mt-0.5" />
-                <span><strong>Aforo en vivo:</strong> Visualiza la ocupación exacta de cada sede al segundo sin recargar la página.</span>
+                <span><strong>Rescate de socios con dinero medido:</strong> Envía mensajes o regalos de puntos con un clic a quienes están por irse y ve cuánto dinero recuperaste.</span>
               </li>
               <li class="flex items-start gap-3 text-sm text-[#f8fafc]">
                 <CheckCircle2 class="w-5 h-5 text-[#6d5df1] shrink-0 mt-0.5" />
-                <span><strong>Gestión de clases y reservas:</strong> Control de cupo por ocurrencia horaria y lista de asistentes.</span>
+                <span><strong>Respuestas listas para recepción:</strong> Cuando un socio escribe, tu equipo ve su membresía en vivo y responde con 1 clic sin perder tiempo.</span>
               </li>
               <li class="flex items-start gap-3 text-sm text-[#f8fafc]">
                 <CheckCircle2 class="w-5 h-5 text-[#6d5df1] shrink-0 mt-0.5" />
-                <span><strong>Escáner unificado:</strong> Check-in de socios regulares y pases de Wellhub / TotalPass en segundos.</span>
+                <span><strong>Publicidad aprobada en 1 clic:</strong> Los negocios vecinos pagan su anuncio en línea y tú solo presionas "Aprobar" para publicarlo.</span>
               </li>
               <li class="flex items-start gap-3 text-sm text-[#f8fafc]">
                 <CheckCircle2 class="w-5 h-5 text-[#6d5df1] shrink-0 mt-0.5" />
-                <span><strong>Auditoría y finanzas:</strong> Reportes de ingresos, cierres de día automatizados y exportación a Excel.</span>
+                <span><strong>Aforo en vivo, clases y caja:</strong> Control de entradas por QR, Wellhub/TotalPass, cupo de clases y cortes de día por sucursal.</span>
               </li>
             </ul>
             <button
@@ -1472,19 +1496,19 @@ onMounted(() => {
             <ul class="space-y-3">
               <li class="flex items-start gap-3 text-sm text-[#f8fafc]">
                 <CheckCircle2 class="w-5 h-5 text-[#6d5df1] shrink-0 mt-0.5" />
-                <span><strong>Pase digital QR dinámico:</strong> Acceso instantáneo a torniquetes sin tarjetas físicas.</span>
+                <span><strong>Recomendador del mejor horario hoy:</strong> Le avisa al socio a qué hora estará más cómodo el gimnasio y le ayuda a cumplir su meta semanal.</span>
               </li>
               <li class="flex items-start gap-3 text-sm text-[#f8fafc]">
                 <CheckCircle2 class="w-5 h-5 text-[#6d5df1] shrink-0 mt-0.5" />
-                <span><strong>Metas semanales y recompensas:</strong> Acumulación de puntos y tienda digital de premios.</span>
+                <span><strong>Escaparate de negocios aliados:</strong> Promociones destacadas en el inicio y directorio con botón directo a WhatsApp y mapa.</span>
               </li>
               <li class="flex items-start gap-3 text-sm text-[#f8fafc]">
                 <CheckCircle2 class="w-5 h-5 text-[#6d5df1] shrink-0 mt-0.5" />
-                <span><strong>Pagos in-app 1-Click:</strong> Renovación de mensualidades con Apple Pay y Google Pay.</span>
+                <span><strong>Premios por constancia:</strong> Tus socios ganan puntos cada semana que cumplen su meta y los canjean por recompensas en recepción.</span>
               </li>
               <li class="flex items-start gap-3 text-sm text-[#f8fafc]">
                 <CheckCircle2 class="w-5 h-5 text-[#6d5df1] shrink-0 mt-0.5" />
-                <span><strong>Reserva de clases grupales:</strong> Apartado de lugar con recordatorio previo a la sesión.</span>
+                <span><strong>Entrada con QR, clases y pagos:</strong> Acceso rápido sin plásticos, reserva de clases y renovación de mensualidad desde el celular.</span>
               </li>
             </ul>
             <button
