@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 180" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2a3d2c" />
+      <stop offset="50%" stop-color="#243425" />
+      <stop offset="100%" stop-color="#1e2c1f" />
+    </linearGradient>
+    <linearGradient id="goldBar" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b" />
+      <stop offset="50%" stop-color="#fbbf24" />
+      <stop offset="100%" stop-color="#f59e0b" />
+    </linearGradient>
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="glow" />
+      <feComposite in="SourceGraphic" in2="glow" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="440" height="180" fill="url(#bgGrad)" rx="16" />
+
+  <!-- Subtle curved gym roof / arch in background -->
+  <path d="M 120 75 Q 220 40 320 75" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="2.5" stroke-linecap="round" />
+
+  <!-- Brand Typography -->
+  <g transform="translate(60, 52)">
+    <!-- 'c' -->
+    <text x="15" y="72" font-family="'Inter', 'Arial', sans-serif" font-weight="900" font-size="78" fill="#ffffff" letter-spacing="-2">c</text>
+
+    <!-- First Dumbbell ('o') -->
+    <g transform="translate(72, 18)">
+      <!-- Left plate -->
+      <rect x="0" y="8" width="10" height="52" rx="4" fill="#ffffff" />
+      <rect x="3" y="14" width="4" height="40" rx="2" fill="#e2e8f0" />
+      <!-- Barbell bar center -->
+      <rect x="10" y="30" width="30" height="8" rx="3" fill="url(#goldBar)" />
+      <!-- Right plate -->
+      <rect x="40" y="8" width="10" height="52" rx="4" fill="#ffffff" />
+      <rect x="43" y="14" width="4" height="40" rx="2" fill="#e2e8f0" />
+    </g>
+
+    <!-- Connecting barbell bar between both dumbbells -->
+    <rect x="122" y="48" width="16" height="8" rx="2" fill="url(#goldBar)" />
+
+    <!-- Second Dumbbell ('o') -->
+    <g transform="translate(138, 18)">
+      <!-- Left plate -->
+      <rect x="0" y="8" width="10" height="52" rx="4" fill="#ffffff" />
+      <rect x="3" y="14" width="4" height="40" rx="2" fill="#e2e8f0" />
+      <!-- Barbell bar center -->
+      <rect x="10" y="30" width="30" height="8" rx="3" fill="url(#goldBar)" />
+      <!-- Right plate -->
+      <rect x="40" y="8" width="10" height="52" rx="4" fill="#ffffff" />
+      <rect x="43" y="14" width="4" height="40" rx="2" fill="#e2e8f0" />
+    </g>
+
+    <!-- 'ffit' -->
+    <text x="202" y="72" font-family="'Inter', 'Arial', sans-serif" font-weight="900" font-size="78" fill="#ffffff" letter-spacing="-3">ffit</text>
+  </g>
+
+  <!-- Tagline badge -->
+  <g transform="translate(220, 150)">
+    <rect x="-85" y="-12" width="170" height="20" rx="10" fill="rgba(0,0,0,0.3)" />
+    <text x="0" y="2" font-family="'Inter', sans-serif" font-size="9" font-weight="800" fill="#a7f3d0" letter-spacing="2" text-anchor="middle" text-transform="uppercase">CAFÉ FIT &amp; NUTRICIÓN</text>
+  </g>
+</svg>

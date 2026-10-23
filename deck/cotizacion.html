@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cotización RIR-HUB</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --accent: #6d5df1;
+    --accent-soft: #f6f5fe;
+    --ink: #0f172a;
+    --muted: #475569;
+    --dim: #64748b;
+    --line: #e2e8f0;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #eef2f7; font-family: 'Inter', sans-serif; color: var(--muted); font-size: 14px; line-height: 1.6; }
+  .page { max-width: 800px; margin: 32px auto; background: #fff; border: 1px solid var(--line); border-radius: 20px; overflow: hidden; }
+
+  .head { display: flex; justify-content: space-between; align-items: flex-start; padding: 40px 48px 32px; border-bottom: 4px solid var(--accent); }
+  .brand { font-family: 'Archivo'; font-weight: 900; font-size: 22px; letter-spacing: 3px; color: var(--ink); }
+  .brand small { display: block; font-family: 'Inter'; font-weight: 600; font-size: 10px; letter-spacing: 3px; color: var(--dim); margin-top: 4px; }
+  .doc-meta { text-align: right; font-size: 12px; color: var(--dim); }
+  .doc-meta b { color: var(--ink); font-size: 15px; font-family: 'Archivo'; letter-spacing: 1px; }
+
+  .to { padding: 28px 48px 8px; }
+  .to .lbl { font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+  .to h2 { font-family: 'Archivo'; font-weight: 900; font-size: 20px; color: var(--ink); }
+  .to p { font-size: 13px; }
+
+  .sec { padding: 24px 48px; }
+  .sec-title { font-family: 'Archivo'; font-weight: 900; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; color: var(--ink); margin-bottom: 14px; }
+  .sec-title span { color: var(--accent); }
+
+  table.items { width: 100%; border-collapse: collapse; }
+  table.items th { text-align: left; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--dim); padding: 8px 12px; border-bottom: 2px solid var(--line); }
+  table.items th:last-child, table.items td:last-child { text-align: right; }
+  table.items td { padding: 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  table.items td .n { font-weight: 700; color: var(--ink); font-size: 14px; }
+  table.items td .d { font-size: 12px; color: var(--dim); margin-top: 2px; }
+  table.items td .amt { font-family: 'Archivo'; font-weight: 800; font-size: 15px; color: var(--ink); white-space: nowrap; }
+
+  .total-box { background: var(--accent-soft); border: 1px solid #e7e5fb; border-radius: 14px; padding: 18px 24px; margin-top: 18px; }
+  .total-box .row { display: flex; justify-content: space-between; align-items: baseline; padding: 4px 0; }
+  .total-box .row .k { font-size: 12px; font-weight: 600; color: var(--muted); }
+  .total-box .row .v { font-family: 'Archivo'; font-weight: 800; color: var(--ink); }
+  .total-box .row.big .k { font-size: 14px; font-weight: 900; color: var(--ink); text-transform: uppercase; letter-spacing: 1px; }
+  .total-box .row.big .v { font-size: 22px; color: var(--accent); }
+
+  .note { background: var(--accent-soft); border-left: 4px solid var(--accent); border-radius: 0 12px 12px 0; padding: 14px 20px; font-size: 12.5px; color: var(--muted); }
+  .note b { color: var(--ink); }
+
+  ul.terms { list-style: none; }
+  ul.terms li { padding: 5px 0 5px 18px; position: relative; font-size: 12.5px; }
+  ul.terms li::before { content: '•'; position: absolute; left: 4px; color: var(--accent); font-weight: 900; }
+  ul.terms li b { color: var(--ink); }
+
+  .foot { padding: 24px 48px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--dim); }
+
+  @media print {
+    body { background: #fff; }
+    .page { margin: 0; border: none; border-radius: 0; max-width: none; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="head">
+    <div class="brand">
+      RIR-HUB
+      <small>PLATAFORMA PARA GIMNASIOS</small>
+    </div>
+    <div class="doc-meta">
+      <b>COTIZACIÓN</b><br>
+      Folio: RH-2026-[NNN]<br>
+      Fecha: [DD/MM/AAAA]<br>
+      Vigencia: 30 días
+    </div>
+  </div>
+
+  <div class="to">
+    <div class="lbl">Dirigido a</div>
+    <h2>[NOMBRE DE LA CADENA DE GIMNASIOS]</h2>
+    <p>[NOMBRE DEL CONTACTO] · [CARGO] · 6 sucursales</p>
+  </div>
+
+  <div class="sec">
+    <div class="sec-title"><span>01 ·</span> Implementación y puesta en marcha <span style="font-weight:600;color:var(--dim)">(pago único)</span></div>
+    <table class="items">
+      <thead>
+        <tr><th>Concepto</th><th style="width:140px">Importe</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="n">Implementación y personalización de plataforma RIR-HUB</div>
+            <div class="d">
+              Configuración del proyecto (infraestructura, base de datos, autenticación) ·
+              personalización white-label completa con la marca del gimnasio (logo,
+              colores, nombre en tiendas) · alta de las <b>6 sucursales</b>, planes de
+              membresía, clases, salas, entrenadores y usuarios administrativos con
+              roles · migración/carga inicial de la base de socios
+            </div>
+          </td>
+          <td><div class="amt">$75,000</div></td>
+        </tr>
+        <tr>
+          <td>
+            <div class="n">App con tu marca en App Store y Google Play</div>
+            <div class="d">
+              Build firmado de producción, fichas de tienda con la marca del gimnasio,
+              publicación y aprobación en ambas tiendas bajo la cuenta de desarrollador
+              de RIR-HUB · configuración de pagos con tarjeta (Stripe) y notificaciones
+              push · soporte durante el proceso de revisión de Apple/Google
+            </div>
+          </td>
+          <td><div class="amt">$30,000</div></td>
+        </tr>
+        <tr>
+          <td>
+            <div class="n">Capacitación y arranque operativo</div>
+            <div class="d">
+              Programa de capacitación por rol (recepción, gerencia, administración) ·
+              manual de operación · acompañamiento las primeras 2 semanas: check-ins
+              reales, primer cierre de día, primeras campañas de publicidad
+            </div>
+          </td>
+          <td><div class="amt">$15,000</div></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="total-box">
+      <div class="row big">
+        <span class="k">Implementación total</span>
+        <span class="v">$120,000 MXN + IVA</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-title"><span>02 ·</span> Licencia de uso <span style="font-weight:600;color:var(--dim)">(mensual, anticipada)</span></div>
+    <table class="items">
+      <thead>
+        <tr><th>Concepto</th><th style="width:140px">Importe</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="n">Licencia RIR-HUB por sucursal</div>
+            <div class="d">
+              App del socio + consola B2B completas: check-in QR, aforo en vivo,
+              reservas, membresías y cobro con tarjeta, programa de lealtad,
+              cupones, publicidad con métricas, push segmentadas, reportes y
+              soporte remoto. Incluye infraestructura, mantenimiento y mejoras
+              continuas de la plataforma.
+            </div>
+          </td>
+          <td><div class="amt">$2,000 / sede</div></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="total-box">
+      <div class="row">
+        <span class="k">6 sucursales × $2,000</span>
+        <span class="v">$12,000 MXN / mes</span>
+      </div>
+      <div class="row big">
+        <span class="k">Suscripción mensual</span>
+        <span class="v">$12,000 MXN + IVA</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-title"><span>03 ·</span> Cómo se paga sola</div>
+    <div class="note">
+      La consola incluye <b>inventario publicitario</b>: espacios dentro de la app que
+      el gimnasio vende a negocios locales (suplementos, barberías, fisioterapeutas,
+      restaurantes fit). <b>Dos o tres anunciantes por sede a $1,500–3,000 MXN/mes
+      pueden cubrir la licencia completa</b> - la plataforma no es un gasto, es un
+      canal de ingreso nuevo. Además, la renovación con un toque reduce la deserción
+      por membresías vencidas no renovadas en caja: retener un socio al año por sede
+      ya paga la suscripción.
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-title"><span>04 ·</span> Condiciones comerciales</div>
+    <ul class="terms">
+      <li><b>Forma de pago - implementación:</b> 50% al firmar el contrato ($60,000 + IVA) para arrancar el proyecto y 50% restante a la entrega, cuando la app esté publicada en tiendas y las 6 sucursales operando.</li>
+      <li><b>Licencia:</b> mensual anticipada, facturada con CFDI. Inicia al arranque de operación en producción.</li>
+      <li><b>Propiedad:</b> la plataforma, las apps y la marca RIR-HUB son propiedad del proveedor - el cliente adquiere una <b>licencia de uso</b> vigente mientras dure la suscripción. No se entrega código fuente ni apps compiladas como activo del cliente.</li>
+      <li><b>Cuenta de Stripe:</b> se contrata y administra por el gimnasio - los cobros de los socios se depositan directo a su banco.</li>
+      <li><b>Comisión por cobro con tarjeta:</b> Stripe retiene ~3.6% + $3 MXN por transacción - RIR-HUB no intermedia ni retiene fondos.</li>
+      <li><b>No incluye:</b> sitio web/marketing (landing), integración con agregadores (Wellhub, TotalPass), desarrollos a la medida fuera de la plataforma estándar - se cotizan por separado.</li>
+      <li><b>Datos:</b> la información de socios es propiedad del gimnasio. Al término del contrato se entrega export completo de datos.</li>
+      <li><b>Vigencia de la cotización:</b> 30 días naturales. Precios en MXN + IVA.</li>
+    </ul>
+  </div>
+
+  <div class="foot">
+    <span>RIR-HUB · rirhubcontact@gmail.com · 722 432 0540</span>
+    <span>Luis V. Rosales · CTO</span>
+  </div>
+
+</div>
+</body>
+</html>

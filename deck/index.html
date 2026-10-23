@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<title>RIR-HUB - Presentación de producto</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #050505;
+    --surface: #131823;
+    --stroke: #1e2638;
+    --accent: #7c6cf6;
+    --text: #f8fafc;
+    --muted: #94a3b8;
+    --dim: #64748b;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); font-family: 'Inter', sans-serif; color: var(--text); }
+
+  .slide {
+    width: 1280px; height: 720px;
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column;
+    page-break-after: always;
+    background: var(--bg);
+  }
+  .glow { position: absolute; border-radius: 50%; filter: blur(120px); opacity: .22; background: var(--accent); pointer-events: none; }
+
+  .kicker {
+    font-family: 'Archivo', sans-serif; font-weight: 800;
+    font-size: 13px; letter-spacing: .35em; text-transform: uppercase;
+    color: var(--accent);
+  }
+  .kicker.dim { color: var(--dim); }
+  h1, h2, h3 { font-family: 'Archivo', sans-serif; font-weight: 900; line-height: .95; letter-spacing: -.01em; }
+  .headline { font-size: 72px; text-transform: uppercase; }
+  .headline .acc { color: var(--accent); }
+  .sub { color: var(--muted); font-size: 20px; line-height: 1.5; }
+
+  .pad { padding: 64px 72px; height: 100%; display: flex; flex-direction: column; }
+  .foot {
+    position: absolute; bottom: 28px; left: 72px; right: 72px;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 11px; letter-spacing: .25em; text-transform: uppercase; color: var(--dim);
+  }
+  .foot .pg { color: var(--accent); font-weight: 700; }
+
+  .card {
+    background: var(--surface); border: 1px solid var(--stroke);
+    border-radius: 20px; padding: 28px;
+  }
+  .shot {
+    border-radius: 18px; border: 1px solid var(--stroke);
+    box-shadow: 0 24px 60px rgba(0,0,0,.55);
+    object-fit: cover; object-position: top center;
+    background: var(--surface);
+  }
+  .phone { border-radius: 28px; border: 1px solid #2a3247; box-shadow: 0 24px 60px rgba(0,0,0,.6); object-fit: cover; object-position: top center; background: var(--surface); }
+
+  .chip {
+    display: inline-flex; align-items: center; gap: 8px;
+    border: 1px solid var(--stroke); border-radius: 999px;
+    padding: 8px 16px; font-size: 13px; font-weight: 600; color: var(--text);
+    background: rgba(19,24,35,.8);
+  }
+  .chip .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+
+  .feat { display: flex; gap: 16px; align-items: flex-start; }
+  .feat .n {
+    font-family: 'Archivo', sans-serif; font-weight: 900; color: var(--accent);
+    font-size: 22px; line-height: 1; min-width: 34px;
+    border: 1px solid var(--stroke); border-radius: 10px;
+    padding: 8px 10px; text-align: center; background: var(--surface);
+  }
+  .feat b { display: block; font-size: 17px; margin-bottom: 4px; }
+  .feat span { color: var(--muted); font-size: 14px; line-height: 1.45; }
+
+  .stat b { font-family: 'Archivo', sans-serif; font-weight: 900; font-size: 44px; color: var(--accent); display: block; line-height: 1; }
+  .stat span { color: var(--muted); font-size: 13px; }
+
+  .brandmark { display: flex; align-items: center; gap: 14px; }
+  .brandmark .logo {
+    width: 52px; height: 52px; border-radius: 14px; background: var(--accent);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Archivo'; font-weight: 900; font-size: 22px; color: #0b0e14;
+  }
+  .brandmark .name { font-family: 'Archivo'; font-weight: 900; font-size: 22px; letter-spacing: .06em; }
+  .brandmark .tag { font-size: 10px; letter-spacing: .3em; color: var(--dim); text-transform: uppercase; }
+
+  .bigstat b { font-family: 'Archivo'; font-weight: 900; font-size: 72px; color: var(--accent); line-height: 1; display: block; }
+  .bigstat span { color: var(--muted); font-size: 15px; }
+
+  @page { size: 1280px 720px; margin: 0; }
+  @media print {
+    body { margin: 0; }
+    .slide { margin: 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- 1 · PORTADA -->
+<section class="slide">
+  <div class="glow" style="width:700px;height:700px;top:-320px;right:-220px;"></div>
+  <div class="glow" style="width:500px;height:500px;bottom:-280px;left:-160px;opacity:.14;"></div>
+  <div class="pad" style="justify-content:center;">
+    <div class="brandmark" style="margin-bottom:38px;">
+      <div class="logo"><svg viewBox="64 120 384 272" width="30" height="22" fill="#f8fafc"><rect x="64" y="168" width="26" height="176" rx="13"/><rect x="422" y="168" width="26" height="176" rx="13"/><rect x="100" y="120" width="54" height="272" rx="27"/><rect x="358" y="120" width="54" height="272" rx="27"/><rect x="100" y="229" width="312" height="54" rx="27"/></svg></div>
+      <div>
+        <div class="name">RIR-HUB</div>
+        <div class="tag">Plataforma integral para gimnasios</div>
+      </div>
+    </div>
+    <h1 class="headline" style="font-size:72px;max-width:980px;">
+      TU AUDIENCIA<br>ES UN ACTIVO.<br><span class="acc">NOSOTROS LO ACTIVAMOS.</span>
+    </h1>
+    <p class="sub" style="margin-top:26px;max-width:840px;font-size:18px;">
+      Tu app podría ser <b style="color:var(--text)">un segundo mostrador - uno que cobra solo</b>.
+      Los socios renovarían su membresía con un toque, y las marcas de tu zona pagarían por
+      aparecer frente a una audiencia que abre la app todos los días.
+    </p>
+    <p style="margin-top:20px;max-width:840px;font-size:18px;line-height:1.5;color:var(--accent);font-weight:600;">
+      La oportunidad: una app con tu marca + una consola para tu equipo + un medio
+      publicitario propio con métricas reales. Todo en una plataforma.
+    </p>
+    <div style="display:flex;gap:12px;margin-top:34px;">
+      <span class="chip"><span class="dot"></span>App iOS / Android</span>
+      <span class="chip"><span class="dot"></span>Consola web para staff</span>
+      <span class="chip"><span class="dot"></span>Medio publicitario propio</span>
+    </div>
+  </div>
+  <div class="foot"><span>Presentación comercial</span><span class="pg">01 / 13</span></div>
+</section>
+
+<!-- 2 · EL GANCHO: LA APP ES UN MEDIO DE COMUNICACIÓN -->
+<section class="slide">
+  <div class="glow" style="width:760px;height:760px;top:-340px;right:-280px;opacity:.3;"></div>
+  <div class="pad" style="justify-content:center;">
+    <span class="kicker">Primero lo importante</span>
+    <h2 class="headline" style="font-size:60px;margin-top:20px;max-width:1060px;">
+      TU APP ES UN MEDIO DE<br>COMUNICACIÓN <span class="acc">CON EL TARGET<br>QUE YA TIENES.</span>
+    </h2>
+    <p class="sub" style="margin-top:32px;max-width:880px;font-size:21px;">
+      Los gimnasios tienen lo que toda marca local sueña:
+      <b style="color:var(--text)">una audiencia cautiva, segmentada y que abre la app todos los días</b> -
+      gente que invierte en su salud, su imagen y su rendimiento.
+      Ese es exactamente el target que buscan suplementos, ropa deportiva, cafeterías,
+      clínicas y negocios de tu zona.
+    </p>
+    <div style="display:flex;gap:48px;margin-top:52px;">
+      <div class="bigstat"><b>100%</b><span>De la audiencia es TU socio - el cliente ideal del anunciante local</span></div>
+      <div class="bigstat"><b>Diario</b><span>El socio abre la app a diario: entrar, reservar, ver el aforo</span></div>
+      <div class="bigstat"><b>$0</b><span>Costo de distribución - el medio ya es tuyo</span></div>
+    </div>
+    <p style="margin-top:48px;color:var(--text);font-size:19px;font-weight:600;">
+      Vamos a usar ese medio para <span style="color:var(--accent);">vender publicidad.</span>
+    </p>
+  </div>
+  <div class="foot"><span>Monetización</span><span class="pg">02 / 13</span></div>
+</section>
+
+<!-- 3 · GESTIÓN DE PUBLICIDAD EN CONSOLA -->
+<section class="slide">
+  <div class="glow" style="width:560px;height:560px;bottom:-260px;right:-220px;opacity:.16;"></div>
+  <div class="pad">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+      <div>
+        <span class="kicker">Consola · Inventario publicitario</span>
+        <h2 class="headline" style="font-size:44px;margin-top:14px;">VENDE ESPACIOS.<br>MIDE <span class="acc">RESULTADOS.</span></h2>
+      </div>
+      <div style="display:flex;gap:28px;margin-top:20px;">
+        <div class="stat"><b>12,810</b><span>Impresiones</span></div>
+        <div class="stat"><b>6.3%</b><span>CTR real</span></div>
+      </div>
+    </div>
+    <img class="shot" src="../public/shots/publicidad.png" style="width:100%;height:330px;margin-top:22px;">
+    <div style="display:flex;gap:28px;margin-top:20px;">
+      <div class="feat"><div class="n">→</div><div><b style="font-size:15px;">Carrusel del home + directorio de Aliados</b><span style="font-size:12.5px;">Dos espacios vendibles dentro de la app del socio.</span></div></div>
+      <div class="feat"><div class="n">→</div><div><b style="font-size:15px;">Métricas por anuncio</b><span style="font-size:12.5px;">Impresiones y taps reales por sede - le reportas al anunciante con números.</span></div></div>
+      <div class="feat"><div class="n">→</div><div><b style="font-size:15px;">Control total</b><span style="font-size:12.5px;">Crear, pausar, vigencia y sede - sin programador, sin terceros.</span></div></div>
+    </div>
+  </div>
+  <div class="foot"><span>Consola B2B · Monetización</span><span class="pg">03 / 13</span></div>
+</section>
+
+<!-- 4 · CÓMO FUNCIONA -->
+<section class="slide">
+  <div class="glow" style="width:640px;height:640px;bottom:-300px;right:-240px;"></div>
+  <div class="pad">
+    <span class="kicker">Cómo funciona</span>
+    <h2 class="headline" style="font-size:52px;margin-top:18px;">
+      LA APP DE TU SOCIO +<br>LA CONSOLA DE TU EQUIPO.<br><span class="acc">EN TIEMPO REAL.</span>
+    </h2>
+    <div style="display:flex;gap:32px;margin-top:52px;align-items:stretch;">
+      <div class="card" style="flex:1;">
+        <span class="kicker dim" style="font-size:11px;">Socio</span>
+        <h3 style="font-size:30px;margin-top:10px;">TU APP, TU MARCA</h3>
+        <p style="color:var(--muted);font-size:14px;margin-top:10px;line-height:1.6;">Pase QR, aforo en vivo, reserva de clases, pagos en línea, cupones, aliados y chat de soporte - con el nombre y los colores de tu gimnasio.</p>
+      </div>
+      <div style="display:flex;align-items:center;font-family:'Archivo';font-weight:900;color:var(--accent);font-size:34px;">⇄</div>
+      <div class="card" style="flex:1;">
+        <span class="kicker dim" style="font-size:11px;">Tu equipo</span>
+        <h3 style="font-size:30px;margin-top:10px;">CONSOLA B2B</h3>
+        <p style="color:var(--muted);font-size:14px;margin-top:10px;line-height:1.6;">Recepción con lector QR, dashboard multi-sede en vivo, socios y membresías, clases, soporte - y gestión de publicidad con métricas reales.</p>
+      </div>
+    </div>
+    <p style="margin-top:44px;color:var(--text);font-size:20px;font-weight:600;">
+      Un mismo sistema, dos caras: <span style="color:var(--accent);">lo que ve tu socio y lo que ve tu staff están conectados.</span>
+    </p>
+  </div>
+  <div class="foot"><span>RIR-HUB</span><span class="pg">04 / 13</span></div>
+</section>
+
+<!-- 5 · APP: ACCESO + AFORO (tiempo real para el usuario) -->
+<section class="slide">
+  <div class="glow" style="width:480px;height:480px;top:-200px;right:-160px;opacity:.16;"></div>
+  <div class="pad">
+    <div style="display:flex;gap:56px;height:100%;">
+      <div style="flex:1;display:flex;flex-direction:column;justify-content:center;">
+        <span class="kicker">App del socio · 1/3</span>
+        <h2 class="headline" style="font-size:48px;margin-top:16px;">ENTRADA<br>SIN FRICCIÓN.</h2>
+        <div style="display:flex;flex-direction:column;gap:20px;margin-top:40px;">
+          <div class="feat"><div class="n">01</div><div><b>Pase de acceso con QR</b><span>El socio enseña su código; recepción lo escanea o lo teclea. Sin tarjetas físicas.</span></div></div>
+          <div class="feat"><div class="n">02</div><div><b>Aforo en vivo por sede</b><span>Seguimiento en tiempo real: cupos ocupados, porcentaje y pronóstico por hora - antes de salir de casa.</span></div></div>
+          <div class="feat"><div class="n">03</div><div><b>Sede favorita</b><span>Marca su sede y la tiene siempre a un toque.</span></div></div>
+        </div>
+      </div>
+      <div style="display:flex;gap:20px;align-items:center;">
+        <img class="phone" src="../public/shots/app/08-qr-checkin.png" style="width:262px;height:566px;">
+        <img class="phone" src="../public/shots/app/03-explorar.png" style="width:262px;height:566px;">
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>App del socio</span><span class="pg">05 / 13</span></div>
+</section>
+
+<!-- 6 · APP: RESERVAS + PAGOS + PROMOS -->
+<section class="slide">
+  <div class="glow" style="width:480px;height:480px;bottom:-240px;left:-180px;opacity:.14;"></div>
+  <div class="pad">
+    <div style="display:flex;gap:56px;height:100%;">
+      <div style="display:flex;gap:20px;align-items:center;">
+        <img class="phone" src="../public/shots/app/07-sede-detalle.png" style="width:262px;height:566px;">
+        <img class="phone" src="../public/shots/app/05-descuentos.png" style="width:262px;height:566px;">
+      </div>
+      <div style="flex:1;display:flex;flex-direction:column;justify-content:center;">
+        <span class="kicker">App del socio · 2/3</span>
+        <h2 class="headline" style="font-size:48px;margin-top:16px;">RESERVA.<br>PAGA. AHORRA.</h2>
+        <div style="display:flex;flex-direction:column;gap:20px;margin-top:40px;">
+          <div class="feat"><div class="n">01</div><div><b>Reserva de clases por día</b><span>Parrilla de 7 días con cupo real - el socio aparta su lugar desde la app.</span></div></div>
+          <div class="feat"><div class="n">02</div><div><b>Membresía y renovación en línea</b><span>Pago con tarjeta (Stripe) sin pasar por caja.</span></div></div>
+          <div class="feat"><div class="n">03</div><div><b>Cupones y beneficios</b><span>Promos segmentadas por plan + ofertas de marcas aliadas.</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>App del socio</span><span class="pg">06 / 13</span></div>
+</section>
+
+<!-- 7 · APP: ENGAGEMENT + SOPORTE -->
+<section class="slide">
+  <div class="glow" style="width:520px;height:520px;top:-220px;right:-200px;opacity:.15;"></div>
+  <div class="pad">
+    <div style="display:flex;gap:56px;height:100%;">
+      <div style="flex:1;display:flex;flex-direction:column;justify-content:center;">
+        <span class="kicker">App del socio · 3/3</span>
+        <h2 class="headline" style="font-size:48px;margin-top:16px;">TU SOCIO,<br>SIEMPRE CERCA.</h2>
+        <div style="display:flex;flex-direction:column;gap:20px;margin-top:40px;">
+          <div class="feat"><div class="n">01</div><div><b>Chat de soporte directo</b><span>El socio escribe desde la app; recepción responde desde la consola. Push de vuelta al socio.</span></div></div>
+          <div class="feat"><div class="n">02</div><div><b>Notificaciones push</b><span>Avisos del gym y promos segmentadas directo al teléfono.</span></div></div>
+          <div class="feat"><div class="n">03</div><div><b>Red de aliados</b><span>Marcas patrocinadoras con ofertas exclusivas, dentro de tu app.</span></div></div>
+          <div class="feat"><div class="n">04</div><div><b>Rachas y hábito</b><span>Meta semanal de visitas que engancha al socio.</span></div></div>
+        </div>
+      </div>
+      <div style="display:flex;gap:20px;align-items:center;">
+        <img class="phone" src="../public/shots/app/02-home.png" style="width:262px;height:566px;">
+        <img class="phone" src="../public/shots/app/04-aliados.png" style="width:262px;height:566px;">
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>App del socio</span><span class="pg">07 / 13</span></div>
+</section>
+
+<!-- 8 · FIDELIZACIÓN + RENOVACIÓN = INGRESO -->
+<section class="slide">
+  <div class="glow" style="width:560px;height:560px;bottom:-260px;right:-220px;opacity:.2;"></div>
+  <div class="pad">
+    <div style="display:flex;gap:56px;height:100%;">
+      <div style="flex:1;display:flex;flex-direction:column;justify-content:center;">
+        <span class="kicker">Fidelización e ingresos</span>
+        <h2 class="headline" style="font-size:46px;margin-top:16px;">LA RENOVACIÓN<br>ES INGRESO. NO LO<br><span class="acc">DEJES EN EL MOSTRADOR.</span></h2>
+        <div style="display:flex;flex-direction:column;gap:18px;margin-top:36px;">
+          <div class="feat"><div class="n">01</div><div><b>La renovación manual se fuga</b><span>Cada mes que el socio debe pasar por caja es un ingreso en riesgo: una ausencia, una distracción, una semana que se alarga… y el socio desaparece.</span></div></div>
+          <div class="feat"><div class="n">02</div><div><b>Renovar cuesta un toque</b><span>Pago con tarjeta desde la app (Stripe), sin fila y sin caja - el socio renueva desde su sofá.</span></div></div>
+          <div class="feat"><div class="n">03</div><div><b>Push antes de que deserte</b><span>Aviso automático cuando su membresía está por vencer - la base de vencidos ya está segmentada para reactivarlos.</span></div></div>
+          <div class="feat"><div class="n">04</div><div><b>El hábito es el seguro</b><span>Rachas semanales, reservas y cupones: el socio que regresa, renueva.</span></div></div>
+        </div>
+      </div>
+      <div style="display:flex;gap:20px;align-items:center;">
+        <img class="phone" src="../public/shots/app/02-home.png" style="width:262px;height:566px;">
+        <img class="phone" src="../public/shots/app/06-perfil.png" style="width:262px;height:566px;">
+      </div>
+    </div>
+    <p style="position:absolute;bottom:56px;left:72px;color:var(--accent);font-size:15px;font-weight:700;">
+      Más retención → más aperturas diarias → más impresiones: el medio publicitario también se alimenta de esto.
+    </p>
+  </div>
+  <div class="foot"><span>Fidelización</span><span class="pg">08 / 13</span></div>
+</section>
+
+<!-- 9 · IDENTIDAD DE MARCA -->
+<section class="slide">
+  <div class="glow" style="width:600px;height:600px;top:-260px;left:-200px;opacity:.16;"></div>
+  <div class="pad">
+    <div style="display:flex;gap:56px;height:100%;align-items:center;">
+      <div style="flex:1;">
+        <span class="kicker">Identidad</span>
+        <h2 class="headline" style="font-size:52px;margin-top:16px;">TU MARCA,<br>NO LA <span class="acc">NUESTRA.</span></h2>
+        <div style="display:flex;flex-direction:column;gap:20px;margin-top:40px;">
+          <div class="feat"><div class="n">01</div><div><b>White-label completo</b><span>Tu nombre, tu logo, tus colores - el socio descarga LA APP DE TU GIMNASIO.</span></div></div>
+          <div class="feat"><div class="n">02</div><div><b>Tu red, tus reglas</b><span>Los aliados que anuncian en tu app los eliges tú - marcas que van con tu imagen.</span></div></div>
+          <div class="feat"><div class="n">03</div><div><b>Una sola identidad</b><span>App, consola, pases de acceso y comunicación - todo habla con tu voz.</span></div></div>
+        </div>
+      </div>
+      <div style="display:flex;gap:20px;align-items:center;">
+        <img class="phone" src="../public/shots/app/01-onboarding.png" style="width:262px;height:566px;">
+        <img class="phone" src="../public/shots/app/06-perfil.png" style="width:262px;height:566px;">
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>Identidad de marca</span><span class="pg">09 / 13</span></div>
+</section>
+
+<!-- 9 · B2B: RECEPCIÓN -->
+<section class="slide">
+  <div class="glow" style="width:500px;height:500px;bottom:-260px;right:-200px;opacity:.13;"></div>
+  <div class="pad">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+      <div>
+        <span class="kicker">Consola · Recepción</span>
+        <h2 class="headline" style="font-size:46px;margin-top:14px;">UN MOSTRADOR<br>QUE <span class="acc">VUELE.</span></h2>
+      </div>
+      <div style="display:flex;gap:10px;margin-top:8px;">
+        <span class="chip"><span class="dot"></span>QR socio</span>
+        <span class="chip"><span class="dot"></span>Wellhub</span>
+        <span class="chip"><span class="dot"></span>TotalPass</span>
+      </div>
+    </div>
+    <img class="shot" src="../public/shots/recepcion.png" style="width:100%;height:330px;margin-top:22px;">
+    <div style="display:flex;gap:28px;margin-top:20px;">
+      <div class="feat"><div class="n">→</div><div><b style="font-size:15px;">Escaneo en segundos</b><span style="font-size:12.5px;">Lector USB o cámara: QR del socio, token de Wellhub o pase TotalPass.</span></div></div>
+      <div class="feat"><div class="n">→</div><div><b style="font-size:15px;">Validación automática</b><span style="font-size:12.5px;">Membresía vigente, aforo y alcance de plan - el sistema decide.</span></div></div>
+      <div class="feat"><div class="n">→</div><div><b style="font-size:15px;">Alta con PIN por correo</b><span style="font-size:12.5px;">Recepción crea al socio; él reclama su cuenta con un PIN.</span></div></div>
+    </div>
+  </div>
+  <div class="foot"><span>Consola B2B</span><span class="pg">10 / 13</span></div>
+</section>
+
+<!-- 10 · B2B: DASHBOARD (tiempo real para el negocio) -->
+<section class="slide">
+  <div class="glow" style="width:520px;height:520px;top:-240px;left:-200px;opacity:.13;"></div>
+  <div class="pad">
+    <span class="kicker">Consola · Dirección</span>
+    <h2 class="headline" style="font-size:46px;margin-top:14px;">TODAS LAS SEDES,<br>UNA <span class="acc">PANTALLA.</span></h2>
+    <img class="shot" src="../public/shots/dashboard.png" style="width:100%;height:340px;margin-top:22px;">
+    <div style="display:flex;gap:28px;margin-top:20px;">
+      <div class="feat"><div class="n">→</div><div><b style="font-size:15px;">Aforo en tiempo real</b><span style="font-size:12.5px;">Check-in entra, el número se mueve - sin refrescar.</span></div></div>
+      <div class="feat"><div class="n">→</div><div><b style="font-size:15px;">KPIs del día</b><span style="font-size:12.5px;">Socios hoy, aforo promedio, sede más concurrida, hora pico.</span></div></div>
+      <div class="feat"><div class="n">→</div><div><b style="font-size:15px;">Curva de afluencia</b><span style="font-size:12.5px;">Historial por hora para decidir horarios y personal.</span></div></div>
+    </div>
+  </div>
+  <div class="foot"><span>Consola B2B</span><span class="pg">11 / 13</span></div>
+</section>
+
+<!-- 11 · B2B: SOCIOS + SOPORTE + PUSH -->
+<section class="slide">
+  <div class="glow" style="width:480px;height:480px;top:-200px;right:-180px;opacity:.12;"></div>
+  <div class="pad">
+    <span class="kicker">Consola · Socios y comunicación</span>
+    <h2 class="headline" style="font-size:42px;margin-top:14px;">CADA SOCIO,<br>CON SU <span class="acc">HISTORIA.</span></h2>
+    <div style="display:flex;gap:24px;margin-top:26px;">
+      <img class="shot" src="../public/shots/socio-detalle.png" style="width:56%;height:360px;">
+      <div style="flex:1;display:flex;flex-direction:column;gap:18px;">
+        <img class="shot" src="../public/shots/cms.png" style="width:100%;height:170px;">
+        <div class="card" style="padding:20px;">
+          <b style="font-size:15px;">Ficha completa del socio</b>
+          <p style="color:var(--muted);font-size:13px;margin-top:6px;line-height:1.5;">Plan, vigencia, pagos exportables a CSV y check-ins - todo en un solo lugar.</p>
+        </div>
+        <div class="card" style="padding:20px;">
+          <b style="font-size:15px;">Push + soporte = más alcance</b>
+          <p style="color:var(--muted);font-size:13px;margin-top:6px;line-height:1.5;">Notificaciones a toda la base, por sede o por membresías vencidas - otro canal que también se puede vender.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>Consola B2B</span><span class="pg">12 / 13</span></div>
+</section>
+
+<!-- 12 · CIERRE / NEXT STEP -->
+<section class="slide">
+  <div class="glow" style="width:700px;height:700px;top:-300px;right:-260px;"></div>
+  <div class="glow" style="width:440px;height:440px;bottom:-240px;left:-140px;opacity:.13;"></div>
+  <div class="pad" style="justify-content:center;">
+    <span class="kicker">Siguiente paso</span>
+    <h2 class="headline" style="font-size:68px;margin-top:20px;max-width:980px;">
+      TU GYM YA TIENE<br>LA AUDIENCIA.<br><span class="acc">VÉNDELE.</span>
+    </h2>
+    <p class="sub" style="margin-top:28px;max-width:660px;">
+      Demo en vivo de 30 minutos o piloto en una sola sede -
+      tu operación y tu primer inventario publicitario corriendo con datos reales.
+    </p>
+    <div style="display:flex;gap:20px;margin-top:48px;">
+      <div class="card" style="flex:1;">
+        <b style="font-size:16px;color:var(--accent);">Opción A</b>
+        <p style="font-size:15px;margin-top:6px;font-weight:600;">Demo remota en vivo</p>
+        <p style="color:var(--muted);font-size:13px;margin-top:4px;">30 min · app + consola + módulo de publicidad</p>
+      </div>
+      <div class="card" style="flex:1;">
+        <b style="font-size:16px;color:var(--accent);">Opción B</b>
+        <p style="font-size:15px;margin-top:6px;font-weight:600;">Piloto en una sede</p>
+        <p style="color:var(--muted);font-size:13px;margin-top:4px;">Operación real + primer anunciante local · resultados medibles</p>
+      </div>
+    </div>
+    <div class="brandmark" style="margin-top:56px;">
+      <div class="logo"><svg viewBox="64 120 384 272" width="30" height="22" fill="#f8fafc"><rect x="64" y="168" width="26" height="176" rx="13"/><rect x="422" y="168" width="26" height="176" rx="13"/><rect x="100" y="120" width="54" height="272" rx="27"/><rect x="358" y="120" width="54" height="272" rx="27"/><rect x="100" y="229" width="312" height="54" rx="27"/></svg></div>
+      <div>
+        <div class="name">RIR-HUB</div>
+        <div class="tag"><a href="mailto:rirhubcontact@gmail.com?subject=Inter%C3%A9s%20en%20RIR-HUB" style="color:inherit;text-decoration:none;">rirhubcontact@gmail.com</a></div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>Gracias</span><span class="pg">13 / 13</span></div>
+</section>
+
+</body>
+</html>
