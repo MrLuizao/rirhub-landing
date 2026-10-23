@@ -719,42 +719,42 @@ onMounted(() => {
             </div>
 
             <!-- Tab Buttons (Green, Yellow, Red) con diseño Framer refinado -->
-            <div class="flex items-center gap-1.5 p-1.5 rounded-xl bg-[#0a0d14] border border-[#1e2638]">
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-1.5 p-1.5 rounded-xl bg-[#0a0d14] border border-[#1e2638] w-full lg:w-auto">
               <button
                 @click="activeAiTab = 'healthy'"
                 :class="[
-                  'px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-colors duration-200 cursor-pointer flex items-center gap-2',
+                  'w-full sm:w-auto px-3.5 sm:px-4 py-2.5 sm:py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-colors duration-200 cursor-pointer flex items-center justify-center sm:justify-start gap-2',
                   activeAiTab === 'healthy'
                     ? 'bg-[#10b981]/15 text-[#6ee7b7] border border-[#10b981]/40'
                     : 'text-slate-400 hover:text-white border border-transparent'
                 ]"
               >
-                <span class="w-2 h-2 rounded-full bg-[#10b981]" />
-                En la App del Socio
+                <span class="w-2 h-2 shrink-0 rounded-full bg-[#10b981]" />
+                <span>En la App del Socio</span>
               </button>
               <button
                 @click="activeAiTab = 'warning'"
                 :class="[
-                  'px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-colors duration-200 cursor-pointer flex items-center gap-2',
+                  'w-full sm:w-auto px-3.5 sm:px-4 py-2.5 sm:py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-colors duration-200 cursor-pointer flex items-center justify-center sm:justify-start gap-2',
                   activeAiTab === 'warning'
                     ? 'bg-[#f59e0b]/15 text-[#f59e0b] border border-[#f59e0b]/40'
                     : 'text-slate-400 hover:text-white border border-transparent'
                 ]"
               >
-                <span class="w-2 h-2 rounded-full bg-[#f59e0b]" />
-                Rescate de Socio
+                <span class="w-2 h-2 shrink-0 rounded-full bg-[#f59e0b]" />
+                <span>Rescate de Socio</span>
               </button>
               <button
                 @click="activeAiTab = 'critical'"
                 :class="[
-                  'px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-colors duration-200 cursor-pointer flex items-center gap-2',
+                  'w-full sm:w-auto px-3.5 sm:px-4 py-2.5 sm:py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-colors duration-200 cursor-pointer flex items-center justify-center sm:justify-start gap-2',
                   activeAiTab === 'critical'
                     ? 'bg-[#ef4444]/15 text-[#ef4444] border border-[#ef4444]/40'
                     : 'text-slate-400 hover:text-white border border-transparent'
                 ]"
               >
-                <span class="w-2 h-2 rounded-full bg-[#ef4444]" />
-                Ayuda en Recepción
+                <span class="w-2 h-2 shrink-0 rounded-full bg-[#ef4444]" />
+                <span>Ayuda en Recepción</span>
               </button>
             </div>
           </div>
