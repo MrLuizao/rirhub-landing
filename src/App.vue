@@ -307,130 +307,6 @@ const adFormats = {
   }
 }
 
-// ═════════════════════════════════════════════════════════════════════════
-// NUESTRAS VENTAJAS (Carousel 01 a 06)
-// ═════════════════════════════════════════════════════════════════════════
-const activeAdvantage = ref(0)
-
-const advantages = [
-  {
-    id: '01',
-    category: 'RETENCIÓN PREDICTIVA',
-    title: 'La IA Te Avisa 18 Días Antes de Cada Abandono',
-    badge: 'Detén Cancelaciones',
-    metric: '-42% en Bajas de Socios',
-    icon: Brain,
-    summary: 'Aprende los hábitos de cada socio y te alerta semanas antes de que decida darse de baja.',
-    description:
-      'La mayoría de socios no cancelan por sorpresa: simplemente dejan de venir poco a poco. Nuestra IA detecta el momento exacto en que un socio rompe su rutina y actúa automáticamente con mensajes de motivación y alertas a tu equipo antes de que sea tarde.',
-    bullets: [
-      'Identifica el riesgo 18 a 21 días antes de la fecha de cobro',
-      'Diagnóstico en español claro ("Sin visitas hace 14 días")',
-      'Dispara notificaciones push de rescate automáticas',
-      'Indica a tu recepcionista a quién consentir al entrar'
-    ],
-    accentGrad: 'from-[#6d5df1] via-[#8b5cf6] to-[#4338ca]'
-  },
-  {
-    id: '02',
-    category: 'MEDIO PUBLICITARIO PROPIO',
-    title: 'Vende Espacios. Mide Resultados.',
-    badge: 'Ingresos Extra Pasivos',
-    metric: '6.3% CTR Promedio Real',
-    icon: Megaphone,
-    summary: 'Las marcas de tu zona pagan por anunciarse frente a tu audiencia cautiva sin costo de distribución.',
-    description:
-      'Negocios locales (nutrición, fisios, restaurantes fit, marcas deportivas) compran pauta directamente en /anuncia con tarjeta en Stripe. Tú sólo revisas el creativo en tu pantalla, tocas "Aprobar" y el dinero se deposita en tu cuenta bancaria.',
-    bullets: [
-      'Portal self-serve /anuncia con cobro automatizado en Stripe',
-      '12,810 impresiones promedio por campaña con 6.3% CTR real',
-      'Carrusel premium en Home, Directorio y Pushes masivos',
-      'Reporte automático de métricas e impactos al anunciante'
-    ],
-    accentGrad: 'from-[#6d5df1] via-[#8b5cf6] to-[#4338ca]'
-  },
-  {
-    id: '03',
-    category: 'RENOVACIONES DIGITALES',
-    title: 'La Renovación Es Ingreso. No lo Dejes en el Mostrador.',
-    badge: 'Stripe 1-Touch',
-    metric: '0 Filas en Recepción',
-    icon: CreditCard,
-    summary: 'Tus socios renuevan su mensualidad con 1 toque desde su celular con Apple Pay, Google Pay y tarjeta.',
-    description:
-      'Elimina las filas molestas en recepción los días 1 y 15 de cada mes. Tu mostrador queda libre de cobros rutinarios para enfocarse en vender nuevas inscripciones, mientras tus socios pagan desde cualquier lugar y reactivan su QR al segundo.',
-    bullets: [
-      'Acreditación inmediata a la cuenta bancaria de tu gimnasio',
-      'Renovación express in-app en menos de 10 segundos',
-      'Compatibilidad total con Apple Pay, Google Pay y tarjetas',
-      'Liberación de tiempo de recepción para ventas de mostrador'
-    ],
-    accentGrad: 'from-[#6d5df1] via-[#8b5cf6] to-[#4338ca]'
-  },
-  {
-    id: '04',
-    category: 'WHITE-LABEL NATIVO',
-    title: 'Tu Marca, No la Nuestra (100% Personalizada)',
-    badge: 'App Store & Google Play',
-    metric: '100% Tu Identidad',
-    icon: Trophy,
-    summary: 'Tu logotipo, tus colores corporativos y tu nombre oficial en App Store y Google Play.',
-    description:
-      'Tus miembros descargan la aplicación con tu propia marca comercial, no un software genérico de terceros. Fortalece el sentido de pertenencia y el estatus de tu club fitness con una experiencia móvil de nivel élite.',
-    bullets: [
-      'Publicación oficial en App Store (iOS) y Google Play (Android)',
-      'Identidad visual adaptada a los colores y tipografía de tu gym',
-      'Credencial digital con avatar y estatus de membresía',
-      'Canal de fidelización exclusivo con gamificación y recompensas'
-    ],
-    accentGrad: 'from-[#6d5df1] via-[#8b5cf6] to-[#4338ca]'
-  },
-  {
-    id: '05',
-    category: 'RECEPCIÓN DE ALTA VELOCIDAD',
-    title: 'Un Mostrador que Vuele: Check-In en <0.3s',
-    badge: 'Escáner QR + Aforo Realtime',
-    metric: '< 0.3s por Entrada',
-    icon: QrCode,
-    summary: 'QR dinámico para socios y pase unificado para convenios Wellhub / TotalPass sin cuellos de botella.',
-    description:
-      'Tu pantalla de recepción y la app móvil muestran la capacidad del gimnasio en tiempo real sin recargar la página. El escáner valida en décimas de segundo membresía activa, sede autorizada e integra convenios externos en una sola interfaz.',
-    bullets: [
-      'Control de aforo por sede en tiempo real sin recargar',
-      'Lectura de QR dinámico anticopia en milisegundos',
-      'Recepción unificada para socios y convenios externos',
-      'Cierre de día y arqueo automatizado cada noche'
-    ],
-    accentGrad: 'from-[#6d5df1] via-[#8b5cf6] to-[#4338ca]'
-  },
-  {
-    id: '06',
-    category: 'CONSOLA CENTRALIZADA',
-    title: 'Todas las Sedes, Una Sola Pantalla en Tiempo Real',
-    badge: 'Multi-Sede Unificada',
-    metric: '100% Sincronizado',
-    icon: MessageSquare,
-    summary: 'Control absoluto para directores y gerentes de sucursal con permisos estrictos por sede.',
-    description:
-      'Supervisa todas tus ubicaciones desde un solo panel de control web. Monitorea afluencia, asistencias a clases, facturación, entrenadores y soporte en vivo con segregación estricta de roles entre directores, gerentes y recepcionistas.',
-    bullets: [
-      'Tablero de control ejecutivo con KPIs consolidados',
-      'Gestión de clases grupales y aforo por sede horaria',
-      'Roles estrictos: Admin global, Gerente de sede y Recepcionista',
-      'Mensajería y soporte directo entre staff y socios'
-    ],
-    accentGrad: 'from-[#6d5df1] via-[#8b5cf6] to-[#4338ca]'
-  }
-]
-
-const nextAdvantage = () => {
-  activeAdvantage.value = (activeAdvantage.value + 1) % advantages.length
-}
-
-const prevAdvantage = () => {
-  activeAdvantage.value = (activeAdvantage.value - 1 + advantages.length) % advantages.length
-}
-
 // Active Ecosystem Tab ('b2b' | 'app')
 const activeEcosystemTab = ref('b2b')
 
@@ -517,45 +393,23 @@ onMounted(() => {
     <!-- ═══════════════════════════════════════════════════════════════════ -->
     <!-- NAVBAR                                                            -->
     <!-- ═══════════════════════════════════════════════════════════════════ -->
-    <nav class="sticky top-0 z-50 backdrop-blur-xl bg-[#07090e]/85 border-b border-[#1e2638]/70">
+    <nav class="sticky top-0 z-50 bg-[#07090e]">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-        <!-- Logo -->
-        <a href="#" class="flex items-center gap-3 group">
-          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#6d5df1] to-[#8b5cf6] flex items-center justify-center font-display text-white text-xl group-hover:scale-105 transition-transform duration-300">
-            R
-          </div>
-          <div class="flex flex-col">
-            <span class="font-display text-2xl tracking-tight text-white flex items-center gap-1.5">
-              RIR<span class="text-[#6d5df1]">HUB</span>
-              <span class="text-[10px] font-sans font-black tracking-widest px-1.5 py-0.5 rounded bg-[#1e2638] text-[#94a3b8] uppercase">B2B OS</span>
-            </span>
-          </div>
+        <!-- Logo (Sin caja R, solo nombre con gradiente de texto) -->
+        <a href="#" class="flex items-center">
+          <span class="font-display text-2xl tracking-tight text-white uppercase">
+            RIR<span class="bg-gradient-to-r from-[#6d5df1] via-[#8b5cf6] to-[#ec4899] bg-clip-text text-transparent">HUB</span>
+          </span>
         </a>
 
-        <!-- Desktop Navigation Links -->
-        <div class="hidden md:flex items-center gap-8 text-sm font-medium text-[#94a3b8]">
-          <a href="#audiencia" class="hover:text-white transition-colors duration-200">Tu Audiencia</a>
-          <a href="#ia" class="hover:text-[#6d5df1] transition-colors duration-200 flex items-center gap-1.5">
-            <Brain class="w-4 h-4 text-[#6d5df1]" />
-            <span>Retención con IA</span>
-          </a>
-          <a href="#monetizacion" class="hover:text-[#6d5df1] transition-colors duration-200 flex items-center gap-1.5">
-            <Megaphone class="w-4 h-4 text-[#6d5df1]" />
-            <span>Monetización</span>
-          </a>
-          <a href="#ventajas" class="hover:text-white transition-colors duration-200">Ventajas</a>
-          <a href="#ecosistema" class="hover:text-white transition-colors duration-200">Plataforma Dual</a>
-          <a href="#calculadora" class="hover:text-white transition-colors duration-200">Calculadora ROI</a>
-        </div>
-
-        <!-- CTA Buttons -->
+        <!-- CTA Header (Estilo Outline como "Descubre Cómo Te Ayuda la IA") -->
         <div class="flex items-center gap-3">
           <button
             @click="openDemoModal('Demo remota en vivo (30 min)')"
-            class="relative inline-flex items-center justify-center px-6 py-2.5 rounded-full text-xs font-black uppercase tracking-wider bg-[#6d5df1] hover:bg-[#5b4be2] text-white hover:scale-105 transition-all duration-300 cursor-pointer shadow-md shadow-[#6d5df1]/20"
+            class="px-5 py-2.5 rounded-xl border border-[#1e2638] bg-[#10141e]/80 hover:bg-[#10141e] hover:border-[#6d5df1]/50 text-white font-semibold text-xs tracking-wide uppercase transition-colors duration-200 flex items-center gap-2 cursor-pointer"
           >
-            Agendar Demo
-            <ArrowRight class="w-3.5 h-3.5 ml-1.5 stroke-[2.5]" />
+            <Calendar class="w-4 h-4 text-[#6d5df1]" />
+            <span>Agendar Demo</span>
           </button>
         </div>
       </div>
@@ -567,7 +421,7 @@ onMounted(() => {
     <section class="relative z-10 pt-12 pb-24 px-4 sm:px-6 lg:px-8">
       <div class="max-w-7xl mx-auto text-center">
         <!-- Floating Pill Header -->
-        <div class="reveal delay-100 inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#6d5df1]/40 bg-[#6d5df1]/15 text-[#6d5df1] text-xs font-bold tracking-wide uppercase mb-8 shadow-sm shadow-[#6d5df1]/20">
+        <div class="reveal delay-100 inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#6d5df1]/30 bg-[#6d5df1]/10 text-[#c4b5fd] text-xs font-bold tracking-wide uppercase mb-8">
           <Brain class="w-3.5 h-3.5 text-[#6d5df1] animate-pulse" />
           <span>Retención Predictiva con IA · App White-Label · Medio Publicitario Propio</span>
         </div>
@@ -581,97 +435,25 @@ onMounted(() => {
         </h1>
 
         <!-- Subhead -->
-        <p class="reveal delay-300 mt-6 text-lg sm:text-xl text-[#94a3b8] max-w-3xl mx-auto font-normal leading-relaxed">
-          RIR-HUB es el sistema operativo que <strong class="text-white font-semibold">frena la fuga de socios 18 días antes con Inteligencia Artificial</strong> y convierte tu app en un segundo mostrador: tus socios renuevan su membresía con un toque y las marcas de tu zona pagan por anunciarse frente a una audiencia cautiva que abre la app todos los días.
+        <p class="reveal delay-300 mt-6 text-lg sm:text-xl text-slate-100 max-w-3xl mx-auto font-normal leading-relaxed">
+          <span class="font-display font-black tracking-tight"><span class="text-white">RIR</span><span class="bg-gradient-to-r from-[#6d5df1] via-[#8b5cf6] to-[#ec4899] bg-clip-text text-transparent">HUB</span></span> es el sistema operativo que <strong class="text-[#c4b5fd] font-bold">frena la fuga de socios 18 días antes con Inteligencia Artificial</strong> y convierte tu app en un segundo mostrador: tus socios <strong class="text-[#6ee7b7] font-bold">renuevan su membresía con un toque</strong> y las marcas de tu zona pagan por anunciarse frente a una <strong class="text-[#38bdf8] font-bold">audiencia cautiva que abre la app todos los días</strong>.
         </p>
 
         <!-- Hero Buttons -->
         <div class="reveal delay-400 mt-9 flex flex-col sm:flex-row items-center justify-center gap-4">
           <button
             @click="openDemoModal('Demo remota en vivo (30 min)')"
-            class="w-full sm:w-auto px-8 py-4 rounded-xl bg-[#6d5df1] hover:bg-[#5b4be2] text-white font-display text-sm uppercase tracking-wider hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-[#6d5df1]/25"
+            class="w-full sm:w-auto px-8 py-4 rounded-xl bg-[#6d5df1] hover:bg-[#5b4be2] text-white font-display text-sm uppercase tracking-wider transition-colors duration-200 flex items-center justify-center cursor-pointer"
           >
-            <span>Agendar Demo en Vivo (30 min)</span>
-            <ArrowRight class="w-4 h-4 stroke-[2.5]" />
+            <span>Agendar Demo en Vivo</span>
           </button>
           <a
             href="#ia"
-            class="w-full sm:w-auto px-8 py-4 rounded-xl border border-[#1e2638] bg-[#10141e]/80 hover:bg-[#10141e] hover:border-[#6d5df1]/50 text-white font-semibold text-sm transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
+            class="w-full sm:w-auto px-8 py-4 rounded-xl border border-[#1e2638] bg-[#10141e]/80 hover:bg-[#10141e] hover:border-[#6d5df1]/50 text-white font-display text-sm uppercase tracking-wider transition-colors duration-200 flex items-center justify-center gap-2 cursor-pointer"
           >
             <Brain class="w-4 h-4 text-[#6d5df1]" />
-            <span>Descubre Cómo Te Ayuda la IA</span>
+            <span>CÓMO TE AYUDA LA IA</span>
           </a>
-        </div>
-
-        <!-- ═════════════════════════════════════════════════════════════════ -->
-        <!-- BROWSER MOCKUP CONTAINER (Perspectiva 3D Cinemática)              -->
-        <!-- ═════════════════════════════════════════════════════════════════ -->
-        <div class="reveal-scale delay-500 perspective-container mt-14 max-w-5xl mx-auto relative group">
-          <div class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-[#6d5df1]/25 via-[#ea580c]/20 to-[#6d5df1]/25 opacity-70 blur-2xl group-hover:opacity-100 transition-opacity duration-700" />
-
-          <div class="perspective-tilt relative rounded-2xl border border-[#1e2638] bg-[#10141e] shadow-2xl overflow-hidden text-left">
-            <!-- Window Topbar -->
-            <div class="h-11 px-4 border-b border-[#1e2638] bg-[#0c0f17] flex items-center justify-between">
-              <div class="flex items-center gap-2">
-                <div class="w-3 h-3 rounded-full bg-[#ef4444]/80" />
-                <div class="w-3 h-3 rounded-full bg-[#f59e0b]/80" />
-                <div class="w-3 h-3 rounded-full bg-[#10b981]/80" />
-              </div>
-
-              <div class="flex items-center gap-2 px-4 py-1 rounded-md bg-[#131823] border border-[#1e2638] text-[11px] text-[#94a3b8] font-mono">
-                <Lock class="w-3 h-3 text-[#10b981]" />
-                <span>app.rirhub.com/consola-inteligente</span>
-              </div>
-
-              <div class="flex items-center gap-2 text-[11px] font-semibold text-[#10b981]">
-                <span class="w-2 h-2 rounded-full bg-[#10b981] animate-ping" />
-                <span>En Vivo</span>
-              </div>
-            </div>
-
-            <!-- Preview Image with Floating Real-Action Badges -->
-            <div class="relative aspect-video bg-[#0b0e14] overflow-hidden">
-              <img
-                src="/shots/dashboard.png"
-                alt="RIR-HUB Consola B2B"
-                class="w-full h-full object-cover object-top opacity-95 group-hover:scale-[1.01] transition-transform duration-700"
-              />
-
-              <!-- Floating Micro-Card 1: AI Alert in Plain Language -->
-              <div class="absolute top-6 left-6 max-w-xs p-4 rounded-xl border border-[#ef4444]/50 bg-[#07090e]/95 backdrop-blur-md shadow-2xl">
-                <div class="flex items-center justify-between text-xs font-bold text-[#ef4444] mb-1">
-                  <span class="flex items-center gap-1.5">
-                    <Brain class="w-3.5 h-3.5" />
-                    Socio en Riesgo de Baja
-                  </span>
-                  <span class="px-2 py-0.5 rounded bg-[#ef4444]/20 text-[10px] font-black uppercase">84% Riesgo</span>
-                </div>
-                <p class="text-xs text-white font-bold">Carlos Morales (Sede Roma)</p>
-                <p class="text-[11px] text-[#94a3b8] mt-0.5">Lleva 14 días sin asistir tras romper su racha habitual.</p>
-                <div class="mt-2.5 pt-2 border-t border-[#1e2638] flex items-center justify-between text-[11px]">
-                  <span class="text-[#10b981] flex items-center gap-1 font-semibold">
-                    <CheckCircle2 class="w-3 h-3" />
-                    Push de rescate enviado
-                  </span>
-                  <span class="text-[#6d5df1] font-bold">18 días antes</span>
-                </div>
-              </div>
-
-              <!-- Floating Micro-Card 2: Advertising Revenue -->
-              <div class="absolute bottom-6 right-6 p-4 rounded-xl border border-[#6d5df1]/50 bg-[#07090e]/95 backdrop-blur-md shadow-2xl">
-                <div class="flex items-center gap-2 text-xs font-bold text-[#6d5df1] mb-1">
-                  <Megaphone class="w-3.5 h-3.5" />
-                  <span>Publicidad Local Directa</span>
-                </div>
-                <div class="text-2xl font-display text-white">+$42,500 MXN</div>
-                <p class="text-[11px] text-[#94a3b8]">Pagado en automático por 5 negocios locales en /anuncia</p>
-                <div class="mt-2 flex items-center gap-1 text-[10px] text-[#10b981] font-semibold">
-                  <DollarSign class="w-3 h-3" />
-                  <span>Depositado directo a la cuenta del gimnasio</span>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -679,77 +461,112 @@ onMounted(() => {
     <!-- ═══════════════════════════════════════════════════════════════════ -->
     <!-- THE HOOK: TU APP ES UN MEDIO DE COMUNICACIÓN (Slide 2 del Deck)    -->
     <!-- ═══════════════════════════════════════════════════════════════════ -->
-    <section id="audiencia" class="relative z-10 py-16 px-4 sm:px-6 lg:px-8 border-y border-[#1e2638] bg-[#0c0f17]/90">
-      <div class="max-w-7xl mx-auto">
-        <div class="reveal text-center max-w-3xl mx-auto mb-12">
-          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#6d5df1]/10 border border-[#6d5df1]/30 text-[#6d5df1] text-xs font-bold uppercase tracking-wider mb-3">
-            <Brain class="w-3.5 h-3.5 text-[#6d5df1]" />
-            <span>Retención con IA + Monetización de Audiencia</span>
+    <section id="audiencia" class="relative z-10 py-20 px-4 sm:px-6 lg:px-8 border-y border-[#1e2638] bg-[#0b0e17] overflow-hidden">
+      <!-- Glow ambiental de alto contraste para legibilidad perfecta -->
+      <div class="absolute top-12 left-1/2 -translate-x-1/2 w-[750px] h-[300px] bg-gradient-to-b from-[#6d5df1]/15 via-[#8b5cf6]/8 to-transparent blur-[140px] pointer-events-none rounded-full" />
+
+      <div class="max-w-7xl mx-auto relative z-10">
+        <!-- Section Header -->
+        <div class="reveal text-center max-w-3xl mx-auto mb-14">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#6d5df1]/15 border border-[#6d5df1]/40 text-[#a78bfa] text-xs font-bold uppercase tracking-wider mb-4 shadow-sm shadow-[#6d5df1]/15">
+            <Brain class="w-3.5 h-3.5 text-[#a78bfa]" />
+            <span>El Doble Motor de Tu Gimnasio</span>
           </div>
-          <h2 class="font-display text-2xl sm:text-4xl uppercase tracking-tight text-white leading-tight">
-            Detén las Bajas con IA y Activa Tu Audiencia
-            <span class="block bg-gradient-to-r from-[#6d5df1] via-[#8b5cf6] to-[#ec4899] bg-clip-text text-transparent">
-              Como un Medio de Comunicación Propio.
+
+          <h2 class="font-display text-3xl sm:text-5xl uppercase tracking-tight text-white leading-[1.08]">
+            Detén las Bajas con IA.
+            <span class="block bg-gradient-to-r from-[#8b5cf6] via-[#a855f7] to-[#f472b6] bg-clip-text text-transparent drop-shadow-sm">
+              Activa Tu Audiencia como un Medio Propio.
             </span>
           </h2>
-          <p class="mt-3 text-sm sm:text-base text-[#94a3b8] leading-relaxed">
-            La plataforma dual que protege tu facturación: <strong class="text-white">la IA predictiva rescata a socios en riesgo 18 días antes</strong> y las marcas de tu zona pagan por llegar a una comunidad activa con $0 costo de distribución.
+
+          <p class="mt-4 text-base sm:text-lg text-slate-100 leading-relaxed max-w-3xl mx-auto font-normal">
+            La plataforma dual que blinda tus ingresos: <strong class="text-[#c4b5fd] font-bold">la IA predictiva rescata socios 18 días antes</strong> de que cancelen y las marcas locales pagan por anunciarse frente a una comunidad activa con <strong class="text-[#6ee7b7] font-bold">$0 costo de distribución</strong>.
           </p>
         </div>
 
+        <!-- 4 Metric Cards (Framer Aesthetic) -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div class="reveal delay-100 relative p-6 rounded-2xl border border-[#6d5df1]/40 bg-[#10141e]/90 group hover:border-[#6d5df1] transition-all duration-300 flex flex-col justify-between shadow-[0_0_25px_rgba(109,93,241,0.08)]">
+          <!-- Card 1: IA Churn -->
+          <div class="reveal delay-100 relative p-6 sm:p-7 rounded-2xl border border-[#6d5df1]/40 bg-[#10141e]/90 hover:border-[#6d5df1] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between shadow-[0_0_30px_rgba(109,93,241,0.1)] group">
             <div>
-              <div class="text-3xl lg:text-4xl font-display text-[#6d5df1] mb-1">-42%</div>
-              <div class="text-sm font-bold text-white uppercase tracking-wide">Deserción con IA</div>
-              <p class="text-xs text-[#94a3b8] mt-2 leading-relaxed">
-                Aprende los hábitos de cada socio y detecta la ruptura de rutina 18 días antes de que decida no renovar.
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded bg-[#6d5df1]/15 text-[#6d5df1] border border-[#6d5df1]/30">
+                  Retención IA
+                </span>
+                <span class="w-2 h-2 rounded-full bg-[#6d5df1] animate-pulse" />
+              </div>
+              <div class="text-4xl lg:text-5xl font-display text-[#6d5df1] tracking-tight mb-2">-42%</div>
+              <div class="text-sm font-bold text-white uppercase tracking-wide">Deserción de Socios</div>
+              <p class="text-xs sm:text-sm text-slate-100 mt-2 leading-relaxed">
+                Aprende los hábitos de cada socio y detecta la ruptura de rutina 18 días antes del corte de pago.
               </p>
             </div>
-            <div class="mt-4 pt-3 border-t border-[#1e2638] text-[11px] font-semibold text-[#6d5df1] flex items-center gap-1.5">
-              <Brain class="w-3.5 h-3.5" />
+            <div class="mt-6 pt-4 border-t border-[#1e2638] text-xs sm:text-sm font-bold text-[#6d5df1] flex items-center gap-2">
+              <Brain class="w-4 h-4 shrink-0" />
               <span>Predicción temprana anti-churn</span>
             </div>
           </div>
 
-          <div class="reveal delay-200 relative p-6 rounded-2xl border border-[#1e2638] bg-[#10141e]/90 group hover:border-[#6d5df1]/50 transition-all duration-300 flex flex-col justify-between">
+          <!-- Card 2: 100% Cautivo -->
+          <div class="reveal delay-200 relative p-6 sm:p-7 rounded-2xl border border-[#1e2638] bg-[#10141e]/90 hover:border-[#38bdf8]/60 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group">
             <div>
-              <div class="text-3xl lg:text-4xl font-display text-white mb-1">100%</div>
-              <div class="text-sm font-bold text-white uppercase tracking-wide">Audiencia Cautiva</div>
-              <p class="text-xs text-[#94a3b8] mt-2 leading-relaxed">
-                Toda la audiencia es tu propio socio activo. Abren la app a diario para QR, aforo y clases sin desperdicio de impactos.
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded bg-[#38bdf8]/15 text-[#38bdf8] border border-[#38bdf8]/30">
+                  Audiencia Fiel
+                </span>
+                <CheckCircle2 class="w-3.5 h-3.5 text-[#38bdf8]" />
+              </div>
+              <div class="text-4xl lg:text-5xl font-display text-[#38bdf8] tracking-tight mb-2">100%</div>
+              <div class="text-sm font-bold text-white uppercase tracking-wide">Es Tu Propio Socio</div>
+              <p class="text-xs sm:text-sm text-slate-100 mt-2 leading-relaxed">
+                Audiencia cautiva, activa y local. Abren la app a diario para QR, aforo y clases sin impactos desperdiciados.
               </p>
             </div>
-            <div class="mt-4 pt-3 border-t border-[#1e2638] text-[11px] font-semibold text-[#10b981] flex items-center gap-1.5">
-              <CheckCircle2 class="w-3.5 h-3.5" />
+            <div class="mt-6 pt-4 border-t border-[#1e2638] text-xs sm:text-sm font-bold text-[#38bdf8] flex items-center gap-2">
+              <CheckCircle2 class="w-4 h-4 shrink-0" />
               <span>Target hiper-segmentado</span>
             </div>
           </div>
 
-          <div class="reveal delay-300 relative p-6 rounded-2xl border border-[#1e2638] bg-[#10141e]/90 group hover:border-[#6d5df1]/50 transition-all duration-300 flex flex-col justify-between">
+          <!-- Card 3: $0 Costo Distribución -->
+          <div class="reveal delay-300 relative p-6 sm:p-7 rounded-2xl border border-[#1e2638] bg-[#10141e]/90 hover:border-[#10b981]/60 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group">
             <div>
-              <div class="text-3xl lg:text-4xl font-display text-[#10b981] mb-1">$0</div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded bg-[#10b981]/15 text-[#10b981] border border-[#10b981]/30">
+                  Canal Propio
+                </span>
+                <TrendingUp class="w-3.5 h-3.5 text-[#10b981]" />
+              </div>
+              <div class="text-4xl lg:text-5xl font-display text-[#10b981] tracking-tight mb-2">$0</div>
               <div class="text-sm font-bold text-white uppercase tracking-wide">Costo de Distribución</div>
-              <p class="text-xs text-[#94a3b8] mt-2 leading-relaxed">
-                Canal 100% propio. Las marcas de tu vecindario pagan por pauta directa y el dinero cae íntegro a tu cuenta.
+              <p class="text-xs sm:text-sm text-slate-100 mt-2 leading-relaxed">
+                Medio 100% propio. Las marcas pagan por pauta directa y el dinero ingresa íntegro a tu cuenta bancaria.
               </p>
             </div>
-            <div class="mt-4 pt-3 border-t border-[#1e2638] text-[11px] font-semibold text-[#10b981] flex items-center gap-1.5">
-              <TrendingUp class="w-3.5 h-3.5" />
+            <div class="mt-6 pt-4 border-t border-[#1e2638] text-xs sm:text-sm font-bold text-[#10b981] flex items-center gap-2">
+              <TrendingUp class="w-4 h-4 shrink-0" />
               <span>100% margen para tu gym</span>
             </div>
           </div>
 
-          <div class="reveal delay-400 relative p-6 rounded-2xl border border-[#1e2638] bg-[#10141e]/90 group hover:border-[#6d5df1]/50 transition-all duration-300 flex flex-col justify-between">
+          <!-- Card 4: Pauta con CTR real -->
+          <div class="reveal delay-400 relative p-6 sm:p-7 rounded-2xl border border-[#1e2638] bg-[#10141e]/90 hover:border-[#ec4899]/60 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group">
             <div>
-              <div class="text-3xl lg:text-4xl font-display text-[#8b5cf6] mb-1">+$32K</div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded bg-[#ec4899]/15 text-[#ec4899] border border-[#ec4899]/30">
+                  Pauta Local
+                </span>
+                <Sparkles class="w-3.5 h-3.5 text-[#ec4899]" />
+              </div>
+              <div class="text-4xl lg:text-5xl font-display text-[#ec4899] tracking-tight mb-2">+$32K</div>
               <div class="text-sm font-bold text-white uppercase tracking-wide">Ingreso Extra / Sede</div>
-              <p class="text-xs text-[#94a3b8] mt-2 leading-relaxed">
-                12,810 impresiones promedio con 6.3% CTR real cobrado en piloto automático con Stripe en /anuncia.
+              <p class="text-xs sm:text-sm text-slate-100 mt-2 leading-relaxed">
+                12,810 impresiones promedio con 6.3% CTR real cobrado en piloto automático con Stripe en <a href="https://gym-b2b-template.vercel.app/anuncia" target="_blank" rel="noopener noreferrer" class="text-[#38bdf8] hover:text-[#7dd3fc] underline decoration-[#38bdf8]/40 hover:decoration-[#38bdf8] transition-colors">/anuncia</a>.
               </p>
             </div>
-            <div class="mt-4 pt-3 border-t border-[#1e2638] text-[11px] font-semibold text-[#8b5cf6] flex items-center gap-1.5">
-              <Sparkles class="w-3.5 h-3.5" />
+            <div class="mt-6 pt-4 border-t border-[#1e2638] text-xs sm:text-sm font-bold text-[#ec4899] flex items-center gap-2">
+              <Sparkles class="w-4 h-4 shrink-0" />
               <span>Resultados comprobados</span>
             </div>
           </div>
@@ -770,10 +587,12 @@ onMounted(() => {
           </div>
           <h2 class="font-display text-3xl sm:text-5xl uppercase tracking-tight text-white leading-tight">
             ¿Por Qué se Van Tus Socios?
-            <span class="block text-[#6d5df1]">La IA Te lo Avisa Antes de que Cancelen.</span>
+            <span class="block bg-gradient-to-r from-[#6d5df1] via-[#8b5cf6] to-[#ec4899] bg-clip-text text-transparent drop-shadow-sm">
+              La IA Te lo Avisa Antes de que Cancelen.
+            </span>
           </h2>
-          <p class="mt-4 text-base sm:text-lg text-[#94a3b8] leading-relaxed">
-            El 70% de las cancelaciones en un gimnasio no ocurren por sorpresa: el socio pasa semanas espaciando sus visitas hasta que finalmente decide no pagar. Los software tradicionales te avisan cuando ya es tarde; <strong class="text-white">RIR-HUB actúa 18 días antes</strong>.
+          <p class="mt-4 text-base sm:text-lg text-slate-100 leading-relaxed max-w-3xl mx-auto font-normal">
+            El 70% de las cancelaciones en un gimnasio no ocurren por sorpresa: el socio espacia sus visitas semanas antes de abandonar. Mientras los software tradicionales avisan cuando ya es tarde, <span class="font-display font-black tracking-tight"><span class="text-white">RIR</span><span class="bg-gradient-to-r from-[#6d5df1] via-[#8b5cf6] to-[#ec4899] bg-clip-text text-transparent">HUB</span></span> <strong class="text-[#c4b5fd] font-bold">predice y actúa 18 días antes</strong> para <strong class="text-[#6ee7b7] font-bold">salvar esa mensualidad en automático</strong>.
           </p>
         </div>
 
@@ -792,86 +611,123 @@ onMounted(() => {
             </defs>
           </svg>
 
-          <div class="reveal delay-100 relative z-10 p-6 rounded-2xl border border-[#1e2638] bg-[#10141e] hover:border-[#6d5df1]/50 transition-all duration-300 flex flex-col justify-between">
+          <div class="reveal delay-100 relative z-10 p-6 sm:p-7 rounded-2xl border border-[#1e2638] bg-[#10141e]/90 hover:border-[#6d5df1]/60 transition-all duration-300 flex flex-col justify-between shadow-lg shadow-black/40 group">
             <div>
-              <div class="w-10 h-10 rounded-xl bg-[#6d5df1]/10 text-[#6d5df1] font-display text-lg flex items-center justify-center mb-4">
-                1
+              <div class="flex items-center justify-between mb-4">
+                <div class="w-10 h-10 rounded-xl bg-[#6d5df1]/15 border border-[#6d5df1]/30 text-[#c4b5fd] font-display text-base font-bold flex items-center justify-center">
+                  01
+                </div>
+                <span class="text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#6d5df1]/15 text-[#c4b5fd] border border-[#6d5df1]/30">
+                  Paso 1
+                </span>
               </div>
-              <h3 class="font-display text-lg uppercase text-white mb-2">Aprende la Rutina de Cada Socio</h3>
-              <p class="text-xs text-[#94a3b8] leading-relaxed">
-                El sistema conoce qué días suele entrenar cada socio, a qué horas, qué clases prefiere y cuál es su meta semanal. No necesitas configurar nada: la IA aprende sola con cada check-in.
+              <h3 class="font-display text-lg uppercase tracking-tight text-white mb-2.5 group-hover:text-[#c4b5fd] transition-colors">
+                Aprende la Rutina de Cada Socio
+              </h3>
+              <p class="text-sm sm:text-base text-slate-100 leading-relaxed font-normal">
+                Mapea días, horarios y clases favoritas. <strong class="text-[#c4b5fd] font-semibold">Aprende sola con cada check-in</strong> sin configuraciones manuales.
               </p>
             </div>
-            <div class="mt-4 pt-3 border-t border-[#1e2638] text-[11px] font-semibold text-[#6d5df1] flex items-center gap-1.5">
-              <Eye class="w-3.5 h-3.5" />
+            <div class="mt-6 pt-4 border-t border-[#1e2638] text-sm sm:text-base font-bold text-[#c4b5fd] flex items-center gap-2 sm:gap-2.5">
+              <Eye class="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
               <span>Monitoreo silencioso 24/7</span>
             </div>
           </div>
 
-          <div class="reveal delay-200 relative z-10 p-6 rounded-2xl border border-[#1e2638] bg-[#10141e] hover:border-[#ea580c]/50 transition-all duration-300 flex flex-col justify-between">
+          <div class="reveal delay-200 relative z-10 p-6 sm:p-7 rounded-2xl border border-[#1e2638] bg-[#10141e]/90 hover:border-[#ea580c]/60 transition-all duration-300 flex flex-col justify-between shadow-lg shadow-black/40 group">
             <div>
-              <div class="w-10 h-10 rounded-xl bg-[#ea580c]/10 text-[#ea580c] font-display text-lg flex items-center justify-center mb-4">
-                2
+              <div class="flex items-center justify-between mb-4">
+                <div class="w-10 h-10 rounded-xl bg-[#ea580c]/15 border border-[#ea580c]/30 text-[#f59e0b] font-display text-base font-bold flex items-center justify-center">
+                  02
+                </div>
+                <span class="text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#ea580c]/15 text-[#f59e0b] border border-[#ea580c]/30">
+                  Paso 2
+                </span>
               </div>
-              <h3 class="font-display text-lg uppercase text-white mb-2">Detecta el Peligro 18 Días Antes</h3>
-              <p class="text-xs text-[#94a3b8] leading-relaxed">
-                Si un socio que venía 4 días por semana empieza a venir 1, o rompe su racha de visitas, el semáforo inteligente se enciende en amarillo o rojo y te explica la razón exacta en lenguaje humano.
+              <h3 class="font-display text-lg uppercase tracking-tight text-white mb-2.5 group-hover:text-[#f59e0b] transition-colors">
+                Detecta el Peligro 18 Días Antes
+              </h3>
+              <p class="text-sm sm:text-base text-slate-100 leading-relaxed font-normal">
+                Identifica la ruptura de rutina semanas antes del corte. Te alerta en <strong class="text-[#f59e0b] font-semibold">amarillo o rojo</strong> con la causa exacta.
               </p>
             </div>
-            <div class="mt-4 pt-3 border-t border-[#1e2638] text-[11px] font-semibold text-[#ea580c] flex items-center gap-1.5">
-              <AlertTriangle class="w-3.5 h-3.5" />
+            <div class="mt-6 pt-4 border-t border-[#1e2638] text-sm sm:text-base font-bold text-[#f59e0b] flex items-center gap-2 sm:gap-2.5">
+              <AlertTriangle class="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
               <span>Diagnóstico explicativo claro</span>
             </div>
           </div>
 
-          <div class="reveal delay-300 relative z-10 p-6 rounded-2xl border border-[#1e2638] bg-[#10141e] hover:border-[#10b981]/50 transition-all duration-300 flex flex-col justify-between">
+          <div class="reveal delay-300 relative z-10 p-6 sm:p-7 rounded-2xl border border-[#1e2638] bg-[#10141e]/90 hover:border-[#10b981]/60 transition-all duration-300 flex flex-col justify-between shadow-lg shadow-black/40 group">
             <div>
-              <div class="w-10 h-10 rounded-xl bg-[#10b981]/10 text-[#10b981] font-display text-lg flex items-center justify-center mb-4">
-                3
+              <div class="flex items-center justify-between mb-4">
+                <div class="w-10 h-10 rounded-xl bg-[#10b981]/15 border border-[#10b981]/30 text-[#6ee7b7] font-display text-base font-bold flex items-center justify-center">
+                  03
+                </div>
+                <span class="text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#10b981]/15 text-[#6ee7b7] border border-[#10b981]/30">
+                  Paso 3
+                </span>
               </div>
-              <h3 class="font-display text-lg uppercase text-white mb-2">Rescata al Socio en Automático</h3>
-              <p class="text-xs text-[#94a3b8] leading-relaxed">
-                Dispara un mensaje push motivacional al celular del socio («Te extrañamos, ven hoy y gana puntos dobles») o le genera un aviso a tu recepcionista para que lo salude con entusiasmo al volver.
+              <h3 class="font-display text-lg uppercase tracking-tight text-white mb-2.5 group-hover:text-[#6ee7b7] transition-colors">
+                Rescata al Socio en Automático
+              </h3>
+              <p class="text-sm sm:text-base text-slate-100 leading-relaxed font-normal">
+                Envía <strong class="text-[#6ee7b7] font-semibold">pushes inteligentes con incentivos</strong> y avisa a tu staff en recepción para salvar la mensualidad.
               </p>
             </div>
-            <div class="mt-4 pt-3 border-t border-[#1e2638] text-[11px] font-semibold text-[#10b981] flex items-center gap-1.5">
-              <Zap class="w-3.5 h-3.5" />
+            <div class="mt-6 pt-4 border-t border-[#1e2638] text-sm sm:text-base font-bold text-[#6ee7b7] flex items-center gap-2 sm:gap-2.5">
+              <Zap class="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
               <span>Recuperación antes de cancelar</span>
             </div>
           </div>
         </div>
 
         <!-- SIMULADOR INTERACTIVO DEL SEMÁFORO DE RETENCIÓN -->
-        <div class="reveal-scale delay-200 p-8 sm:p-10 rounded-3xl border-2 border-[#1e2638] bg-[#10141e] shadow-2xl relative overflow-hidden">
+        <div class="reveal-scale delay-200 p-7 sm:p-9 rounded-3xl border-2 border-[#1e2638] bg-[#10141e] shadow-2xl relative overflow-hidden">
           <div class="flex flex-col lg:flex-row lg:items-center justify-between pb-6 border-b border-[#1e2638] gap-4">
             <div>
-              <div class="text-xs font-bold uppercase tracking-wider text-[#6d5df1] mb-1">
-                Simulador en Vivo para Dueños de Gimnasio
+              <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#6d5df1]/15 text-[#c4b5fd] border border-[#6d5df1]/30 text-xs font-bold uppercase tracking-wider mb-2">
+                <Activity class="w-3.5 h-3.5 text-[#6d5df1]" />
+                <span>Simulador en Vivo para Dueños de Gym</span>
               </div>
-              <h3 class="font-display text-2xl uppercase tracking-tight text-white">
+              <h3 class="font-display text-2xl sm:text-3xl uppercase tracking-tight text-white">
                 Mira Cómo Evalúa la IA a Tres de Tus Socios
               </h3>
             </div>
 
-            <!-- Tab Buttons (Green, Yellow, Red) -->
-            <div class="flex items-center gap-2 p-1.5 rounded-xl bg-[#07090e] border border-[#1e2638]">
+            <!-- Tab Buttons (Green, Yellow, Red) con diseño Framer refinado -->
+            <div class="flex items-center gap-1.5 p-1.5 rounded-xl bg-[#0a0d14] border border-[#1e2638]">
               <button
                 @click="activeAiTab = 'healthy'"
-                :class="[ 'px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all cursor-pointer flex items-center gap-1.5', activeAiTab === 'healthy' ? 'bg-[#10b981] text-black shadow-md font-black' : 'text-[#94a3b8] hover:text-white' ]"
+                :class="[
+                  'px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-colors duration-200 cursor-pointer flex items-center gap-2',
+                  activeAiTab === 'healthy'
+                    ? 'bg-[#10b981]/15 text-[#6ee7b7] border border-[#10b981]/40'
+                    : 'text-slate-400 hover:text-white border border-transparent'
+                ]"
               >
-                <span class="w-2 h-2 rounded-full bg-[#10b981]" :class="activeAiTab === 'healthy' ? 'bg-black' : ''" />
+                <span class="w-2 h-2 rounded-full bg-[#10b981]" />
                 Socio Fiel
               </button>
               <button
                 @click="activeAiTab = 'warning'"
-                :class="[ 'px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all cursor-pointer flex items-center gap-1.5', activeAiTab === 'warning' ? 'bg-[#f59e0b] text-black shadow-md font-black' : 'text-[#94a3b8] hover:text-white' ]"
+                :class="[
+                  'px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-colors duration-200 cursor-pointer flex items-center gap-2',
+                  activeAiTab === 'warning'
+                    ? 'bg-[#f59e0b]/15 text-[#f59e0b] border border-[#f59e0b]/40'
+                    : 'text-slate-400 hover:text-white border border-transparent'
+                ]"
               >
-                <span class="w-2 h-2 rounded-full bg-[#f59e0b]" :class="activeAiTab === 'warning' ? 'bg-black' : ''" />
+                <span class="w-2 h-2 rounded-full bg-[#f59e0b]" />
                 Alerta Temprana
               </button>
               <button
                 @click="activeAiTab = 'critical'"
-                :class="[ 'px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all cursor-pointer flex items-center gap-1.5', activeAiTab === 'critical' ? 'bg-[#ef4444] text-white shadow-md font-black' : 'text-[#94a3b8] hover:text-white' ]"
+                :class="[
+                  'px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-colors duration-200 cursor-pointer flex items-center gap-2',
+                  activeAiTab === 'critical'
+                    ? 'bg-[#ef4444]/15 text-[#ef4444] border border-[#ef4444]/40'
+                    : 'text-slate-400 hover:text-white border border-transparent'
+                ]"
               >
                 <span class="w-2 h-2 rounded-full bg-[#ef4444]" />
                 Riesgo Crítico
@@ -880,62 +736,94 @@ onMounted(() => {
           </div>
 
           <!-- Active Case Content -->
-          <div class="mt-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center animate-fadeIn">
-            <!-- Left Info Column -->
-            <div class="lg:col-span-5 space-y-4">
-              <div class="flex items-center gap-3">
-                <div class="w-12 h-12 rounded-xl bg-[#07090e] border border-[#1e2638] flex items-center justify-center font-display text-white text-lg">
-                  {{ aiSimulatorCases[activeAiTab].member.name.charAt(0) }}
+          <div class="mt-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch animate-fadeIn">
+            <!-- Left Info Column: Ficha del Socio -->
+            <div class="lg:col-span-5 p-6 rounded-2xl bg-[#0a0d14] border border-[#1e2638] flex flex-col justify-between space-y-5">
+              <div class="space-y-4">
+                <div class="flex items-center gap-3.5">
+                  <div class="relative">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#1c2436] to-[#0f1420] border border-[#2a364f] flex items-center justify-center font-display text-white font-black text-base shadow-inner">
+                      {{ aiSimulatorCases[activeAiTab].member.name.split(' ').map(n => n[0]).join('') }}
+                    </div>
+                    <span
+                      class="absolute -bottom-1 -right-1 w-3.5 h-3.5 rounded-full border-2 border-[#0a0d14]"
+                      :class="activeAiTab === 'healthy' ? 'bg-[#10b981]' : activeAiTab === 'warning' ? 'bg-[#f59e0b]' : 'bg-[#ef4444]'"
+                    />
+                  </div>
+                  <div>
+                    <h4 class="font-display text-lg uppercase tracking-tight text-white">
+                      {{ aiSimulatorCases[activeAiTab].member.name }}
+                    </h4>
+                    <p class="text-xs text-slate-300 font-medium">
+                      {{ aiSimulatorCases[activeAiTab].member.plan }}
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h4 class="font-display text-xl text-white">{{ aiSimulatorCases[activeAiTab].member.name }}</h4>
-                  <p class="text-xs text-[#94a3b8]">{{ aiSimulatorCases[activeAiTab].member.plan }}</p>
+
+                <div class="space-y-3 p-4 rounded-xl bg-[#0f131d] border border-[#1e2638]/70 text-xs">
+                  <div>
+                    <span class="text-[10px] font-black uppercase tracking-wider text-slate-400 block mb-0.5">
+                      Hábito Registrado
+                    </span>
+                    <p class="text-slate-100 font-medium leading-relaxed">
+                      {{ aiSimulatorCases[activeAiTab].member.habit }}
+                    </p>
+                  </div>
+                  <div class="pt-2.5 border-t border-[#1e2638]/70">
+                    <span class="text-[10px] font-black uppercase tracking-wider text-slate-400 block mb-0.5">
+                      Historial Reciente
+                    </span>
+                    <p class="text-slate-200 font-normal leading-relaxed">
+                      {{ aiSimulatorCases[activeAiTab].member.history }}
+                    </p>
+                  </div>
                 </div>
               </div>
 
-              <div class="p-4 rounded-xl bg-[#07090e] border border-[#1e2638] space-y-2 text-xs">
-                <div>
-                  <span class="text-[#94a3b8] font-medium block">Hábito registrado:</span>
-                  <span class="text-white font-semibold">{{ aiSimulatorCases[activeAiTab].member.habit }}</span>
-                </div>
-                <div>
-                  <span class="text-[#94a3b8] font-medium block">Historial reciente:</span>
-                  <span class="text-white">{{ aiSimulatorCases[activeAiTab].member.history }}</span>
-                </div>
-              </div>
-
-              <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border text-xs font-bold uppercase tracking-wider" :class="aiSimulatorCases[activeAiTab].badgeClass">
+              <div
+                class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider border self-start shadow-sm"
+                :class="aiSimulatorCases[activeAiTab].badgeClass"
+              >
+                <span
+                  class="w-2 h-2 rounded-full animate-pulse"
+                  :class="activeAiTab === 'healthy' ? 'bg-[#10b981]' : activeAiTab === 'warning' ? 'bg-[#f59e0b]' : 'bg-[#ef4444]'"
+                />
                 <span>{{ aiSimulatorCases[activeAiTab].tag }}</span>
               </div>
             </div>
 
-            <!-- Right Action & Outcome Column -->
-            <div class="lg:col-span-7 space-y-4 p-6 rounded-2xl bg-[#07090e] border border-[#1e2638]">
-              <div>
-                <span class="text-[11px] font-bold uppercase tracking-wider text-[#94a3b8] flex items-center gap-1.5 mb-1">
-                  <Brain class="w-3.5 h-3.5 text-[#6d5df1]" />
-                  Qué Detectó la Inteligencia Artificial:
-                </span>
-                <p class="text-sm text-white font-medium leading-relaxed">
-                  {{ aiSimulatorCases[activeAiTab].aiDetection }}
-                </p>
+            <!-- Right Action & Outcome Column: Diagnóstico y Acción IA -->
+            <div class="lg:col-span-7 p-6 sm:p-7 rounded-2xl bg-[#0a0d14] border border-[#1e2638] flex flex-col justify-between space-y-6 shadow-xl">
+              <div class="space-y-5">
+                <div>
+                  <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#6d5df1]/15 text-[#c4b5fd] border border-[#6d5df1]/30 text-[10px] font-black uppercase tracking-wider mb-2.5">
+                    <Brain class="w-3.5 h-3.5 text-[#6d5df1]" />
+                    <span>Diagnóstico de la Inteligencia Artificial</span>
+                  </div>
+                  <p class="text-sm sm:text-base text-slate-100 font-normal leading-relaxed">
+                    {{ aiSimulatorCases[activeAiTab].aiDetection }}
+                  </p>
+                </div>
+
+                <div class="pt-5 border-t border-[#1e2638]">
+                  <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#10b981]/15 text-[#6ee7b7] border border-[#10b981]/30 text-[10px] font-black uppercase tracking-wider mb-2.5">
+                    <Zap class="w-3.5 h-3.5 text-[#10b981]" />
+                    <span>Acción Automatizada por el Sistema</span>
+                  </div>
+                  <p class="text-sm sm:text-base text-slate-100 font-normal leading-relaxed">
+                    {{ aiSimulatorCases[activeAiTab].actionTaken }}
+                  </p>
+                </div>
               </div>
 
-              <div class="pt-4 border-t border-[#1e2638]">
-                <span class="text-[11px] font-bold uppercase tracking-wider text-[#10b981] flex items-center gap-1.5 mb-1">
-                  <Zap class="w-3.5 h-3.5" />
-                  Acción Ejecutada por el Sistema:
-                </span>
-                <p class="text-sm text-[#f8fafc] leading-relaxed">
-                  {{ aiSimulatorCases[activeAiTab].actionTaken }}
-                </p>
-              </div>
-
-              <div class="pt-4 border-t border-[#1e2638] flex items-center justify-between text-xs">
-                <span class="text-[#94a3b8]">Impacto directo: <strong class="text-white">{{ aiSimulatorCases[activeAiTab].businessOutcome }}</strong></span>
+              <div class="pt-5 border-t border-[#1e2638] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div class="text-xs leading-snug">
+                  <span class="text-slate-400 font-medium block sm:inline mr-1.5">Impacto directo:</span>
+                  <strong class="text-[#6ee7b7] font-semibold">{{ aiSimulatorCases[activeAiTab].businessOutcome }}</strong>
+                </div>
                 <button
-                  @click="openDemoModal"
-                  class="px-4 py-2 rounded-lg bg-[#6d5df1] hover:bg-[#5b4be2] text-white font-display text-xs uppercase tracking-wider hover:scale-105 transition-transform"
+                  @click="openDemoModal('Demo remota en vivo (30 min)')"
+                  class="px-5 py-2.5 rounded-xl border border-[#1e2638] bg-[#10141e] hover:bg-[#10141e] hover:border-[#6d5df1]/50 text-white font-semibold text-xs tracking-wider uppercase transition-colors duration-200 cursor-pointer shrink-0 text-center"
                 >
                   Probar con mi Gym
                 </button>
@@ -952,7 +840,7 @@ onMounted(() => {
               <span>Sistemas Tradicionales de Gimnasio</span>
             </div>
             <h4 class="font-display text-lg text-white mb-3">Reactivos y Tardíos</h4>
-            <ul class="space-y-2 text-xs text-[#94a3b8]">
+            <ul class="space-y-2 text-xs text-slate-300">
               <li class="flex items-start gap-2">
                 <span class="text-[#ef4444] font-bold">✕</span>
                 <span>Te enteras de la baja cuando el socio ya no pagó en la fecha de corte.</span>
@@ -971,10 +859,10 @@ onMounted(() => {
           <div class="reveal-right delay-200 p-6 rounded-2xl border border-[#10b981]/40 bg-[#10141e] shadow-[0_0_30px_rgba(16,185,129,0.1)]">
             <div class="flex items-center gap-2 text-xs font-bold text-[#10b981] uppercase tracking-wider mb-2">
               <Check class="w-4 h-4 stroke-[3]" />
-              <span>RIR-HUB con Retención Predictiva</span>
+              <span><span class="font-display font-black tracking-tight"><span class="text-white">RIR</span><span class="bg-gradient-to-r from-[#6d5df1] via-[#8b5cf6] to-[#ec4899] bg-clip-text text-transparent">HUB</span></span> con Retención Predictiva</span>
             </div>
             <h4 class="font-display text-lg text-white mb-3">Proactivos y Preventivos</h4>
-            <ul class="space-y-2 text-xs text-[#94a3b8]">
+            <ul class="space-y-2 text-xs text-slate-300">
               <li class="flex items-start gap-2">
                 <span class="text-[#10b981] font-bold">✓</span>
                 <span>Detecta la ruptura de rutina 18 a 21 días antes del vencimiento.</span>
@@ -1006,10 +894,12 @@ onMounted(() => {
           </div>
           <h2 class="font-display text-3xl sm:text-5xl uppercase tracking-tight text-white leading-tight">
             Vende Espacios.
-            <span class="block text-[#6d5df1]">Mide Resultados en Piloto Automático.</span>
+            <span class="block bg-gradient-to-r from-[#6d5df1] via-[#8b5cf6] to-[#ec4899] bg-clip-text text-transparent drop-shadow-sm">
+              Mide Resultados en Piloto Automático.
+            </span>
           </h2>
-          <p class="mt-4 text-base sm:text-lg text-[#94a3b8] leading-relaxed">
-            Tus socios son el público más codiciado por marcas locales: personas activas con poder adquisitivo que abren la app todos los días. Con RIR-HUB, <strong class="text-white">cualquier negocio de tu zona compra pauta en /anuncia</strong> pagando directo con tarjeta en Stripe sin intermediarios.
+          <p class="mt-4 text-base sm:text-lg text-slate-100 leading-relaxed max-w-3xl mx-auto font-normal">
+            Tus socios son el target más codiciado por marcas locales: personas activas con poder adquisitivo. Con <span class="font-display font-black tracking-tight"><span class="text-white">RIR</span><span class="bg-gradient-to-r from-[#6d5df1] via-[#8b5cf6] to-[#ec4899] bg-clip-text text-transparent">HUB</span></span>, cualquier negocio de tu zona compra pauta en <a href="https://gym-b2b-template.vercel.app/anuncia" target="_blank" rel="noopener noreferrer" class="text-[#38bdf8] hover:text-[#7dd3fc] font-bold underline decoration-[#38bdf8]/40 hover:decoration-[#38bdf8] transition-colors">/anuncia</a> y tú cobras en automático con Stripe directo a tu banco con <strong class="text-[#6ee7b7] font-bold">100% de margen y $0 comisiones</strong>.
           </p>
         </div>
 
@@ -1025,11 +915,8 @@ onMounted(() => {
               <div class="mb-4 flex items-center justify-between">
                 <h4 class="flex items-center text-xs sm:text-sm font-display font-black uppercase tracking-wider text-white">
                   <span class="w-1.5 h-4.5 rounded-full bg-[#f4e701] mr-2.5 inline-block" />
-                  ASÍ SE VE EN EL HOME
+                  Anuncios en el inicio de la app
                 </h4>
-                <span class="rounded-full border border-[#f4e701]/50 bg-[#f4e701]/10 px-2.5 py-0.5 text-[9px] font-black uppercase tracking-wider text-[#f4e701]">
-                  CARRUSEL PREMIUM
-                </span>
               </div>
 
               <!-- Phone Frame Shell -->
@@ -1213,15 +1100,9 @@ onMounted(() => {
             <!-- CONECTOR CENTRAL: FLECHA DE ACCIÓN AL TOCAR EL ANUNCIO    -->
             <!-- ═════════════════════════════════════════════════════════ -->
             <div class="flex flex-col items-center justify-center text-center my-4 lg:my-0 px-4">
-              <div class="w-14 h-14 rounded-full border-2 border-[#f4e701]/60 bg-[#10141e] flex items-center justify-center text-[#f4e701] hover:scale-105 transition-transform">
+              <div class="w-14 h-14 rounded-full border-2 border-[#6d5df1]/60 bg-[#10141e] flex items-center justify-center text-[#6d5df1] transition-colors duration-200">
                 <ArrowRight class="w-7 h-7 stroke-[2.5]" />
               </div>
-              <h5 class="font-display text-sm uppercase tracking-wider text-white font-black mt-3">
-                AL TOCAR EL ANUNCIO
-              </h5>
-              <p class="text-xs text-[#94a3b8] mt-1 max-w-[160px] leading-snug font-medium">
-                Se abre la Ficha de Aliado con WhatsApp y GPS
-              </p>
             </div>
 
             <!-- ═════════════════════════════════════════════════════════ -->
@@ -1232,11 +1113,8 @@ onMounted(() => {
               <div class="mb-4 flex items-center justify-between">
                 <h4 class="flex items-center text-xs sm:text-sm font-display font-black uppercase tracking-wider text-white">
                   <span class="w-1.5 h-4.5 rounded-full bg-[#f4e701] mr-2.5 inline-block" />
-                  TU FICHA DE ALIADO
+                  DETALLE DEL ANUNCIO
                 </h4>
-                <span class="rounded-full border border-[#f4e701]/50 bg-[#f4e701]/10 px-2.5 py-0.5 text-[9px] font-black uppercase tracking-wider text-[#f4e701]">
-                  SIEMPRE INCLUIDA
-                </span>
               </div>
 
               <!-- Phone Frame Shell -->
@@ -1379,176 +1257,122 @@ onMounted(() => {
 
         <!-- EL FLUJO DE DINERO EN 3 PASOS SIMPLES -->
         <div class="mb-16">
-          <div class="text-center max-w-xl mx-auto mb-10">
-            <h3 class="font-display text-2xl uppercase tracking-tight text-white">
-              ¿Cómo Funciona el Cobro? (Cero Trabajo para Ti)
+          <div class="text-center max-w-2xl mx-auto mb-12">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#6d5df1]/10 border border-[#6d5df1]/30 text-[#c4b5fd] text-xs font-bold uppercase tracking-wider mb-3">
+              <Zap class="w-3.5 h-3.5 text-[#6d5df1]" />
+              <span>Flujo de Cobro Automatizado</span>
+            </div>
+            <h3 class="font-display text-2xl sm:text-4xl uppercase tracking-tight text-white leading-tight">
+              ¿Cómo Funciona el Cobro?
+              <span class="block bg-gradient-to-r from-[#6d5df1] via-[#8b5cf6] to-[#38bdf8] bg-clip-text text-transparent">
+                Cero Trabajo para Tu Equipo
+              </span>
             </h3>
-            <p class="text-xs sm:text-sm text-[#94a3b8] mt-1">
-              No tienes que andar cobrando con transferencias ni diseñando flyers. Todo está automatizado.
+            <p class="mt-3 text-base sm:text-lg text-slate-100 max-w-2xl mx-auto leading-relaxed font-normal">
+              No tienes que andar cobrando con transferencias ni diseñando flyers: <strong class="text-[#38bdf8] font-bold">el anunciante se autogestiona en línea</strong> y <strong class="text-[#6ee7b7] font-bold">tú recibes el dinero directo a tu banco</strong>.
             </p>
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <!-- Step 1 -->
-            <div class="reveal delay-100 p-6 rounded-2xl border border-[#1e2638] bg-[#10141e] relative hover:border-[#6d5df1]/50 transition-all duration-300">
-              <div class="w-10 h-10 rounded-xl bg-[#6d5df1] hover:bg-[#5b4be2] text-white font-display text-base flex items-center justify-center mb-4 font-black">
-                Paso 1
+            <div class="reveal delay-100 p-6 sm:p-7 rounded-2xl border border-[#1e2638] bg-[#10141e]/90 hover:border-[#6d5df1]/60 transition-colors duration-300 flex flex-col justify-between shadow-lg shadow-black/40 group">
+              <div>
+                <div class="flex items-center justify-between mb-4">
+                  <div class="w-10 h-10 rounded-xl bg-[#6d5df1]/15 border border-[#6d5df1]/30 text-[#c4b5fd] font-display text-base font-bold flex items-center justify-center">
+                    01
+                  </div>
+                  <span class="text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#6d5df1]/15 text-[#c4b5fd] border border-[#6d5df1]/30">
+                    Paso 1 · Self-Serve
+                  </span>
+                </div>
+                <h4 class="font-display text-lg uppercase tracking-tight text-white mb-2.5 group-hover:text-[#c4b5fd] transition-colors">
+                  El Anunciante Compra en Línea
+                </h4>
+                <p class="text-sm sm:text-base text-slate-100 leading-relaxed font-normal">
+                  El comercio local entra a <a href="https://gym-b2b-template.vercel.app/anuncia" target="_blank" rel="noopener noreferrer" class="text-[#38bdf8] hover:text-[#7dd3fc] font-bold underline decoration-[#38bdf8]/40 hover:decoration-[#38bdf8] transition-colors">/anuncia</a>, sube su creativo y paga con tarjeta en <strong class="text-white font-semibold">Stripe</strong> en 2 minutos.
+                </p>
               </div>
-              <h4 class="font-display text-base uppercase text-white mb-1">El Anunciante Compra en Línea</h4>
-              <p class="text-xs text-[#94a3b8] leading-relaxed">
-                El negocio entra a tu enlace <strong class="text-white">tu-gimnasio.com/anuncia</strong>, sube su imagen, escribe su promoción y paga con tarjeta en Stripe Checkout.
-              </p>
+              <div class="mt-6 pt-4 border-t border-[#1e2638] text-sm sm:text-base font-bold text-[#c4b5fd] flex items-center gap-2 sm:gap-2.5">
+                <CreditCard class="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
+                <span>Cobro 100% autogestionado</span>
+              </div>
             </div>
 
             <!-- Step 2 -->
-            <div class="reveal delay-200 p-6 rounded-2xl border border-[#1e2638] bg-[#10141e] relative hover:border-[#ea580c]/50 transition-all duration-300">
-              <div class="w-10 h-10 rounded-xl bg-[#ea580c] text-white font-display text-base flex items-center justify-center mb-4 font-black">
-                Paso 2
+            <div class="reveal delay-200 p-6 sm:p-7 rounded-2xl border border-[#1e2638] bg-[#10141e]/90 hover:border-[#38bdf8]/60 transition-colors duration-300 flex flex-col justify-between shadow-lg shadow-black/40 group">
+              <div>
+                <div class="flex items-center justify-between mb-4">
+                  <div class="w-10 h-10 rounded-xl bg-[#38bdf8]/15 border border-[#38bdf8]/30 text-[#38bdf8] font-display text-base font-bold flex items-center justify-center">
+                    02
+                  </div>
+                  <span class="text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#38bdf8]/15 text-[#38bdf8] border border-[#38bdf8]/30">
+                    Paso 2 · 1 Clic
+                  </span>
+                </div>
+                <h4 class="font-display text-lg uppercase tracking-tight text-white mb-2.5 group-hover:text-[#38bdf8] transition-colors">
+                  Tú Sólo Presionas "Aprobar"
+                </h4>
+                <p class="text-sm sm:text-base text-slate-100 leading-relaxed font-normal">
+                  Revisas el anuncio en tu consola <span class="font-display font-black tracking-tight"><span class="text-white">RIR</span><span class="bg-gradient-to-r from-[#6d5df1] via-[#8b5cf6] to-[#ec4899] bg-clip-text text-transparent">HUB</span></span> y das clic en <strong class="text-white font-semibold">Aprobar</strong>. Entra en vivo al carrusel al instante.
+                </p>
               </div>
-              <h4 class="font-display text-base uppercase text-white mb-1">Tú Sólo Presionas "Aprobar"</h4>
-              <p class="text-xs text-[#94a3b8] leading-relaxed">
-                Recibes una alerta en tu consola B2B. Revisas que el anuncio sea adecuado para tu comunidad y das clic en Aprobar. El anuncio se publica inmediatamente.
-              </p>
+              <div class="mt-6 pt-4 border-t border-[#1e2638] text-sm sm:text-base font-bold text-[#38bdf8] flex items-center gap-2 sm:gap-2.5">
+                <CheckCircle2 class="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
+                <span>Control editorial instantáneo</span>
+              </div>
             </div>
 
             <!-- Step 3 -->
-            <div class="reveal delay-300 p-6 rounded-2xl border border-[#1e2638] bg-[#10141e] relative hover:border-[#10b981]/50 transition-all duration-300">
-              <div class="w-10 h-10 rounded-xl bg-[#10b981] text-black font-display text-base flex items-center justify-center mb-4 font-black">
-                Paso 3
+            <div class="reveal delay-300 p-6 sm:p-7 rounded-2xl border border-[#1e2638] bg-[#10141e]/90 hover:border-[#10b981]/60 transition-colors duration-300 flex flex-col justify-between shadow-lg shadow-black/40 group">
+              <div>
+                <div class="flex items-center justify-between mb-4">
+                  <div class="w-10 h-10 rounded-xl bg-[#10b981]/15 border border-[#10b981]/30 text-[#6ee7b7] font-display text-base font-bold flex items-center justify-center">
+                    03
+                  </div>
+                  <span class="text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#10b981]/15 text-[#6ee7b7] border border-[#10b981]/30">
+                    Paso 3 · Automático
+                  </span>
+                </div>
+                <h4 class="font-display text-lg uppercase tracking-tight text-white mb-2.5 group-hover:text-[#6ee7b7] transition-colors">
+                  Dinero Directo a Tu Banco
+                </h4>
+                <p class="text-sm sm:text-base text-slate-100 leading-relaxed font-normal">
+                  Cobras con <strong class="text-[#6ee7b7] font-bold">100% de margen directo a tu banco</strong> y el anunciante recibe su reporte de métricas en automático.
+                </p>
               </div>
-              <h4 class="font-display text-base uppercase text-white mb-1">Dinero Directo a Tu Banco</h4>
-              <p class="text-xs text-[#94a3b8] leading-relaxed">
-                Stripe deposita los fondos directamente a la cuenta bancaria de tu gimnasio. Al vencer la campaña, el cliente recibe en automático su reporte de impresiones.
-              </p>
+              <div class="mt-6 pt-4 border-t border-[#1e2638] text-sm sm:text-base font-bold text-[#6ee7b7] flex items-center gap-2 sm:gap-2.5">
+                <TrendingUp class="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
+                <span>Depósito bancario directo</span>
+              </div>
             </div>
           </div>
         </div>
 
         <!-- Breakdown Card: Ejemplo de Ingresos Reales y Métricas del Deck -->
-        <div class="reveal-scale delay-200 p-8 rounded-3xl border border-[#6d5df1]/40 bg-gradient-to-r from-[#10141e] via-[#131823] to-[#10141e] flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
-          <div>
-            <span class="text-xs font-bold uppercase tracking-wider text-[#6d5df1] block mb-1">
+        <div class="reveal-scale delay-200 p-7 sm:p-9 rounded-3xl border border-[#6d5df1]/50 bg-gradient-to-br from-[#10141e] via-[#141a27] to-[#0d1017] flex flex-col lg:flex-row items-center justify-between gap-6 shadow-[0_0_40px_rgba(109,93,241,0.15)] relative overflow-hidden">
+          <div class="absolute -right-20 -top-20 w-64 h-64 bg-[#6d5df1]/10 rounded-full blur-[100px] pointer-events-none" />
+          <div class="relative z-10">
+            <span class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-[#6d5df1]/15 text-[#c4b5fd] border border-[#6d5df1]/30 mb-3">
+              <Sparkles class="w-3.5 h-3.5 text-[#6d5df1]" />
               Métricas Comprobadas en Producción
             </span>
-            <h4 class="font-display text-2xl sm:text-3xl uppercase tracking-tight text-white">
-              12,810 Impresiones · 6.3% CTR Real
+            <h4 class="font-display text-2xl sm:text-4xl uppercase tracking-tight text-white leading-tight">
+              <span class="text-[#38bdf8]">12,810 Impresiones</span>
+              <span class="text-slate-500 mx-2">·</span>
+              <span class="text-[#6ee7b7]">6.3% CTR Real</span>
             </h4>
-            <p class="text-xs sm:text-sm text-[#94a3b8] mt-1 max-w-xl">
-              2 tiendas de suplementos ($7,000) + 1 clínica de fisio ($5,000) + 2 marcas fitness o cafeterías ($8,000) + pushes patrocinados: <strong>+$32,000 MXN al mes por sede</strong> en ingresos 100% pasivos vía Stripe.
+            <p class="text-sm sm:text-base text-slate-100 mt-2.5 max-w-2xl leading-relaxed font-normal">
+              2 tiendas de suplementos ($7,000) + 1 clínica de fisio ($5,000) + 2 marcas fitness o cafeterías ($8,000) + pushes patrocinados: <strong class="text-[#6ee7b7] font-bold">+$32,000 MXN al mes por sede</strong> en ingresos <strong class="text-[#38bdf8] font-bold">100% pasivos vía Stripe</strong>.
             </p>
           </div>
-          <button
-            @click="openDemoModal('Demo remota en vivo (30 min)')"
-            class="px-8 py-4 rounded-xl bg-[#6d5df1] hover:bg-[#5b4be2] text-white font-display text-xs uppercase tracking-wider hover:scale-105 transition-all shrink-0 cursor-pointer shadow-lg shadow-[#6d5df1]/25"
+          <a
+            href="https://gym-b2b-template.vercel.app/anuncia"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="relative z-10 w-full sm:w-auto px-8 py-4 rounded-xl bg-[#6d5df1] hover:bg-[#5b4be2] text-white font-display text-xs uppercase tracking-wider transition-colors duration-200 flex items-center justify-center shrink-0 cursor-pointer text-center"
           >
-            Ver Cómo Vender Pauta
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════════════════════════════════ -->
-    <!-- NUESTRAS VENTAJAS (Carousel 01 a 06 - Dribbble Concept)             -->
-    <!-- ═══════════════════════════════════════════════════════════════════ -->
-    <section id="ventajas" class="relative z-10 py-24 px-4 sm:px-6 lg:px-8 border-t border-[#1e2638]">
-      <div class="max-w-7xl mx-auto">
-        <div class="reveal flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-          <div>
-            <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#6d5df1] mb-2">
-              <Sparkles class="w-3.5 h-3.5" />
-              <span>Por qué los gimnasios líderes migran a RIR-HUB</span>
-            </div>
-            <h2 class="font-display text-3xl sm:text-5xl uppercase tracking-tight text-white">
-              Nuestras Ventajas
-            </h2>
-            <p class="mt-2 text-sm sm:text-base text-[#94a3b8]">
-              Diseñado minuciosamente para cadenas fitness, gimnasios boutique y centros de alto rendimiento.
-            </p>
-          </div>
-
-          <div class="flex items-center gap-3">
-            <button
-              @click="prevAdvantage"
-              class="w-12 h-12 rounded-full border border-[#1e2638] bg-[#10141e] hover:bg-[#1e2638] hover:text-[#6d5df1] text-white flex items-center justify-center transition-all duration-200 cursor-pointer"
-              aria-label="Anterior"
-            >
-              <ChevronLeft class="w-5 h-5" />
-            </button>
-            <button
-              @click="nextAdvantage"
-              class="w-12 h-12 rounded-full border border-[#1e2638] bg-[#10141e] hover:bg-[#1e2638] hover:text-[#6d5df1] text-white flex items-center justify-center transition-all duration-200 cursor-pointer"
-              aria-label="Siguiente"
-            >
-              <ChevronRight class="w-5 h-5" />
-            </button>
-          </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div
-            v-for="(item, idx) in advantages"
-            :key="item.id"
-            @click="activeAdvantage = idx"
-            :style="{ transitionDelay: (idx * 100) + 'ms' }"
-            :class="[ 'reveal relative rounded-2xl p-7 transition-all duration-500 cursor-pointer flex flex-col justify-between overflow-hidden hover:-translate-y-2 hover:shadow-2xl', activeAdvantage === idx ? 'bg-gradient-to-br ' + item.accentGrad + ' text-black scale-[1.02] ring-2 ring-[#6d5df1]' : 'bg-[#10141e] border border-[#1e2638] hover:border-[#6d5df1]/40 text-white' ]"
-          >
-            <div>
-              <div class="flex items-center justify-between mb-4">
-                <span
-                  :class="[ 'font-display text-2xl tracking-tighter', activeAdvantage === idx ? 'text-black/80' : 'text-[#6d5df1]' ]"
-                >
-                  {{ item.id }}
-                </span>
-                <span
-                  :class="[ 'text-[10px] font-black uppercase tracking-wider px-2 py-1 rounded-full', activeAdvantage === idx ? 'bg-black/20 text-black' : 'bg-[#1e2638] text-[#94a3b8]' ]"
-                >
-                  {{ item.badge }}
-                </span>
-              </div>
-
-              <h3
-                :class="[ 'font-display text-xl uppercase tracking-tight mb-2', activeAdvantage === idx ? 'text-black' : 'text-white' ]"
-              >
-                {{ item.title }}
-              </h3>
-              <p
-                :class="[ 'text-sm leading-relaxed mb-4', activeAdvantage === idx ? 'text-black/80 font-medium' : 'text-[#94a3b8]' ]"
-              >
-                {{ item.summary }}
-              </p>
-            </div>
-
-            <div v-if="activeAdvantage === idx" class="mt-4 pt-4 border-t border-black/20 animate-fadeIn">
-              <p class="text-xs text-black/90 font-normal leading-relaxed mb-4">
-                {{ item.description }}
-              </p>
-              <ul class="space-y-1.5 mb-5">
-                <li v-for="(b, bIdx) in item.bullets" :key="bIdx" class="text-xs text-black font-semibold flex items-center gap-1.5">
-                  <Check class="w-3.5 h-3.5 stroke-[3] text-black" />
-                  <span>{{ b }}</span>
-                </li>
-              </ul>
-              <div class="flex items-center justify-between">
-                <span class="text-xs font-black uppercase tracking-wider text-black bg-black/15 px-2.5 py-1 rounded">
-                  {{ item.metric }}
-                </span>
-                <button
-                  @click.stop="openDemoModal"
-                  class="px-3.5 py-1.5 rounded-full bg-black text-[#6d5df1] font-display text-xs uppercase tracking-wider hover:scale-105 transition-transform"
-                >
-                  Agendar Demo
-                </button>
-              </div>
-            </div>
-
-            <div v-else class="mt-4 pt-4 border-t border-[#1e2638] flex items-center justify-between text-xs">
-              <span class="text-[#6d5df1] font-bold">{{ item.metric }}</span>
-              <span class="text-[#94a3b8] flex items-center gap-1 group-hover:text-white">
-                Ver detalle
-                <ArrowRight class="w-3 h-3" />
-              </span>
-            </div>
-          </div>
+            <span>¡CREA UN ANUNCIO EN VIVO AHORA!</span>
+          </a>
         </div>
       </div>
     </section>
@@ -1566,25 +1390,23 @@ onMounted(() => {
             <h2 class="font-display text-3xl sm:text-5xl uppercase tracking-tight text-white">
               La App de Tu Socio + La Consola de Tu Equipo
             </h2>
-            <p class="text-sm sm:text-base text-[#94a3b8] mt-2">
-              Sincronización instantánea en milisegundos: recepción, aforo, torniquetes y celulares conectados al segundo.
+            <p class="mt-3 text-base sm:text-lg text-slate-100 max-w-2xl leading-relaxed font-normal">
+              Sincronización instantánea en tiempo real: <strong class="text-[#38bdf8] font-bold">recepción, aforo, torniquetes y la app del socio</strong> conectados al milisegundo bajo una sola base de datos.
             </p>
           </div>
 
           <div class="flex items-center p-1 rounded-xl bg-[#10141e] border border-[#1e2638]">
             <button
               @click="activeEcosystemTab = 'b2b'"
-              :class="[ 'px-5 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all duration-200 cursor-pointer flex items-center gap-2', activeEcosystemTab === 'b2b' ? 'bg-[#6d5df1] hover:bg-[#5b4be2] text-white shadow-md' : 'text-[#94a3b8] hover:text-white' ]"
+              :class="[ 'px-5 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all duration-200 cursor-pointer flex items-center gap-2', activeEcosystemTab === 'b2b' ? 'bg-[#6d5df1] hover:bg-[#5b4be2] text-white shadow-md' : 'text-slate-300 hover:text-white' ]"
             >
-              <Laptop class="w-3.5 h-3.5" />
-              Consola B2B Web
+              Consola Web
             </button>
             <button
               @click="activeEcosystemTab = 'app'"
-              :class="[ 'px-5 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all duration-200 cursor-pointer flex items-center gap-2', activeEcosystemTab === 'app' ? 'bg-[#6d5df1] hover:bg-[#5b4be2] text-white shadow-md' : 'text-[#94a3b8] hover:text-white' ]"
+              :class="[ 'px-5 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all duration-200 cursor-pointer flex items-center gap-2', activeEcosystemTab === 'app' ? 'bg-[#6d5df1] hover:bg-[#5b4be2] text-white shadow-md' : 'text-slate-300 hover:text-white' ]"
             >
-              <Smartphone class="w-3.5 h-3.5" />
-              App Socio (Flutter)
+              APP iOS & Android
             </button>
           </div>
         </div>
@@ -1592,10 +1414,12 @@ onMounted(() => {
         <!-- B2B Tab Content -->
         <div v-if="activeEcosystemTab === 'b2b'" class="reveal-scale delay-200 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center animate-fadeIn">
           <div class="lg:col-span-5 space-y-6">
-            <h3 class="font-display text-2xl sm:text-3xl uppercase tracking-tight text-white">
-              Control Total en Tiempo Real
+            <h3 class="font-display text-2xl sm:text-3xl uppercase tracking-tight">
+              <span class="bg-gradient-to-r from-[#6d5df1] via-[#8b5cf6] to-[#ec4899] bg-clip-text text-transparent drop-shadow-sm">
+                Control Total en Tiempo Real
+              </span>
             </h3>
-            <p class="text-sm text-[#94a3b8] leading-relaxed">
+            <p class="text-sm text-slate-300 leading-relaxed">
               Diseñado para dueños, gerentes y recepcionistas con control estricto de roles y alcances por sucursal:
             </p>
             <ul class="space-y-3">
@@ -1618,7 +1442,7 @@ onMounted(() => {
             </ul>
             <button
               @click="openDemoModal"
-              class="px-6 py-3 rounded-xl bg-[#6d5df1] hover:bg-[#5b4be2] text-white font-display text-xs uppercase tracking-wider hover:scale-105 transition-transform cursor-pointer"
+              class="px-6 py-3 rounded-xl bg-[#6d5df1] hover:bg-[#5b4be2] text-white font-display text-xs uppercase tracking-wider transition-colors duration-200 cursor-pointer"
             >
               Solicitar Acceso al Sandbox
             </button>
@@ -1637,10 +1461,12 @@ onMounted(() => {
         <!-- App Tab Content -->
         <div v-else class="reveal-scale delay-200 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center animate-fadeIn">
           <div class="lg:col-span-5 space-y-6">
-            <h3 class="font-display text-2xl sm:text-3xl uppercase tracking-tight text-white">
-              La App que Tus Socios Amarán Usar
+            <h3 class="font-display text-2xl sm:text-3xl uppercase tracking-tight">
+              <span class="bg-gradient-to-r from-[#6d5df1] via-[#8b5cf6] to-[#ec4899] bg-clip-text text-transparent drop-shadow-sm">
+                La App que Tus Socios Amarán Usar
+              </span>
             </h3>
-            <p class="text-sm text-[#94a3b8] leading-relaxed">
+            <p class="text-sm text-slate-300 leading-relaxed">
               Disponible en iOS y Android, creada en Flutter para un rendimiento nativo fluido:
             </p>
             <ul class="space-y-3">
@@ -1663,7 +1489,7 @@ onMounted(() => {
             </ul>
             <button
               @click="openDemoModal"
-              class="px-6 py-3 rounded-xl bg-[#6d5df1] hover:bg-[#5b4be2] text-white font-display text-xs uppercase tracking-wider hover:scale-105 transition-transform cursor-pointer"
+              class="px-6 py-3 rounded-xl bg-[#6d5df1] hover:bg-[#5b4be2] text-white font-display text-xs uppercase tracking-wider transition-colors duration-200 cursor-pointer"
             >
               Ver Demo Móvil
             </button>
@@ -1696,8 +1522,8 @@ onMounted(() => {
           <h2 class="font-display text-3xl sm:text-5xl uppercase tracking-tight text-white">
             Calcula el Retorno para Tu Gimnasio
           </h2>
-          <p class="mt-4 text-base text-[#94a3b8]">
-            Descubre cuánto capital adicional genera RIR-HUB al reducir la fuga de socios y habilitar publicidad local.
+          <p class="mt-4 text-base sm:text-lg text-slate-100 max-w-2xl mx-auto leading-relaxed font-normal">
+            Descubre cuánto capital adicional genera <span class="font-display font-black tracking-tight"><span class="text-white">RIR</span><span class="bg-gradient-to-r from-[#6d5df1] via-[#8b5cf6] to-[#ec4899] bg-clip-text text-transparent">HUB</span></span> al <strong class="text-[#c4b5fd] font-bold">salvar socios con IA</strong> y <strong class="text-[#6ee7b7] font-bold">monetizar tu primer inventario de pauta local</strong>.
           </p>
         </div>
 
@@ -1716,7 +1542,7 @@ onMounted(() => {
                 step="50"
                 class="w-full accent-[#6d5df1] bg-[#1e2638] h-2 rounded-lg cursor-pointer"
               />
-              <div class="flex justify-between text-[11px] text-[#94a3b8] mt-1">
+              <div class="flex justify-between text-[11px] text-slate-300 mt-1">
                 <span>200 socios</span>
                 <span>4,000 socios</span>
               </div>
@@ -1735,7 +1561,7 @@ onMounted(() => {
                 step="50"
                 class="w-full accent-[#6d5df1] bg-[#1e2638] h-2 rounded-lg cursor-pointer"
               />
-              <div class="flex justify-between text-[11px] text-[#94a3b8] mt-1">
+              <div class="flex justify-between text-[11px] text-slate-300 mt-1">
                 <span>$350 MXN</span>
                 <span>$2,500 MXN</span>
               </div>
@@ -1754,7 +1580,7 @@ onMounted(() => {
                 step="1"
                 class="w-full accent-[#6d5df1] bg-[#1e2638] h-2 rounded-lg cursor-pointer"
               />
-              <div class="flex justify-between text-[11px] text-[#94a3b8] mt-1">
+              <div class="flex justify-between text-[11px] text-slate-300 mt-1">
                 <span>1 sede</span>
                 <span>10 sedes</span>
               </div>
@@ -1762,7 +1588,7 @@ onMounted(() => {
           </div>
 
           <div class="lg:col-span-5 p-8 rounded-2xl border-2 border-[#6d5df1]/60 bg-gradient-to-b from-[#131823] to-[#07090e] relative overflow-hidden">
-            <div class="text-xs font-bold uppercase tracking-wider text-[#94a3b8] mb-1">
+            <div class="text-xs font-bold uppercase tracking-wider text-slate-300 mb-1">
               Impacto Anual Estimado
             </div>
             <div class="text-3xl sm:text-4xl font-display text-[#6d5df1] mb-6">
@@ -1771,22 +1597,22 @@ onMounted(() => {
 
             <div class="space-y-4 pt-4 border-t border-[#1e2638]">
               <div class="flex justify-between items-center text-sm">
-                <span class="text-[#94a3b8]">Socios retenidos al año:</span>
+                <span class="text-slate-300">Socios retenidos al año:</span>
                 <span class="font-bold text-white">+{{ roiCalculation.savedMembersYear }} socios</span>
               </div>
               <div class="flex justify-between items-center text-sm">
-                <span class="text-[#94a3b8]">Ingreso preservado por retención:</span>
+                <span class="text-slate-300">Ingreso preservado por retención:</span>
                 <span class="font-bold text-[#10b981]">{{ formatCurrency(roiCalculation.annualSavedRevenue) }}</span>
               </div>
               <div class="flex justify-between items-center text-sm">
-                <span class="text-[#94a3b8]">Ganancia por Publicidad Local:</span>
+                <span class="text-slate-300">Ganancia por Publicidad Local:</span>
                 <span class="font-bold text-[#6d5df1]">{{ formatCurrency(roiCalculation.annualAdsRevenue) }}</span>
               </div>
             </div>
 
             <button
               @click="openDemoModal"
-              class="w-full mt-8 py-3.5 rounded-xl bg-[#6d5df1] hover:bg-[#5b4be2] text-white font-display text-xs uppercase tracking-wider hover:scale-[1.02] transition-all cursor-pointer"
+              class="w-full mt-8 py-3.5 rounded-xl bg-[#6d5df1] hover:bg-[#5b4be2] text-white font-display text-xs uppercase tracking-wider transition-colors duration-200 cursor-pointer"
             >
               Comenzar a Maximizar Ingresos
             </button>
@@ -1824,8 +1650,8 @@ onMounted(() => {
             Véndele.
           </span>
         </h2>
-        <p class="mt-4 text-base sm:text-lg text-[#94a3b8] max-w-2xl mx-auto">
-          Tu operación en tiempo real y tu primer inventario publicitario corriendo con datos reales. Elige cómo prefieres ver a RIR-HUB en acción para tu negocio:
+        <p class="mt-4 text-base sm:text-lg text-slate-100 max-w-2xl mx-auto leading-relaxed font-normal">
+          Tu operación en tiempo real y tu primer inventario publicitario corriendo con datos reales: <strong class="text-[#c4b5fd] font-bold">demostración guiada de 30 minutos</strong> o <strong class="text-[#6ee7b7] font-bold">piloto sin riesgo en una sola sede</strong>.
         </p>
 
         <!-- Two Action Cards: Opción A y Opción B (Slide 13 del Deck) -->
@@ -1837,12 +1663,12 @@ onMounted(() => {
                 <span class="px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-[#6d5df1]/20 text-[#6d5df1] border border-[#6d5df1]/30">
                   Opción A
                 </span>
-                <span class="text-xs text-[#94a3b8] font-mono">30 Minutos</span>
+                <span class="text-xs text-slate-300 font-mono">30 Minutos</span>
               </div>
               <h3 class="font-display text-xl uppercase tracking-tight text-white group-hover:text-[#6d5df1] transition-colors mb-2">
                 Demo Remota en Vivo
               </h3>
-              <p class="text-xs text-[#94a3b8] leading-relaxed mb-4">
+              <p class="text-xs text-slate-300 leading-relaxed mb-4">
                 Recorrido guiado de 30 minutos con tu equipo por la consola B2B y la app móvil. Hacemos la simulación financiera con tus números reales de socios y sedes.
               </p>
               <ul class="space-y-2 mb-6">
@@ -1858,18 +1684,17 @@ onMounted(() => {
             </div>
             <button
               @click="openDemoModal('Demo remota en vivo (30 min)')"
-              class="w-full py-3.5 rounded-xl bg-[#6d5df1] hover:bg-[#5b4be2] text-white font-display text-xs uppercase tracking-wider hover:scale-[1.02] transition-all cursor-pointer flex items-center justify-center gap-2 shadow-lg shadow-[#6d5df1]/20"
+              class="w-full py-3.5 rounded-xl bg-[#6d5df1] hover:bg-[#5b4be2] text-white font-display text-xs uppercase tracking-wider transition-colors duration-200 cursor-pointer flex items-center justify-center"
             >
               <span>Agendar Demo de 30 Minutos</span>
-              <ArrowRight class="w-4 h-4 stroke-[2.5]" />
             </button>
           </div>
 
           <!-- Card Opción B -->
-          <div class="p-6 sm:p-7 rounded-2xl border border-[#10b981]/40 bg-[#0c0f17]/90 hover:border-[#10b981]/70 transition-all duration-300 flex flex-col justify-between group shadow-[0_0_30px_rgba(16,185,129,0.06)]">
+          <div class="p-6 sm:p-7 rounded-2xl border border-[#1e2638] bg-[#0c0f17]/90 hover:border-[#1e2638] transition-colors duration-300 flex flex-col justify-between group">
             <div>
               <div class="flex items-center justify-between mb-4">
-                <span class="px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-[#10b981]/20 text-[#10b981] border border-[#10b981]/40">
+                <span class="px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-[#10b981]/15 text-[#10b981] border border-[#10b981]/30">
                   Opción B
                 </span>
                 <span class="text-xs text-[#10b981] font-semibold">Sin Riesgo</span>
@@ -1877,8 +1702,8 @@ onMounted(() => {
               <h3 class="font-display text-xl uppercase tracking-tight text-white group-hover:text-[#10b981] transition-colors mb-2">
                 Piloto en Una Sede
               </h3>
-              <p class="text-xs text-[#94a3b8] leading-relaxed mb-4">
-                Implementa RIR-HUB en una sola de tus sucursales con acompañamiento técnico prioritario. Evalúa la fluidez en torniquetes, la adopción de los socios y tus primeros patrocinios.
+              <p class="text-xs text-slate-300 leading-relaxed mb-4">
+                Implementa <span class="font-display font-black tracking-tight"><span class="text-white">RIR</span><span class="bg-gradient-to-r from-[#6d5df1] via-[#8b5cf6] to-[#ec4899] bg-clip-text text-transparent">HUB</span></span> en una sola de tus sucursales con acompañamiento técnico prioritario. Evalúa la fluidez en torniquetes, la adopción de los socios y tus primeros patrocinios.
               </p>
               <ul class="space-y-2 mb-6">
                 <li class="flex items-center gap-2 text-xs text-[#f8fafc]">
@@ -1893,10 +1718,9 @@ onMounted(() => {
             </div>
             <button
               @click="openDemoModal('Piloto en una sede')"
-              class="w-full py-3.5 rounded-xl bg-[#10b981] hover:bg-[#059669] text-black font-display text-xs uppercase tracking-wider hover:scale-[1.02] transition-all cursor-pointer flex items-center justify-center gap-2 font-black shadow-lg shadow-[#10b981]/20"
+              class="w-full py-3.5 rounded-xl bg-[#10b981] hover:bg-[#059669] text-black font-display text-xs uppercase tracking-wider transition-colors duration-200 cursor-pointer flex items-center justify-center font-black"
             >
               <span>Solicitar Piloto en Sede</span>
-              <ArrowRight class="w-4 h-4 stroke-[2.5]" />
             </button>
           </div>
         </div>
@@ -1906,29 +1730,11 @@ onMounted(() => {
     <!-- ═══════════════════════════════════════════════════════════════════ -->
     <!-- FOOTER                                                              -->
     <!-- ═══════════════════════════════════════════════════════════════════ -->
-    <footer class="relative z-10 py-12 px-4 sm:px-6 lg:px-8 border-t border-[#1e2638] bg-[#07090e] text-[#94a3b8] text-xs">
-      <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-        <div class="flex items-center gap-3">
-          <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-[#6d5df1] to-[#8b5cf6] flex items-center justify-center font-display text-black text-sm">
-            R
-          </div>
-          <span class="font-display text-white text-lg tracking-tight">RIR<span class="text-[#6d5df1]">HUB</span></span>
-          <span class="text-[#64748b]">· El Sistema Operativo para Cadenas Fitness</span>
-        </div>
-
-        <div class="flex items-center gap-6">
-          <span class="flex items-center gap-1.5 text-[#10b981]">
-            <span class="w-2 h-2 rounded-full bg-[#10b981] animate-pulse" />
-            Todos los sistemas operativos
-          </span>
-          <a href="#" class="hover:text-white transition-colors">Privacidad</a>
-          <a href="#" class="hover:text-white transition-colors">Términos de Servicio</a>
-          <a href="#" class="hover:text-white transition-colors">Seguridad Stripe</a>
-        </div>
-
-        <div>
-          © {{ new Date().getFullYear() }} RIR-HUB Inc. Todos los derechos reservados.
-        </div>
+    <footer class="relative z-10 py-10 px-4 sm:px-6 lg:px-8 border-t border-[#1e2638] bg-[#07090e] text-slate-400 text-xs text-center">
+      <div class="max-w-7xl mx-auto">
+        <p>
+          © {{ new Date().getFullYear() }} <span class="font-display font-black tracking-tight"><span class="text-white">RIR</span><span class="bg-gradient-to-r from-[#6d5df1] via-[#8b5cf6] to-[#ec4899] bg-clip-text text-transparent">HUB</span></span> Inc. Todos los derechos reservados.
+        </p>
       </div>
     </footer>
 
@@ -1943,7 +1749,7 @@ onMounted(() => {
       <div class="relative w-full max-w-lg rounded-2xl border border-[#1e2638] bg-[#10141e] p-6 sm:p-8 shadow-2xl">
         <button
           @click="closeDemoModal"
-          class="absolute top-5 right-5 text-[#94a3b8] hover:text-white transition-colors cursor-pointer"
+          class="absolute top-5 right-5 text-slate-300 hover:text-white transition-colors cursor-pointer"
         >
           <X class="w-5 h-5" />
         </button>
@@ -1955,12 +1761,12 @@ onMounted(() => {
           <h3 class="font-display text-2xl uppercase tracking-tight text-white">
             ¡Solicitud Recibida!
           </h3>
-          <p class="text-sm text-[#94a3b8] max-w-sm mx-auto">
-            Gracias por tu interés en RIR-HUB, <strong class="text-white">{{ form.name }}</strong>. Nuestro equipo comercial se comunicará contigo vía WhatsApp / correo para coordinar tu acceso y demostración en vivo.
+          <p class="text-sm text-slate-300 max-w-sm mx-auto">
+            Gracias por tu interés en <span class="font-display font-black tracking-tight"><span class="text-white">RIR</span><span class="bg-gradient-to-r from-[#6d5df1] via-[#8b5cf6] to-[#ec4899] bg-clip-text text-transparent">HUB</span></span>, <strong class="text-white">{{ form.name }}</strong>. Nuestro equipo comercial se comunicará contigo vía WhatsApp / correo para coordinar tu acceso y demostración en vivo.
           </p>
           <button
             @click="closeDemoModal"
-            class="mt-4 px-6 py-2.5 rounded-xl bg-[#6d5df1] hover:bg-[#5b4be2] text-white font-display text-xs uppercase tracking-wider hover:scale-105 transition-transform cursor-pointer"
+            class="mt-4 px-6 py-2.5 rounded-xl bg-[#6d5df1] hover:bg-[#5b4be2] text-white font-display text-xs uppercase tracking-wider transition-colors duration-200 cursor-pointer"
           >
             Entendido
           </button>
@@ -1975,15 +1781,18 @@ onMounted(() => {
             <h3 class="font-display text-2xl uppercase tracking-tight text-white">
               {{ form.interest === 'Piloto en una sede' ? 'Solicitar Piloto en Sede' : 'Agendar Demo en Vivo' }}
             </h3>
-            <p class="text-xs text-[#94a3b8] mt-1">
-              {{ form.interest === 'Piloto en una sede' ? 'Pon a prueba RIR-HUB en una sola sede con tu operación y anunciantes reales.' : 'Conoce la plataforma y descubre cómo RIR-HUB activa tu audiencia y reduce el abandono.' }}
+            <p v-if="form.interest === 'Piloto en una sede'" class="text-xs text-slate-300 mt-1">
+              Pon a prueba <span class="font-display font-black tracking-tight"><span class="text-white">RIR</span><span class="bg-gradient-to-r from-[#6d5df1] via-[#8b5cf6] to-[#ec4899] bg-clip-text text-transparent">HUB</span></span> en una sola sede con tu operación y anunciantes reales.
+            </p>
+            <p v-else class="text-xs text-slate-300 mt-1">
+              Conoce la plataforma y descubre cómo <span class="font-display font-black tracking-tight"><span class="text-white">RIR</span><span class="bg-gradient-to-r from-[#6d5df1] via-[#8b5cf6] to-[#ec4899] bg-clip-text text-transparent">HUB</span></span> activa tu audiencia y reduce el abandono.
             </p>
           </div>
 
           <form @submit.prevent="submitDemoForm" class="space-y-4">
             <!-- Selector de Modalidad (Slide 13 del Deck) -->
             <div>
-              <label class="block text-xs font-bold uppercase tracking-wider text-[#94a3b8] mb-1.5">Modalidad Seleccionada</label>
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">Modalidad Seleccionada</label>
               <div class="grid grid-cols-2 gap-2">
                 <button
                   type="button"
@@ -1992,7 +1801,7 @@ onMounted(() => {
                     'py-2 px-3 rounded-xl border text-xs font-bold transition-all text-center cursor-pointer',
                     form.interest === 'Demo remota en vivo (30 min)'
                       ? 'border-[#6d5df1] bg-[#6d5df1]/20 text-white shadow-sm'
-                      : 'border-[#1e2638] bg-[#07090e] text-[#94a3b8] hover:text-white'
+                      : 'border-[#1e2638] bg-[#07090e] text-slate-300 hover:text-white'
                   ]"
                 >
                   Demo Remota (30 min)
@@ -2004,7 +1813,7 @@ onMounted(() => {
                     'py-2 px-3 rounded-xl border text-xs font-bold transition-all text-center cursor-pointer',
                     form.interest === 'Piloto en una sede'
                       ? 'border-[#10b981] bg-[#10b981]/20 text-white shadow-sm'
-                      : 'border-[#1e2638] bg-[#07090e] text-[#94a3b8] hover:text-white'
+                      : 'border-[#1e2638] bg-[#07090e] text-slate-300 hover:text-white'
                   ]"
                 >
                   Piloto en Sede
@@ -2012,7 +1821,7 @@ onMounted(() => {
               </div>
             </div>
             <div>
-              <label class="block text-xs font-bold uppercase tracking-wider text-[#94a3b8] mb-1">Tu Nombre Completo</label>
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1">Tu Nombre Completo</label>
               <input
                 v-model="form.name"
                 required
@@ -2023,7 +1832,7 @@ onMounted(() => {
             </div>
 
             <div>
-              <label class="block text-xs font-bold uppercase tracking-wider text-[#94a3b8] mb-1">Nombre de tu Gimnasio o Cadena</label>
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1">Nombre de tu Gimnasio o Cadena</label>
               <input
                 v-model="form.gymName"
                 required
@@ -2035,7 +1844,7 @@ onMounted(() => {
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label class="block text-xs font-bold uppercase tracking-wider text-[#94a3b8] mb-1">Sedes Actuales</label>
+                <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1">Sedes Actuales</label>
                 <select
                   v-model="form.branches"
                   class="w-full px-3.5 py-2.5 rounded-xl border border-[#1e2638] bg-[#07090e] text-white text-sm focus:border-[#6d5df1] focus:outline-none transition-colors"
@@ -2048,7 +1857,7 @@ onMounted(() => {
               </div>
 
               <div>
-                <label class="block text-xs font-bold uppercase tracking-wider text-[#94a3b8] mb-1">WhatsApp de Contacto</label>
+                <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1">WhatsApp de Contacto</label>
                 <input
                   v-model="form.phone"
                   required
@@ -2060,7 +1869,7 @@ onMounted(() => {
             </div>
 
             <div>
-              <label class="block text-xs font-bold uppercase tracking-wider text-[#94a3b8] mb-1">Correo Electrónico Corporativo</label>
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1">Correo Electrónico Corporativo</label>
               <input
                 v-model="form.email"
                 required
@@ -2072,7 +1881,7 @@ onMounted(() => {
 
             <button
               type="submit"
-              class="w-full mt-2 py-3.5 rounded-xl bg-[#6d5df1] hover:bg-[#5b4be2] text-white font-display text-xs uppercase tracking-wider hover:scale-[1.02] transition-all cursor-pointer"
+              class="w-full mt-2 py-3.5 rounded-xl bg-[#6d5df1] hover:bg-[#5b4be2] text-white font-display text-xs uppercase tracking-wider transition-colors duration-200 cursor-pointer"
             >
               {{ form.interest === 'Piloto en una sede' ? 'Confirmar Solicitud de Piloto' : 'Confirmar Cita para Demostración' }}
             </button>
