@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Plantilla de Correo para Gmail — RIR-HUB</title>
+  <title>Plantilla de Correo para Gmail — RIRHUB</title>
 </head>
 <body style="margin: 0; padding: 0; background-color: #05070b; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #f8fafc;">
 
@@ -11,14 +11,14 @@
   <!-- BARRA DE CONTROL (NO SE COPIA AL CORREO - SOLO PARA TI)               -->
   <!-- ═════════════════════════════════════════════════════════════════════ -->
   <div id="control-bar" style="background-color: #10141e; border-bottom: 1px solid #1e2638; padding: 16px 20px; position: sticky; top: 0; z-index: 999; box-shadow: 0 10px 30px rgba(0,0,0,0.6);">
-    <div style="max-width: 880px; margin: 0 auto;">
+    <div style="max-width: 720px; margin: 0 auto;">
       <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px;">
         <div>
           <span style="display: inline-block; background-color: rgba(109,93,241,0.18); color: #c4b5fd; border: 1px solid rgba(109,93,241,0.4); font-size: 11px; font-weight: 800; padding: 3px 8px; border-radius: 6px; text-transform: uppercase; letter-spacing: 0.06em;">
-            Generador de Correo para Gmail
+            Versión Fluida (Android Gmail + iOS Mail + Desktop)
           </span>
           <p style="margin: 6px 0 0 0; font-size: 13px; color: #cbd5e1;">
-            1. Personaliza el nombre (opcional) &nbsp;→&nbsp; 2. Haz clic en <strong>"Copiar Correo para Gmail"</strong> &nbsp;→&nbsp; 3. Ve a Gmail, abre <strong>Redactar</strong> y presiona <strong>Cmd+V / Ctrl+V</strong>.
+            1. Escribe el nombre del Gym &nbsp;→&nbsp; 2. Clic en <strong>"Copiar Correo para Gmail"</strong> &nbsp;→&nbsp; 3. Pega (<strong>Cmd+V</strong>) en Gmail.
           </p>
         </div>
 
@@ -28,7 +28,7 @@
             id="btn-subject"
             style="background-color: #161c2a; color: #e2e8f0; border: 1px solid #2a364f; padding: 10px 14px; border-radius: 10px; font-size: 12px; font-weight: 700; cursor: pointer;"
           >
-            📋 Copiar Asunto Sugerido
+            📋 Copiar Asunto
           </button>
           <button
             onclick="copyEmailForGmail()"
@@ -47,7 +47,7 @@
           <input
             id="input-name"
             type="text"
-            placeholder="Ej. Carlos (opcional)"
+            placeholder="Opcional (ej. Carlos)"
             oninput="updatePreview()"
             style="background-color: #07090e; border: 1px solid #2a364f; color: #ffffff; padding: 6px 10px; border-radius: 8px; font-size: 12px; width: 150px;"
           />
@@ -57,358 +57,273 @@
           <input
             id="input-gym"
             type="text"
-            placeholder="Ej. Iron Club (opcional)"
+            value="Capital fitness"
+            placeholder="Ej. Capital fitness"
             oninput="updatePreview()"
             style="background-color: #07090e; border: 1px solid #2a364f; color: #ffffff; padding: 6px 10px; border-radius: 8px; font-size: 12px; width: 170px;"
           />
         </div>
         <span style="font-size: 11px; color: #64748b;">
-          Asunto sugerido: <strong id="subject-preview" style="color: #c4b5fd;">Tu gimnasio tiene un activo oculto: retén más socios con IA y vende publicidad en tu app</strong>
+          Asunto: <strong id="subject-preview" style="color: #c4b5fd;">Cuida a tus socios con ayuda de la IA y vende publicidad local en tu propia app.</strong>
         </span>
       </div>
     </div>
   </div>
 
   <!-- ═════════════════════════════════════════════════════════════════════ -->
-  <!-- INICIO DEL CONTENIDO QUE SE COPIA A GMAIL                             -->
+  <!-- CONTENIDO QUE SE COPIA A GMAIL                                        -->
+  <!-- CERO TABLAS ANIDADAS: 100% bloques <div> fluidos para que Android     -->
+  <!-- nunca corte a la derecha e iOS Mail nunca achique la letra.           -->
   <!-- ═════════════════════════════════════════════════════════════════════ -->
-  <div id="email-copy-area" style="padding: 24px 12px; background-color: #05070b;">
-    <table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#05070b" style="background-color: #05070b; width: 100%; margin: 0; padding: 0;">
-      <tr>
-        <td align="center" bgcolor="#05070b" style="background-color: #05070b; padding: 20px 10px;">
+  <div style="max-width: 600px; margin: 24px auto; padding: 0 12px;">
+    <div id="email-copy-area">
+      <div style="background-color: #0a0d14; border: 1px solid #1e2638; border-radius: 16px; overflow: hidden; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #f8fafc;">
 
-          <!-- CONTENEDOR PRINCIPAL 600PX -->
-          <table width="600" cellpadding="0" cellspacing="0" border="0" bgcolor="#0a0d14" style="max-width: 600px; width: 100%; background-color: #0a0d14; border: 1px solid #1e2638; border-radius: 20px; overflow: hidden; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+        <!-- TOP BAR: LOGO + SITIO -->
+        <div style="background-color: #10141e; padding: 16px 20px; border-bottom: 1px solid #1e2638;">
+          <a href="https://rirhub-landing.vercel.app/" target="_blank" style="text-decoration: none; font-size: 22px; font-weight: 900; letter-spacing: -0.02em; color: #ffffff;">
+            <span style="color: #ffffff;">RIR</span><span style="color: #8b5cf6;">HUB</span>
+          </a>
+          <span style="color: #334155; margin: 0 8px;">|</span>
+          <a href="https://rirhub-landing.vercel.app/" target="_blank" style="text-decoration: none; font-size: 13px; font-weight: 700; color: #a78bfa;">
+            Ver Plataforma en Vivo ↗
+          </a>
+        </div>
 
-            <!-- TOP BAR: LOGO + BADGE -->
-            <tr>
-              <td bgcolor="#10141e" style="background-color: #10141e; padding: 18px 28px; border-bottom: 1px solid #1e2638;">
-                <table width="100%" cellpadding="0" cellspacing="0" border="0">
-                  <tr>
-                    <td align="left" style="vertical-align: middle;">
-                      <a href="https://rirhub-landing.vercel.app" target="_blank" style="text-decoration: none; font-size: 20px; font-weight: 900; letter-spacing: -0.02em; color: #ffffff;">
-                        <span style="color: #ffffff;">RIR</span><span style="color: #8b5cf6;">HUB</span>
-                      </a>
-                    </td>
-                    <td align="right" style="vertical-align: middle;">
-                      <span style="display: inline-block; background-color: #161c2d; border: 1px solid #2e3b59; color: #c4b5fd; font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; padding: 5px 10px; border-radius: 20px;">
-                        ✦ IA + Monetización para Gimnasios
-                      </span>
-                    </td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
+        <!-- HERO SECTION -->
+        <div style="background-color: #0a0d14; padding: 28px 20px 24px 20px; text-align: center;">
+          <!-- Saludo personalizado -->
+          <p id="greeting-line" style="margin: 0 0 14px 0; font-size: 17px; color: #cbd5e1; font-weight: 600;">
+            Hola equipo de <strong style="color: #c4b5fd;">Capital fitness</strong>:
+          </p>
 
-            <!-- HERO SECTION -->
-            <tr>
-              <td bgcolor="#0a0d14" style="background-color: #0a0d14; padding: 36px 28px 28px 28px; text-align: center;">
-                <!-- Saludo personalizado -->
-                <p id="greeting-line" style="margin: 0 0 14px 0; font-size: 15px; color: #cbd5e1; font-weight: 600;">
-                  Hola, ¿cómo estás?
-                </p>
+          <!-- Headline principal (El Gancho) -->
+          <h1 style="margin: 0; font-size: 26px; line-height: 1.22; font-weight: 900; text-transform: uppercase; letter-spacing: -0.01em; color: #ffffff;">
+            TU AUDIENCIA ES UN ACTIVO.<br />
+            <span style="color: #a78bfa;">NOSOTROS LO ACTIVAMOS CON IA.</span>
+          </h1>
 
-                <!-- Headline principal (El Gancho) -->
-                <h1 style="margin: 0; font-size: 28px; line-height: 1.2; font-weight: 900; text-transform: uppercase; letter-spacing: -0.01em; color: #ffffff;">
-                  Tu Audiencia Es un Activo.<br />
-                  <span style="color: #a78bfa;">Nosotros lo Activamos con IA.</span>
-                </h1>
+          <!-- Subhead comercial -->
+          <p style="margin: 16px 0 22px 0; font-size: 16px; line-height: 1.6; color: #e2e8f0;">
+            <strong style="color: #ffffff;">RIR<span style="color: #a78bfa;">HUB</span></strong> te ayuda a
+            <strong style="color: #c4b5fd;">retener a tus socios antes de que dejen de pagar</strong>
+            usando <strong style="color: #38bdf8;">Inteligencia Artificial</strong>. Te damos
+            <strong style="color: #6ee7b7;">una plataforma web administrativa</strong> y una
+            <strong style="color: #c4b5fd;">app móvil para tus usuarios</strong> donde
+            <strong style="color: #38bdf8;">los negocios de tu zona pagan por anunciarse</strong>, todo de forma automatizada.
+          </p>
 
-                <!-- Subhead comercial -->
-                <p style="margin: 18px auto 0 auto; font-size: 15px; line-height: 1.65; color: #e2e8f0; max-width: 520px;">
-                  <strong style="color: #ffffff;">RIR<span style="color: #a78bfa;">HUB</span></strong> te ayuda a
-                  <strong style="color: #c4b5fd;">retener a tus socios antes de que dejen de pagar</strong>
-                  usando <strong style="color: #38bdf8;">Inteligencia Artificial</strong>. Te damos
-                  <strong style="color: #6ee7b7;">una plataforma web administrativa</strong> y una
-                  <strong style="color: #c4b5fd;">app móvil para tus usuarios</strong> donde
-                  <strong style="color: #38bdf8;">los negocios de tu zona pagan por anunciarse</strong>, todo de forma automatizada.
-                </p>
+          <!-- Botón 1: Cómo te ayuda la IA -->
+          <div style="background-color: #10141e; border: 1px solid #6d5df1; border-radius: 10px; padding: 13px 14px; margin-bottom: 10px; text-align: center;">
+            <a href="https://rirhub-landing.vercel.app/#ia" target="_blank" style="color: #ffffff; text-decoration: none; font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em;">
+              CÓMO TE AYUDA LA IA →
+            </a>
+          </div>
 
-                <!-- Dos botones gemelos (IA + Publicidad) -->
-                <table cellpadding="0" cellspacing="0" border="0" align="center" style="margin: 26px auto 0 auto;">
-                  <tr>
-                    <td align="center" style="padding: 4px;">
-                      <a href="https://rirhub-landing.vercel.app/#ia" target="_blank" style="display: inline-block; background-color: #10141e; border: 1px solid #6d5df1; color: #ffffff; text-decoration: none; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; padding: 13px 18px; border-radius: 12px;">
-                        🧠 CÓMO TE AYUDA LA IA
-                      </a>
-                    </td>
-                    <td align="center" style="padding: 4px;">
-                      <a href="https://rirhub-landing.vercel.app/#monetizacion" target="_blank" style="display: inline-block; background-color: #10141e; border: 1px solid #38bdf8; color: #ffffff; text-decoration: none; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; padding: 13px 18px; border-radius: 12px;">
-                        📣 VENTA DE PUBLICIDAD
-                      </a>
-                    </td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
+          <!-- Botón 2: Venta de Publicidad -->
+          <div style="background-color: #10141e; border: 1px solid #38bdf8; border-radius: 10px; padding: 13px 14px; text-align: center;">
+            <a href="https://rirhub-landing.vercel.app/#monetizacion" target="_blank" style="color: #ffffff; text-decoration: none; font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em;">
+              VENTA DE PUBLICIDAD →
+            </a>
+          </div>
+        </div>
 
-            <!-- SEPARADOR -->
-            <tr>
-              <td style="padding: 0 28px;">
-                <div style="border-top: 1px solid #1e2638; height: 1px; line-height: 1px;">&nbsp;</div>
-              </td>
-            </tr>
+        <!-- SEPARADOR -->
+        <div style="padding: 0 20px;">
+          <div style="border-top: 1px solid #1e2638; height: 1px; line-height: 1px;">&nbsp;</div>
+        </div>
 
-            <!-- ═══════════════════════════════════════════════════════════ -->
-            <!-- PILAR 1: INTELIGENCIA ARTIFICIAL QUE CUIDA TUS INGRESOS     -->
-            <!-- ═══════════════════════════════════════════════════════════ -->
-            <tr>
-              <td bgcolor="#0a0d14" style="background-color: #0a0d14; padding: 28px 28px 10px 28px;">
-                <span style="display: inline-block; background-color: #161c2d; border: 1px solid #2e3b59; color: #a78bfa; font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; padding: 4px 10px; border-radius: 6px;">
-                  Pilar 1 · Retención y Operación con IA
-                </span>
-                <h2 style="margin: 10px 0 6px 0; font-size: 21px; font-weight: 900; text-transform: uppercase; color: #ffffff; line-height: 1.25;">
-                  Predice Quién Se Va a Ir.<br />
-                  <span style="color: #6ee7b7;">Recupéralo Antes de Perder su Mensualidad.</span>
-                </h2>
-                <p style="margin: 0 0 18px 0; font-size: 14px; line-height: 1.6; color: #cbd5e1;">
-                  El mayor gasto de <span id="gym-mention-1">tu gimnasio</span> no es la luz ni la renta: son los socios que dejan de venir en silencio. Nuestra IA trabaja todos los días en 3 frentes:
-                </p>
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <!-- PILAR 1: INTELIGENCIA ARTIFICIAL QUE CUIDA TUS INGRESOS     -->
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <div style="background-color: #0a0d14; padding: 24px 20px 10px 20px;">
+          <div style="margin-bottom: 8px;">
+            <span style="display: inline-block; background-color: #161c2d; border: 1px solid #2e3b59; color: #a78bfa; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; padding: 5px 10px; border-radius: 6px;">
+              PILAR 1 · RETENCIÓN Y OPERACIÓN CON IA
+            </span>
+          </div>
+          <h2 style="margin: 0 0 16px 0; font-size: 22px; font-weight: 900; text-transform: uppercase; color: #ffffff; line-height: 1.25;">
+            PREDICE QUIÉN SE VA A IR.<br />
+            <span style="color: #6ee7b7;">RECUPÉRALO ANTES DE PERDER SU MENSUALIDAD.</span>
+          </h2>
 
-                <!-- Card 01 -->
-                <table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#10141e" style="background-color: #10141e; border: 1px solid #1e2638; border-radius: 14px; margin-bottom: 12px;">
-                  <tr>
-                    <td style="padding: 18px 20px;">
-                      <div style="font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: #a78bfa; margin-bottom: 4px;">
-                        01 · Rescate de Socios en Riesgo
-                      </div>
-                      <div style="font-size: 16px; font-weight: 800; color: #ffffff; margin-bottom: 6px;">
-                        Detecta quién dejó de venir y te sugiere cómo recuperarlo
-                      </div>
-                      <p style="margin: 0 0 10px 0; font-size: 13px; line-height: 1.55; color: #cbd5e1;">
-                        La IA te avisa qué socios están a punto de abandonar y te redacta el mensaje personalizado o regalo de puntos para enviarles con un clic. Cuando el socio regresa o renueva, el tablero te muestra <strong style="color: #6ee7b7;">cuánto dinero en efectivo recuperaste en el mes</strong>.
-                      </p>
-                      <div style="font-size: 12px; font-weight: 800; color: #6ee7b7;">
-                        ✓ Recupera mensualidades con 1 clic
-                      </div>
-                    </td>
-                  </tr>
-                </table>
+          <!-- Card 01 -->
+          <div style="background-color: #10141e; border: 1px solid #1e2638; border-radius: 12px; padding: 16px; margin-bottom: 12px;">
+            <div style="font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: #a78bfa; margin-bottom: 4px;">
+              01 · RESCATE DE SOCIOS EN RIESGO
+            </div>
+            <div style="font-size: 17px; font-weight: 800; color: #ffffff; margin-bottom: 6px; line-height: 1.3;">
+              Detecta quién dejó de venir y te sugiere cómo recuperarlo
+            </div>
+            <p style="margin: 0 0 10px 0; font-size: 15px; line-height: 1.55; color: #cbd5e1;">
+              La IA te avisa qué socios están a punto de abandonar y te redacta el mensaje personalizado o regalo de puntos para enviarles con un clic. Cuando el socio regresa o renueva, el tablero te muestra <strong style="color: #6ee7b7;">cuánto dinero en efectivo recuperaste en el mes</strong>.
+            </p>
+            <div style="font-size: 14px; font-weight: 800; color: #6ee7b7;">
+              ✓ Recupera mensualidades con 1 clic
+            </div>
+          </div>
 
-                <!-- Card 02 -->
-                <table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#10141e" style="background-color: #10141e; border: 1px solid #1e2638; border-radius: 14px; margin-bottom: 12px;">
-                  <tr>
-                    <td style="padding: 18px 20px;">
-                      <div style="font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: #38bdf8; margin-bottom: 4px;">
-                        02 · Asistente Rápido en Recepción
-                      </div>
-                      <div style="font-size: 16px; font-weight: 800; color: #ffffff; margin-bottom: 6px;">
-                        Tu recepción responde dudas en segundos, sin buscar en pantallas
-                      </div>
-                      <p style="margin: 0 0 10px 0; font-size: 13px; line-height: 1.55; color: #cbd5e1;">
-                        Cuando un socio escribe por soporte desde la app, el sistema revisa en automático su membresía, vencimiento y puntos, y le deja lista la respuesta a tu recepcionista para contestar en un clic.
-                      </p>
-                      <div style="font-size: 12px; font-weight: 800; color: #38bdf8;">
-                        ✓ Atención inmediata sin filas en mostrador
-                      </div>
-                    </td>
-                  </tr>
-                </table>
+          <!-- Card 02 -->
+          <div style="background-color: #10141e; border: 1px solid #1e2638; border-radius: 12px; padding: 16px; margin-bottom: 12px;">
+            <div style="font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: #38bdf8; margin-bottom: 4px;">
+              02 · ASISTENTE RÁPIDO EN RECEPCIÓN
+            </div>
+            <div style="font-size: 17px; font-weight: 800; color: #ffffff; margin-bottom: 6px; line-height: 1.3;">
+              Tu recepción responde dudas en segundos, sin buscar en pantallas
+            </div>
+            <p style="margin: 0 0 10px 0; font-size: 15px; line-height: 1.55; color: #cbd5e1;">
+              Cuando un socio escribe por soporte desde la app, el sistema revisa en automático su membresía, vencimiento y puntos, y le deja lista la respuesta a tu recepcionista para contestar en un clic.
+            </p>
+            <div style="font-size: 14px; font-weight: 800; color: #38bdf8;">
+              ✓ Atención inmediata sin filas en mostrador
+            </div>
+          </div>
 
-                <!-- Card 03 -->
-                <table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#10141e" style="background-color: #10141e; border: 1px solid #1e2638; border-radius: 14px; margin-bottom: 8px;">
-                  <tr>
-                    <td style="padding: 18px 20px;">
-                      <div style="font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: #6ee7b7; margin-bottom: 4px;">
-                        03 · Recomendador en la App del Socio
-                      </div>
-                      <div style="font-size: 16px; font-weight: 800; color: #ffffff; margin-bottom: 6px;">
-                        Les recomienda el mejor horario hoy y cuida su constancia
-                      </div>
-                      <p style="margin: 0 0 10px 0; font-size: 13px; line-height: 1.55; color: #cbd5e1;">
-                        Desde el inicio de la app, le avisa al socio <strong style="color: #6ee7b7;">a qué hora estará más despejado el gimnasio hoy</strong> para entrenar cómodo y le ayuda a ajustar su meta semanal para no perder el hábito.
-                      </p>
-                      <div style="font-size: 12px; font-weight: 800; color: #6ee7b7;">
-                        ✓ Desahoga horas pico y mantiene al socio activo
-                      </div>
-                    </td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
+          <!-- Card 03 -->
+          <div style="background-color: #10141e; border: 1px solid #1e2638; border-radius: 12px; padding: 16px; margin-bottom: 6px;">
+            <div style="font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: #6ee7b7; margin-bottom: 4px;">
+              03 · RECOMENDADOR EN LA APP DEL SOCIO
+            </div>
+            <div style="font-size: 17px; font-weight: 800; color: #ffffff; margin-bottom: 6px; line-height: 1.3;">
+              Les recomienda el mejor horario hoy y cuida su constancia
+            </div>
+            <p style="margin: 0 0 10px 0; font-size: 15px; line-height: 1.55; color: #cbd5e1;">
+              Desde el inicio de la app, le avisa al socio <strong style="color: #6ee7b7;">a qué hora estará más despejado el gimnasio hoy</strong> para entrenar cómodo y le ayuda a ajustar su meta semanal para no perder el hábito.
+            </p>
+            <div style="font-size: 14px; font-weight: 800; color: #6ee7b7;">
+              ✓ Desahoga horas pico y mantiene al socio activo
+            </div>
+          </div>
+        </div>
 
-            <!-- ═══════════════════════════════════════════════════════════ -->
-            <!-- PILAR 2: MONETIZACIÓN DE PUBLICIDAD LOCAL                   -->
-            <!-- ═══════════════════════════════════════════════════════════ -->
-            <tr>
-              <td bgcolor="#0a0d14" style="background-color: #0a0d14; padding: 24px 28px;">
-                <table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#10141e" style="background-color: #10141e; border: 2px solid #6d5df1; border-radius: 18px; overflow: hidden;">
-                  <tr>
-                    <td style="padding: 24px 22px;">
-                      <span style="display: inline-block; background-color: #161c2d; border: 1px solid #6d5df1; color: #c4b5fd; font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; padding: 4px 10px; border-radius: 6px;">
-                        Pilar 2 · Medio Publicitario Propio · 0% Comisión
-                      </span>
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <!-- PILAR 2: MONETIZACIÓN DE PUBLICIDAD LOCAL                   -->
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <div style="background-color: #0a0d14; padding: 18px 20px;">
+          <div style="background-color: #10141e; border: 2px solid #6d5df1; border-radius: 14px; padding: 20px 16px;">
+            <div style="margin-bottom: 8px;">
+              <span style="display: inline-block; background-color: #161c2d; border: 1px solid #6d5df1; color: #c4b5fd; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; padding: 5px 10px; border-radius: 6px;">
+                PILAR 2 · MEDIO PUBLICITARIO PROPIO · 0% COMISIÓN
+              </span>
+            </div>
 
-                      <h2 style="margin: 12px 0 8px 0; font-size: 21px; font-weight: 900; text-transform: uppercase; color: #ffffff; line-height: 1.25;">
-                        Vende Espacios Publicitarios.<br />
-                        <span style="color: #38bdf8;">Los Negocios de Tu Zona Pagan en Automático.</span>
-                      </h2>
+            <h2 style="margin: 0 0 14px 0; font-size: 22px; font-weight: 900; text-transform: uppercase; color: #ffffff; line-height: 1.25;">
+              VENDE ESPACIOS PUBLICITARIOS.<br />
+              <span style="color: #38bdf8;">LOS NEGOCIOS DE TU ZONA PAGAN EN AUTOMÁTICO.</span>
+            </h2>
 
-                      <p style="margin: 0 0 16px 0; font-size: 13.5px; line-height: 1.6; color: #e2e8f0;">
-                        Tus socios son el público más buscado por tiendas de suplementos, fisioterapeutas, cafeterías fit y médicos deportivos de tu colonia. Con <strong style="color: #ffffff;">RIR-HUB</strong> conviertes tu app en una fuente de ingresos pasivos:
-                      </p>
+            <!-- Paso 1 -->
+            <div style="padding: 12px; background-color: #0a0d14; border: 1px solid #1e2638; border-radius: 10px; margin-bottom: 8px;">
+              <div style="font-size: 13px; font-weight: 800; color: #a78bfa;">
+                PASO 1 · EL NEGOCIO COMPRA SOLO EN /ANUNCIA
+              </div>
+              <div style="font-size: 14.5px; color: #cbd5e1; margin-top: 4px; line-height: 1.5;">
+                El comercio vecino entra a tu portal web, sube su promoción, elige semanas y paga con tarjeta en línea.
+              </div>
+            </div>
 
-                      <!-- 3 pasos en tabla -->
-                      <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom: 16px;">
-                        <tr>
-                          <td style="padding: 10px 12px; background-color: #0a0d14; border: 1px solid #1e2638; border-radius: 10px; margin-bottom: 8px;">
-                            <div style="font-size: 12px; font-weight: 800; color: #a78bfa;">
-                              PASO 1 · EL NEGOCIO COMPRA SOLO EN /ANUNCIA
-                            </div>
-                            <div style="font-size: 12.5px; color: #cbd5e1; margin-top: 3px;">
-                              El comercio vecino entra a tu portal web, sube su promoción, elige semanas y paga con tarjeta en línea.
-                            </div>
-                          </td>
-                        </tr>
-                        <tr><td style="height: 8px; line-height: 8px;">&nbsp;</td></tr>
-                        <tr>
-                          <td style="padding: 10px 12px; background-color: #0a0d14; border: 1px solid #1e2638; border-radius: 10px;">
-                            <div style="font-size: 12px; font-weight: 800; color: #38bdf8;">
-                              PASO 2 · TÚ APRUEBAS CON UN CLIC
-                            </div>
-                            <div style="font-size: 12.5px; color: #cbd5e1; margin-top: 3px;">
-                              Revisas el anuncio en tu consola. Al aprobarlo se publica en el carrusel de tu app y dispara un aviso Push a tus socios.
-                            </div>
-                          </td>
-                        </tr>
-                        <tr><td style="height: 8px; line-height: 8px;">&nbsp;</td></tr>
-                        <tr>
-                          <td style="padding: 10px 12px; background-color: #0a0d14; border: 1px solid #1e2638; border-radius: 10px;">
-                            <div style="font-size: 12px; font-weight: 800; color: #6ee7b7;">
-                              PASO 3 · 100% DEL DINERO DIRECTO A TU BANCO
-                            </div>
-                            <div style="font-size: 12.5px; color: #cbd5e1; margin-top: 3px;">
-                              Sin intermediarios ni comisiones: con solo 4 a 5 comercios locales anunciándose generas <strong style="color: #6ee7b7;">+$14,000 a +$32,000 MXN extra al mes por sede</strong>.
-                            </div>
-                          </td>
-                        </tr>
-                      </table>
+            <!-- Paso 2 -->
+            <div style="padding: 12px; background-color: #0a0d14; border: 1px solid #1e2638; border-radius: 10px; margin-bottom: 8px;">
+              <div style="font-size: 13px; font-weight: 800; color: #38bdf8;">
+                PASO 2 · TÚ APRUEBAS CON UN CLIC
+              </div>
+              <div style="font-size: 14.5px; color: #cbd5e1; margin-top: 4px; line-height: 1.5;">
+                Revisas el anuncio en tu consola. Al aprobarlo se publica en el carrusel de tu app y dispara un aviso Push a tus socios.
+              </div>
+            </div>
 
-                      <div style="text-align: center; margin-top: 16px;">
-                        <a href="https://gym-b2b-template.vercel.app/anuncia" target="_blank" style="display: inline-block; background-color: #161c2d; border: 1px solid #38bdf8; color: #38bdf8; text-decoration: none; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; padding: 11px 18px; border-radius: 10px;">
-                          Ver Portal de Anunciantes en Vivo (/anuncia) →
-                        </a>
-                      </div>
-                    </td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
+            <!-- Paso 3 -->
+            <div style="padding: 12px; background-color: #0a0d14; border: 1px solid #1e2638; border-radius: 10px; margin-bottom: 14px;">
+              <div style="font-size: 13px; font-weight: 800; color: #6ee7b7;">
+                PASO 3 · 100% DEL DINERO DIRECTO A TU BANCO
+              </div>
+              <div style="font-size: 14.5px; color: #cbd5e1; margin-top: 4px; line-height: 1.5;">
+                Sin intermediarios ni comisiones: con solo 4 a 5 comercios locales anunciándose genera <strong style="color: #6ee7b7;">+$14,000 a +$32,000 MXN extra al mes por sede</strong>.
+              </div>
+            </div>
 
-            <!-- ═══════════════════════════════════════════════════════════ -->
-            <!-- VISTA PREVIA DE LA PLATAFORMA                               -->
-            <!-- ═══════════════════════════════════════════════════════════ -->
-            <tr>
-              <td bgcolor="#0a0d14" style="background-color: #0a0d14; padding: 8px 28px 24px 28px; text-align: center;">
-                <p style="margin: 0 0 12px 0; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: #94a3b8;">
-                  Todo tu gimnasio en tiempo real: Aforo · Check-in QR · Clases · Lealtad · IA · Publicidad
-                </p>
-                <a href="https://rirhub-landing.vercel.app/#ecosistema" target="_blank" style="text-decoration: none;">
-                  <img
-                    src="https://rirhub-landing.vercel.app/shots/dashboard.png"
-                    alt="Consola Administrativa RIR-HUB"
-                    width="540"
-                    style="display: block; width: 100%; max-width: 540px; height: auto; border-radius: 14px; border: 1px solid #1e2638; margin: 0 auto;"
-                  />
-                </a>
-              </td>
-            </tr>
+            <!-- Botón /anuncia como div centrado (no desborda en Android) -->
+            <div style="background-color: #161c2d; border: 1px solid #38bdf8; border-radius: 10px; padding: 13px 12px; text-align: center;">
+              <a href="https://gym-b2b-template.vercel.app/anuncia" target="_blank" style="color: #38bdf8; text-decoration: none; font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em;">
+                VER PORTAL DE ANUNCIANTES (/ANUNCIA) →
+              </a>
+            </div>
+          </div>
+        </div>
 
-            <!-- ═══════════════════════════════════════════════════════════ -->
-            <!-- COMPARATIVA RÁPIDA                                          -->
-            <!-- ═══════════════════════════════════════════════════════════ -->
-            <tr>
-              <td bgcolor="#0a0d14" style="background-color: #0a0d14; padding: 0 28px 28px 28px;">
-                <table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#10141e" style="background-color: #10141e; border: 1px solid #10b981; border-radius: 14px;">
-                  <tr>
-                    <td style="padding: 18px 20px;">
-                      <div style="font-size: 12px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.06em; color: #6ee7b7; margin-bottom: 8px;">
-                        ¿Por qué los dueños de gimnasio cambian su software tradicional por RIR-HUB?
-                      </div>
-                      <p style="margin: 0 0 6px 0; font-size: 13px; color: #e2e8f0; line-height: 1.5;">
-                        <span style="color: #ef4444; font-weight: 800;">✕ Software tradicional:</span> Solo registra cobros en caja, te enteras de las bajas cuando ya te dejaron de pagar y es un gasto fijo cada mes.
-                      </p>
-                      <p style="margin: 0; font-size: 13px; color: #e2e8f0; line-height: 1.5;">
-                        <span style="color: #10b981; font-weight: 800;">✓ Con RIR-HUB:</span> Un sistema que <strong>se paga solo</strong> recuperando mensualidades en riesgo y cobrando publicidad local en automático.
-                      </p>
-                    </td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <!-- CINTILLO DE MÓDULOS EN TIEMPO REAL                          -->
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <div style="background-color: #0a0d14; padding: 4px 20px 18px 20px; text-align: center;">
+          <p style="margin: 0; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: #94a3b8; line-height: 1.45;">
+            TODO TU GIMNASIO EN TIEMPO REAL: AFORO · CHECK-IN QR · CLASES · LEALTAD · IA · PUBLICIDAD
+          </p>
+        </div>
 
-            <!-- ═══════════════════════════════════════════════════════════ -->
-            <!-- CTA FINAL: VER SIMULADOR / AGENDAR DEMO                     -->
-            <!-- ═══════════════════════════════════════════════════════════ -->
-            <tr>
-              <td bgcolor="#10141e" style="background-color: #10141e; padding: 30px 28px; border-top: 1px solid #1e2638; text-align: center;">
-                <h3 style="margin: 0 0 8px 0; font-size: 20px; font-weight: 900; text-transform: uppercase; color: #ffffff;">
-                  Haz la Prueba con los Números de Tu Gimnasio
-                </h3>
-                <p style="margin: 0 auto 22px auto; font-size: 13.5px; line-height: 1.6; color: #cbd5e1; max-width: 480px;">
-                  Entra a nuestra página interactiva para probar el <strong>Simulador de IA en vivo</strong>, calcular cuánto ganarías por publicidad en tu zona o agendar una demo remota de 30 minutos:
-                </p>
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <!-- COMPARATIVA RÁPIDA (DIV FLUIDO, NO TABLA)                   -->
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <div style="background-color: #0a0d14; padding: 0 20px 24px 20px;">
+          <div style="background-color: #10141e; border: 1px solid #10b981; border-radius: 12px; padding: 16px;">
+            <div style="font-size: 14px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.04em; color: #6ee7b7; margin-bottom: 10px; line-height: 1.35;">
+              ¿POR QUÉ LOS DUEÑOS DE GIMNASIO CAMBIAN SU SOFTWARE TRADICIONAL POR <a href="https://rirhub-landing.vercel.app/" target="_blank" style="color: #ffffff; text-decoration: none;">RIR<span style="color: #a78bfa;">HUB</span></a>?
+            </div>
+            <p style="margin: 0 0 8px 0; font-size: 15px; color: #e2e8f0; line-height: 1.55;">
+              <span style="color: #ef4444; font-weight: 800;">✕ Software tradicional:</span> Solo registra cobros en caja, te enteras de las bajas cuando ya te dejaron de pagar y es un gasto fijo cada mes.
+            </p>
+            <p style="margin: 0; font-size: 15px; color: #e2e8f0; line-height: 1.55;">
+              <span style="color: #10b981; font-weight: 800;">✓ Con <a href="https://rirhub-landing.vercel.app/" target="_blank" style="color: #ffffff; text-decoration: none;">RIR<span style="color: #a78bfa;">HUB</span></a>:</span> Un sistema que <strong>se paga solo</strong> recuperando mensualidades en riesgo y cobrando publicidad local en automático.
+            </p>
+          </div>
+        </div>
 
-                <!-- Botón Principal -->
-                <table cellpadding="0" cellspacing="0" border="0" align="center" style="margin: 0 auto;">
-                  <tr>
-                    <td align="center" bgcolor="#6d5df1" style="background-color: #6d5df1; border-radius: 12px;">
-                      <a href="https://rirhub-landing.vercel.app" target="_blank" style="display: inline-block; padding: 15px 28px; font-size: 13px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.06em; color: #ffffff; text-decoration: none;">
-                        Ver Simulador en Vivo y Agendar Demo →
-                      </a>
-                    </td>
-                  </tr>
-                </table>
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <!-- CTA FINAL: VER SIMULADOR / AGENDAR DEMO                     -->
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <div style="background-color: #10141e; padding: 26px 20px; border-top: 1px solid #1e2638; text-align: center;">
+          <h3 style="margin: 0 0 8px 0; font-size: 21px; font-weight: 900; text-transform: uppercase; color: #ffffff; line-height: 1.25;">
+            HAZ LA PRUEBA CON LOS NÚMEROS DE TU GIMNASIO
+          </h3>
+          <p style="margin: 0 0 18px 0; font-size: 15px; line-height: 1.55; color: #cbd5e1;">
+            Entra a nuestra página interactiva para probar el <strong>Simulador de IA en vivo</strong>, calcular cuánto ganarías por publicidad en tu zona o agendar una demo remota de 30 minutos:
+          </p>
 
-                <p style="margin: 18px 0 0 0; font-size: 12px; color: #94a3b8;">
-                  ¿Prefieres platicarlo directo? Responde a este correo y coordinamos una llamada rápida de 15 minutos.
-                </p>
-              </td>
-            </tr>
+          <!-- Botón Principal como div fluido (no se corta en Android) -->
+          <div style="background-color: #6d5df1; border-radius: 12px; padding: 15px 14px; text-align: center;">
+            <a href="https://rirhub-landing.vercel.app/" target="_blank" style="font-size: 14px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.04em; color: #ffffff; text-decoration: none;">
+              VER SIMULADOR EN VIVO Y AGENDAR DEMO →
+            </a>
+          </div>
 
-            <!-- FOOTER -->
-            <tr>
-              <td bgcolor="#07090e" style="background-color: #07090e; padding: 16px 28px; border-top: 1px solid #1e2638; text-align: center; font-size: 11px; color: #64748b;">
-                © 2026 <strong style="color: #94a3b8;">RIR-HUB</strong> · Plataforma Inteligente de Retención y Monetización para Gimnasios.<br />
-                <a href="https://rirhub-landing.vercel.app" target="_blank" style="color: #8b5cf6; text-decoration: none;">rirhub-landing.vercel.app</a>
-              </td>
-            </tr>
+          <p style="margin: 16px 0 0 0; font-size: 14px; color: #94a3b8; line-height: 1.45;">
+            ¿Prefieres platicar directo? Responde a este correo y coordinamos una llamada rápida de 15 minutos.
+          </p>
+        </div>
 
-          </table>
-          <!-- FIN CONTENEDOR PRINCIPAL 600PX -->
+        <!-- FOOTER -->
+        <div style="background-color: #07090e; padding: 16px 20px; border-top: 1px solid #1e2638; text-align: center; font-size: 12px; color: #64748b; line-height: 1.5;">
+          © 2026 <a href="https://rirhub-landing.vercel.app/" target="_blank" style="color: #ffffff; text-decoration: none; font-weight: 800;">RIR<span style="color: #a78bfa;">HUB</span></a> · Plataforma Inteligente de Retención y Monetización para Gimnasios.<br />
+          <a href="https://rirhub-landing.vercel.app/" target="_blank" style="color: #a78bfa; text-decoration: none; font-weight: 700;">Conoce RIRHUB · Sitio Oficial ↗</a>
+        </div>
 
-        </td>
-      </tr>
-    </table>
+      </div>
+    </div>
   </div>
-  <!-- ═════════════════════════════════════════════════════════════════════ -->
-  <!-- FIN DEL CONTENIDO QUE SE COPIA A GMAIL                                -->
-  <!-- ═════════════════════════════════════════════════════════════════════ -->
 
   <script>
     function updatePreview() {
       var name = document.getElementById('input-name').value.trim();
       var gym = document.getElementById('input-gym').value.trim();
       var greetingEl = document.getElementById('greeting-line');
-      var gymMentionEl = document.getElementById('gym-mention-1');
-      var subjectEl = document.getElementById('subject-preview');
 
       if (name && gym) {
         greetingEl.innerHTML = 'Hola <strong style="color:#ffffff;">' + name + '</strong>, equipo de <strong style="color:#c4b5fd;">' + gym + '</strong>:';
       } else if (name) {
-        greetingEl.innerHTML = 'Hola <strong style="color:#ffffff;">' + name + '</strong>, ¿cómo estás?';
+        greetingEl.innerHTML = 'Hola <strong style="color:#ffffff;">' + name + '</strong>:';
       } else if (gym) {
-        greetingEl.innerHTML = 'Hola equipo de <strong style="color:#c4b5fd;">' + gym + '</strong>, ¿cómo están?';
+        greetingEl.innerHTML = 'Hola equipo de <strong style="color:#c4b5fd;">' + gym + '</strong>:';
       } else {
-        greetingEl.innerHTML = 'Hola, ¿cómo estás?';
-      }
-
-      gymMentionEl.textContent = gym ? gym : 'tu gimnasio';
-
-      if (gym) {
-        subjectEl.textContent = gym + ': cómo retener más socios con IA y vender publicidad local en tu propia app';
-      } else {
-        subjectEl.textContent = 'Tu gimnasio tiene un activo oculto: retén más socios con IA y vende publicidad en tu app';
+        greetingEl.innerHTML = 'Hola:';
       }
     }
 
@@ -422,32 +337,49 @@
       });
     }
 
-    function copyEmailForGmail() {
+    async function copyEmailForGmail() {
       var area = document.getElementById('email-copy-area');
       var btn = document.getElementById('btn-copy');
+      var rawHtml = area.innerHTML.trim();
+      var plainText = area.innerText.trim();
 
-      // Seleccionar el contenido renderizado para que Gmail reciba el Rich HTML exacto
+      if (navigator.clipboard && window.ClipboardItem) {
+        try {
+          var htmlBlob = new Blob([rawHtml], { type: 'text/html' });
+          var textBlob = new Blob([plainText], { type: 'text/plain' });
+          await navigator.clipboard.write([
+            new ClipboardItem({
+              'text/html': htmlBlob,
+              'text/plain': textBlob
+            })
+          ]);
+          showCopiedFeedback(btn);
+          return;
+        } catch (e) {
+          // Fallback
+        }
+      }
+
       var range = document.createRange();
       range.selectNodeContents(area);
       var selection = window.getSelection();
       selection.removeAllRanges();
       selection.addRange(range);
+      document.execCommand('copy');
+      selection.removeAllRanges();
+      showCopiedFeedback(btn);
+    }
 
-      try {
-        document.execCommand('copy');
-        selection.removeAllRanges();
-        var oldText = btn.textContent;
-        btn.style.backgroundColor = '#10b981';
-        btn.style.color = '#000000';
-        btn.textContent = '✅ ¡Copiado! Ahora pega (Cmd+V / Ctrl+V) en Gmail';
-        setTimeout(function () {
-          btn.style.backgroundColor = '#6d5df1';
-          btn.style.color = '#ffffff';
-          btn.textContent = oldText;
-        }, 3500);
-      } catch (err) {
-        alert('Selecciona manualmente el correo y presiona Cmd+C / Ctrl+C');
-      }
+    function showCopiedFeedback(btn) {
+      var oldText = btn.textContent;
+      btn.style.backgroundColor = '#10b981';
+      btn.style.color = '#000000';
+      btn.textContent = '✅ ¡Copiado! Ahora pega (Cmd+V) en Gmail';
+      setTimeout(function () {
+        btn.style.backgroundColor = '#6d5df1';
+        btn.style.color = '#ffffff';
+        btn.textContent = oldText;
+      }, 3500);
     }
   </script>
 </body>
